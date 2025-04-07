@@ -110,7 +110,7 @@ export default function ProjectsPage() {
               .map((project, index) => (
                 <motion.div
                   key={`featured-${index}`}
-                  className="featured-project bg-zinc-900 rounded-lg overflow-hidden shadow-lg"
+                  className="featured-project bg-zinc-900 rounded-lg overflow-hidden shadow-lg hover:shadow-[0_0_20px_rgba(229,9,20,0.5)] transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -189,7 +189,7 @@ export default function ProjectsPage() {
             {projects.map((project, index) => (
               <motion.div
                 key={`project-${index}`}
-                className="project-card bg-zinc-900 rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
+                className="project-card bg-zinc-900 rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(229,9,20,0.5)] "
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 + (index * 0.1) }}
