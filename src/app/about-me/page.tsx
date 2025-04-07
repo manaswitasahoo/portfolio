@@ -1,128 +1,160 @@
-// src/app/about.tsx
-
 "use client";
-import { motion } from 'framer-motion';
-import {MainLayout} from '@/components/layout/MainLayout';
-import GithubCalendarComponent from '@/components/GithubCalendarComponent'; // Import the new component
+import { motion, AnimatePresence } from 'framer-motion';
+import { MainLayout } from '@/components/layout/MainLayout';import GithubCalendarComponent from '@/components/GithubCalendarComponent';
+import { FaHandsHelping, FaCode,FaProductHunt, FaGlobe, FaMusic, FaCamera } from 'react-icons/fa';
+import { SiLeetcode, SiCodechef } from 'react-icons/si';
+import { useState } from 'react';
 
-const fadeInAnimation = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-  
-  // Sample facts to display
-  const facts = [
-    "I once lived in three countries in one year.",
-    "I am a coffee enthusiast and a major foodie.",
-    "I play chess but still learning."
-  ];
-  export default function AboutMe(){
+const facts = [
+  {
+    icon: <FaProductHunt />,
+    title: "Product Journey",
+    text: "Switched to Product Management from Engineering, without an MBA"
+  },
+  {
+    icon: <FaGlobe />,
+    title: "Truly Desi",
+    text: "Studied at 9 schools before college"
+  },
+  {
+    icon: <FaHandsHelping />,
+    title: "Gaming",
+    text: "Competitive CS:GO player with 2000+ hours"
+  },
+  {
+    icon: <FaMusic />,
+    title: "Music",
+    text: "Plays guitar and produces electronic music"
+  },
+  {
+    icon: <FaCamera />,
+    title: "Photography",
+    text: "Amateur photographer specializing in street photography"
+  }
+];
+
+const codingStats = [
+  {
+    platform: "LeetCode",
+    icon: <SiLeetcode />,
+    problems: 300,
+    ranking: "Top 5%"
+  },
+  {
+    platform: "CodeChef",
+    icon: <SiCodechef />,
+    rating: 1800,
+    contests: 45
+  }
+];
+
+export default function AboutMe() {
+  const [selectedFact, setSelectedFact] = useState(null);
+
   return (
     <MainLayout>
-      <motion.div
-        className="mb-12"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInAnimation}
-        transition={{ duration: 0.5 }}
+      <motion.div 
+        className="max-w-7xl mx-auto px-4 py-12 pt-24" // Added pt-24 for navbar spacing
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
       >
-        <h1 className="text-4xl font-bold mb-8">About Me</h1>
+        <motion.h1 
+          className="text-6xl font-bold mb-12 text-red-600"
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ type: "spring", stiffness: 100 }}
+        >
+          About Me
+        </motion.h1>
+
+        {/* Fun Facts Grid */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-white">Fun Facts</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {facts.map((fact, index) => (
+              <motion.div
+                key={index}
+                className="bg-zinc-900 p-6 rounded-lg cursor-pointer hover:bg-zinc-800 transition-all"
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                onClick={() => setSelectedFact(index as unknown as null)}
+              >
+                <div className="text-3xl text-red-600 mb-4">{fact.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{fact.title}</h3>
+                <p className="text-gray-400">{fact.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Coding Stats */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-white">Coding Journey</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {codingStats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="bg-zinc-900 p-6 rounded-lg"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", delay: index * 0.2 }}
+              >
+                <div className="flex items-center mb-4">
+                  <span className="text-3xl text-red-600 mr-3">{stat.icon}</span>
+                  <h3 className="text-xl font-semibold">{stat.platform}</h3>
+                </div>
+                <div className="space-y-2 text-gray-400">
+                  {Object.entries(stat).map(([key, value]) => (
+                    key !== 'icon' && key !== 'platform' && (
+                      <p key={key} className="capitalize">
+                        {key}: {value}
+                      </p>
+                    )
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Music Section with Enhanced Styling */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-white">Music Taste</h2>
+          <motion.div 
+            className="bg-zinc-900 p-6 rounded-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <iframe
+              src="https://open.spotify.com/embed/playlist/37i9dQZEVXbNG2KDcFcKOF"
+              width="100%"
+              height="380"
+              className="rounded-lg"
+              frameBorder="0"
+              allowTransparency={true}
+              allow="encrypted-media"
+            />
+          </motion.div>
+        </section>
+
+        {/* GitHub Activity */}
+        <section>
+          <h2 className="text-3xl font-bold mb-8 text-white">GitHub Activity</h2>
+          <motion.div 
+            className="bg-zinc-900 p-6 rounded-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <GithubCalendarComponent username="apo1397" />
+          </motion.div>
+        </section>
       </motion.div>
-
-      <motion.section
-        className="mb-12"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInAnimation}
-        transition={{ duration: 0.5, delay: 0.1 }}
-      >
-        <h2 className="text-2xl font-semibold mb-4">Random Facts</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {facts.map((fact, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-800 p-5 rounded-lg shadow-md transition-transform transform hover:scale-105"
-              initial={{ scale: 0.5 }}
-              animate={{ scale: 1 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <p className="text-gray-200">{fact}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        className="mb-12"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInAnimation}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <h2 className="text-2xl font-semibold mb-4">Interests and Passions</h2>
-        <p>
-          I am passionate about technology, innovation, and creating meaningful experiences
-          through product management. I also enjoy exploring new cultures and cuisines.
-        </p>
-      </motion.section>
-
-      <motion.section
-        className="mb-12"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInAnimation}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <h2 className="text-2xl font-semibold mb-4">Music</h2>
-        <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-          <p>Check out my favorite playlists:</p>
-          <iframe
-            src="https://open.spotify.com/embed/playlist/37i9dQZEVXbNG2KDcFcKOF"
-            width="100%"
-            height="380"
-            frameBorder="0"
-            allowTransparency={true}
-            allow="encrypted-media"
-            title="Spotify Music"
-          />
-        </div>
-      </motion.section>
-
-      <motion.section
-        className="mb-12"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInAnimation}
-        transition={{ duration: 0.5, delay: 0.4 }}
-      >
-        <h2 className="text-2xl font-semibold mb-4">Instagram Feed</h2>
-        <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-          <p>Check out my latest Instagram posts:</p>
-          <iframe
-            src="https://www.instagram.com/p/CN2w2k3DpDs/embed"
-            width="100%"
-            height="400"
-            frameBorder="0"
-            allowTransparency={true}
-            scrolling="no"
-            title="Instagram Feed"
-          />
-        </div>
-      </motion.section>
-
-      <motion.section
-        className=""
-        initial="hidden"
-        animate="visible"
-        variants={fadeInAnimation}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <h2 className="text-2xl font-semibold mb-4">GitHub Commits Heatmap</h2>
-        <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-          <p>Here's a look at my GitHub contributions:</p>
-          <GithubCalendarComponent username="apo1397" /> {/* Use the new component */}
-        </div>
-      </motion.section>
     </MainLayout>
   );
-};
+}
