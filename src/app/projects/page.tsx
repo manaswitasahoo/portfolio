@@ -4,14 +4,20 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+// Update the imports at the top
 import { 
-  SiReact, SiNextdotjs, SiPython, 
+  SiSupabase,SiGooglegemini,SiReact, SiNextdotjs, SiPython, 
   SiTailwindcss, SiTypescript,
   SiOpenai, SiFastapi, SiMongodb,
-  SiPrisma, SiNodedotjs
+  SiPrisma, SiNodedotjs,
+  SiHtml5, SiCss3,
+  SiJavascript, SiTensorflow,
+  SiPytorch, SiScikitlearn,
+  SiHuggingface, SiKeras,
+  SiGooglecolab
 } from 'react-icons/si';
 
-// Technology icons mapping
+// Update the techIcons mapping
 const techIcons: { [key: string]: JSX.Element } = {
   'React': <SiReact className="text-gray-400 w-4 h-4" />,
   'Next.js': <SiNextdotjs className="text-gray-400 w-4 h-4" />,
@@ -23,6 +29,19 @@ const techIcons: { [key: string]: JSX.Element } = {
   'MongoDB': <SiMongodb className="text-gray-400 w-4 h-4" />,
   'Prisma': <SiPrisma className="text-gray-400 w-4 h-4" />,
   'Node.js': <SiNodedotjs className="text-gray-400 w-4 h-4" />,
+  // Adding HTML, CSS, JavaScript icons
+  'HTML': <SiHtml5 className="text-gray-400 w-4 h-4" />,
+  'CSS': <SiCss3 className="text-gray-400 w-4 h-4" />,
+  'JavaScript': <SiJavascript className="text-gray-400 w-4 h-4" />,
+  // Adding AI/ML related icons
+  'TensorFlow': <SiTensorflow className="text-gray-400 w-4 h-4" />,
+  'PyTorch': <SiPytorch className="text-gray-400 w-4 h-4" />,
+  'scikit-learn': <SiScikitlearn className="text-gray-400 w-4 h-4" />,
+  'Hugging Face': <SiHuggingface className="text-gray-400 w-4 h-4" />,
+  'Keras': <SiKeras className="text-gray-400 w-4 h-4" />,
+  'Google Colab': <SiGooglecolab className="text-gray-400 w-4 h-4" />,
+  'Supabase': <SiSupabase className="text-gray-400 w-4 h-4" />,
+  'Gemini': <SiGooglegemini className="text-gray-400 w-4 h-4" />,
 };
 
 type ProjectProps = {
@@ -39,17 +58,24 @@ const projects: ProjectProps[] = [
   {
     title: "What2Make",
     description: "A collaborative meal planning app that helps roommates decide what to cook. Simplifies the daily decision-making process for lunch and dinner.",
-    technologies: ["React", "Node.js", "MongoDB", "TypeScript"],
-    imageUrl: "/what2make-preview.jpg",
-    githubUrl: "https://github.com/apo1397/what2make",
-    featured: true
+    technologies: ["Cursor","React", "Python", "MongoDB", "Tailwind"],
+    imageUrl: "/images/w2m_notblurred.svg",
+    githubUrl: "https://github.com/apo1397/what2make"
   },
   {
     title: "Link2Reel",
     description: "AI-powered tool that transforms any public URL into engaging TikTok-style reels by extracting USPs and generating scripts automatically.",
-    technologies: ["Python", "OpenAI", "FastAPI", "React"],
-    imageUrl: "/link2reel-preview.jpg",
-    githubUrl: "https://github.com/apo1397/link2reel"
+    technologies: ["Python", "Void(Open Source Cursor)", "Gemini", "React","Supabase"],
+    imageUrl: "/images/link2reel.svg",
+    githubUrl: "https://github.com/apo1397/link2reel",
+    featured: true
+  },
+  {
+    title: "Linktree for Sauci",
+    description: "A Linktree style landing page for my cloud kitchen - Sauci.",
+    technologies: ["Cursor","HTML", "CSS", "JavaScript"],
+    imageUrl: "/images/sauci_header.png",
+    githubUrl: "https://github.com/apo1397/sauci",
   }
 ];
 
@@ -90,15 +116,29 @@ export default function ProjectsPage() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <div className="md:flex">
-                    <div className="md:w-3/5 relative h-64 md:h-auto">
-                      <Image
-                        src={project.imageUrl}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                      />
+                    <div className="md:w-3/5 relative h-64 md:h-[400px] flex items-center justify-center bg-zinc-800 overflow-hidden">
+                      {/* Blurred background */}
+                      <div className="absolute inset-0 z-0">
+                        <Image
+                          src={project.imageUrl}
+                          alt=""
+                          fill
+                          className="object-cover blur-md scale-110 opacity-50"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                      {/* Main image */}
+                      <div className="relative z-10 w-full h-full">
+                        <Image
+                          src={project.imageUrl}
+                          alt={project.title}
+                          fill
+                          className="object-contain p-4"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          priority
+                        />
+                      </div>
                     </div>
-                    // In the featured project section, remove the duplicate technology div and keep only one:
                     <div className="p-6 md:w-2/5">
                       <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                       <p className="text-gray-300 mb-4">{project.description}</p>
@@ -155,12 +195,29 @@ export default function ProjectsPage() {
                 transition={{ duration: 0.5, delay: 0.1 + (index * 0.1) }}
               >
                 <div className="relative h-48">
-                  <Image
-                    src={project.imageUrl}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
+                  <div className="relative h-48 flex items-center justify-center bg-zinc-800 overflow-hidden">
+                    {/* Blurred background */}
+                    <div className="absolute inset-0 z-0">
+                      <Image
+                        src={project.imageUrl}
+                        alt=""
+                        fill
+                        className="object-cover blur-md scale-110 opacity-50"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                    {/* Main image */}
+                    <div className="relative z-10 w-full h-full">
+                      <Image
+                        src={project.imageUrl}
+                        alt={project.title}
+                        fill
+                        className="object-contain p-2"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority={index === 0}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className="p-5">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
