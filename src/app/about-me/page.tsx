@@ -18,18 +18,18 @@ const facts = [
   },
   {
     icon: <FaHandsHelping />,
-    title: "Gaming",
-    text: "Competitive CS:GO player with 2000+ hours"
+    title: "NGO",
+    text: "Part of Anokha; an NGO in Vellore specializing in education of children-in-need."
   },
   {
     icon: <FaMusic />,
     title: "Music",
-    text: "Plays guitar and produces electronic music"
+    text: "Learnt Tabla for 2 years when I was 8."
   },
   {
     icon: <FaCamera />,
-    title: "Photography",
-    text: "Amateur photographer specializing in street photography"
+    title: "Tennis",
+    text: "District level Tennis player, favouring clay courts but a die hard fan of Federer."
   }
 ];
 
@@ -92,7 +92,7 @@ export default function AboutMe() {
         </section>
 
         {/* Coding Stats */}
-        <section className="mb-16">
+        {/* <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-white">Coding Journey</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {codingStats.map((stat, index) => (
@@ -119,7 +119,7 @@ export default function AboutMe() {
               </motion.div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Music Section with Enhanced Styling */}
         <section className="mb-16">
