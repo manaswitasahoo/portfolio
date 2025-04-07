@@ -7,6 +7,10 @@ import { cn } from "../lib/utils"
 import { useEffect, useState, useRef, useLayoutEffect } from "react"
 import { MainLayout } from '@/components/layout/MainLayout';
 
+// First, create a type for allowed colors
+type AllowedColor = 'red' | 'blue' | 'green' | 'yellow' | 'purple' | 'pink' | 'indigo' | 'gray';
+
+// Update the interface
 interface ExperienceItemProps {
   position: string;
   company: string;
@@ -14,7 +18,7 @@ interface ExperienceItemProps {
   technologies: string;
   achievements: string[];
   isLeft: boolean;
-  color: string;
+  color: AllowedColor;
   index: number;
   url: string; // Add the URL field
   isEducation: boolean; // Add this property
@@ -47,12 +51,26 @@ function ExperienceItem({
     }
   };
 
+  const getColorClass = (color: AllowedColor) => {
+    const colorMap = {
+      red: 'bg-red-500',
+      blue: 'bg-blue-500',
+      green: 'bg-green-500',
+      yellow: 'bg-yellow-400',
+      purple: 'bg-purple-500',
+      pink: 'bg-pink-500',
+      indigo: 'bg-indigo-500',
+      gray: 'bg-gray-100 text-black',
+    };
+    return colorMap[color];
+  };
+
   return (
     <div ref={ref} className="relative flex items-center justify-center">
       {isLeft ? (
         <>
           <div className={cn("w-full md:w-6/12 md:pr-8 order-1 md:order-1 min-w-[250px]", hasAnimated && "animate-card-appear-left")}> {/* Added min-width */}
-            <div className={`bg-${color}-500 rounded-lg p-4 shadow-lg`}>
+            <div className={`${getColorClass(color)} rounded-lg p-4 shadow-lg`}>
               <h3 className="text-xl font-bold mb-1 m-0">{position} 🚀</h3>
               <h4 className={cn("text-lg mb-3 m-0 underline-dashed", hasAnimated && "animate-fade-in")} onClick={handleCompanyClick}>
                 {company}
@@ -150,6 +168,22 @@ function ExperienceItem({
 export default function WorkExperience() {
   const experiences = [
     {
+      position: "Founder, Director",
+      company: "Sauci",
+      period: "Nov 2024 - Current",
+      technologies: "Marketing, Hiring, Growth, P&L, Design",
+      achievements: [
+        "Launched Sauci, a Cloud Kitchen specialising in Pastas & Sauces, in Nov 2024.",
+        "Handled everything from recipe curation, design, packaging, marketing, hiring (multiple times), vendor selection all while being frugal with budget.",
+        "Operates only from 7pm - 1130pm.",
+        "4.5 Stars & 4.2 Stars on Swiggy & Zomato respectively.",
+      ],
+      isLeft: false,
+      color: "yellow",
+      url: "https://links.sauci.in", // Add URL
+      isEducation: false, // Add isEducation property
+    },
+    {
       position: "Product Manager",
       company: "Hypothesis by Only Much Louder (OML)",
       period: "Mar 2023 - Current",
@@ -215,13 +249,13 @@ export default function WorkExperience() {
         ""
       ],
       isLeft: false,
-      color: "red",
+      color: "#000",
       url: "https://www.cognizer.ai/", // Placeholder URL
       isEducation: false, // Add isEducation property
     },
     {
       position: "Software Engineer | Associate Software Engineer",
-      company: "Meesho",
+      company: "Cognizer AI",
       period: "Jan 2019 - Jan 2021",
       technologies: "Vue.js, Vuex, Tailwind CSS, Firebase",
       achievements: [
@@ -235,7 +269,7 @@ export default function WorkExperience() {
     {
       position: "Vellore Institute of Technology",
       company: "VIT Vellore",
-      period: "Apr 2014 - Apr 2018",
+      period: "May 2015 - May 2019",
       technologies: "👀Computer Science Education",
       achievements: ["CGPA 8.50"],
       isLeft: false,
@@ -293,7 +327,12 @@ export default function WorkExperience() {
               {/* Add top margin to the first item */}
               <div className="grid grid-cols-1 gap-[var(--timeline-gap)]" ref={timelineItemsContainerRef}>
                 {experiences.map((exp, index) => (
-                  <ExperienceItem key={index} {...exp} index={index} />
+                  <ExperienceItem 
+                    key={index} 
+                    {...exp} 
+                    index={index}
+                    color={exp.color as AllowedColor} 
+                  />
                 ))}
               </div>
               {/* Birth Information Box */}

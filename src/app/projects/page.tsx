@@ -4,6 +4,26 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { 
+  SiReact, SiNextdotjs, SiPython, 
+  SiTailwindcss, SiTypescript,
+  SiOpenai, SiFastapi, SiMongodb,
+  SiPrisma, SiNodedotjs
+} from 'react-icons/si';
+
+// Technology icons mapping
+const techIcons: { [key: string]: JSX.Element } = {
+  'React': <SiReact className="text-gray-400 w-4 h-4" />,
+  'Next.js': <SiNextdotjs className="text-gray-400 w-4 h-4" />,
+  'Python': <SiPython className="text-gray-400 w-4 h-4" />,
+  'Tailwind': <SiTailwindcss className="text-gray-400 w-4 h-4" />,
+  'TypeScript': <SiTypescript className="text-gray-400 w-4 h-4" />,
+  'OpenAI': <SiOpenai className="text-gray-400 w-4 h-4" />,
+  'FastAPI': <SiFastapi className="text-gray-400 w-4 h-4" />,
+  'MongoDB': <SiMongodb className="text-gray-400 w-4 h-4" />,
+  'Prisma': <SiPrisma className="text-gray-400 w-4 h-4" />,
+  'Node.js': <SiNodedotjs className="text-gray-400 w-4 h-4" />,
+};
 
 type ProjectProps = {
   title: string;
@@ -17,49 +37,19 @@ type ProjectProps = {
 
 const projects: ProjectProps[] = [
   {
-    title: "NHSPS Open Space",
-    description: "A platform for booking NHS properties for health-related services. Optimized for 10,000+ users with 50 million+ bookings.",
-    technologies: ["Ruby on Rails", "React", "PostgreSQL", "AWS", "Docker"],
-    imageUrl: "https://ext.same-assets.com/3096197612/2269904471.jpeg",
-    liveUrl: "https://example.com/nhsps",
+    title: "What2Make",
+    description: "A collaborative meal planning app that helps roommates decide what to cook. Simplifies the daily decision-making process for lunch and dinner.",
+    technologies: ["React", "Node.js", "MongoDB", "TypeScript"],
+    imageUrl: "/what2make-preview.jpg",
+    githubUrl: "https://github.com/apo1397/what2make",
     featured: true
   },
   {
-    title: "eKincare Patient Portal",
-    description: "Telemedicine platform with chat and video consultation features for patient engagement. Includes analytics dashboard for medical professionals.",
-    technologies: ["React", "Context API", "Twilio", "AWS"],
-    imageUrl: "https://ext.same-assets.com/3795569075/2900235040.jpeg",
-    liveUrl: "https://example.com/ekincare"
-  },
-  {
-    title: "LetsVenture Platform",
-    description: "Investment platform connecting startups and investors, featuring a CRM tool and secondary fundraising capabilities.",
-    technologies: ["Ruby on Rails", "AngularJS", "ReactJS", "MERN stack"],
-    imageUrl: "https://ext.same-assets.com/2813419692/2957552486.jpeg",
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com/letsventure"
-  },
-  {
-    title: "Form Management App",
-    description: "Web application for creating, managing, and analyzing forms. Developed during Master's program at Swansea University.",
-    technologies: ["Java Spring Boot", "ReactJS", "Heroku", "Netlify"],
-    imageUrl: "https://ext.same-assets.com/133312220/3192832039.jpeg",
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com/forms"
-  },
-  {
-    title: "Loan Origination Platform",
-    description: "Financial platform for processing and managing loan applications, improving response time by 25%.",
-    technologies: ["CI/CD", "Automated Testing", "API Gateway"],
-    imageUrl: "https://ext.same-assets.com/1262579804/1994426481.jpeg",
-    liveUrl: "https://example.com/loans"
-  },
-  {
-    title: "Analytics Dashboard",
-    description: "Real-time data visualization platform providing insights on user behavior and system performance.",
-    technologies: ["D3.js", "React", "MongoDB", "Express"],
-    imageUrl: "https://ext.same-assets.com/733632364/2865757322.jpeg",
-    githubUrl: "https://github.com"
+    title: "Link2Reel",
+    description: "AI-powered tool that transforms any public URL into engaging TikTok-style reels by extracting USPs and generating scripts automatically.",
+    technologies: ["Python", "OpenAI", "FastAPI", "React"],
+    imageUrl: "/link2reel-preview.jpg",
+    githubUrl: "https://github.com/apo1397/link2reel"
   }
 ];
 
@@ -108,6 +98,7 @@ export default function ProjectsPage() {
                         className="object-cover"
                       />
                     </div>
+                    // In the featured project section, remove the duplicate technology div and keep only one:
                     <div className="p-6 md:w-2/5">
                       <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                       <p className="text-gray-300 mb-4">{project.description}</p>
@@ -115,8 +106,9 @@ export default function ProjectsPage() {
                         {project.technologies.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="bg-zinc-800 text-xs px-3 py-1 rounded-full text-gray-300"
+                            className="bg-zinc-800 text-xs px-3 py-1 rounded-full text-gray-300 flex items-center gap-2"
                           >
+                            {techIcons[tech] || null}
                             {tech}
                           </span>
                         ))}
@@ -179,8 +171,9 @@ export default function ProjectsPage() {
                     {project.technologies.slice(0, 3).map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="bg-zinc-800 text-xs px-2 py-1 rounded-full text-gray-300"
+                        className="bg-zinc-800 text-xs px-2 py-1 rounded-full text-gray-300 flex items-center gap-1"
                       >
+                        {techIcons[tech] || null}
                         {tech}
                       </span>
                     ))}
