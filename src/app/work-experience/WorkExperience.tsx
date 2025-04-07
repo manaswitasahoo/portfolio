@@ -249,7 +249,7 @@ export default function WorkExperience() {
         ""
       ],
       isLeft: false,
-      color: "#000",
+      color: "indigo",
       url: "https://www.cognizer.ai/", // Placeholder URL
       isEducation: false, // Add isEducation property
     },
@@ -262,7 +262,7 @@ export default function WorkExperience() {
        
       ],
       isLeft: true,
-      color: "red",
+      color: "green",
       url: "https://www.meesho.com/", // Placeholder URL
       isEducation: false, // Add isEducation property
     },

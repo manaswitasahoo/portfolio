@@ -112,11 +112,11 @@ export default function RecruiterProfile() {
         backgroundImage="https://ext.same-assets.com/2325684012/2846338995.gif"
       />
 
-      <div className="flex flex-col">
-          <h2 className="text-2xl font-bold mb-4">Today's Top Picks for recruiter</h2>
+      <div className="flex flex-col px-4 md:px-8">
+          <h2 className="text-2xl font-bold mb-4">Today's Top Picks for Recruiters</h2>
           <Slider {...settings}>
             {topPicksCards.map((card) => (
-              <div key={card.label} className="p-4"> {/* Add some spacing around each card */}
+              <div key={card.label} className="flex items-center justify-center"> {/* Add some spacing around each card */}
                 <Card cardData={card} />
               </div>
             ))}
@@ -124,7 +124,7 @@ export default function RecruiterProfile() {
       </div>
 
       <CardRow
-        title="Continue Watching for recruiter"
+        title="Continue Watching for Recruiters"
         cards={continueWatchingCards}
         isWatching={true}
       />
@@ -135,17 +135,19 @@ export default function RecruiterProfile() {
 
 const Card = ({ cardData }: { cardData: any }) => {
   return (
-    <a href={cardData.href} target="_blank" rel="noopener noreferrer">
-      <div className="relative rounded-lg p-4 hover:bg-red-700">
-        <div className="relative w-48 h-32 rounded-lg"> {/* Square image container */}
+    <a href={cardData.href} target="_blank" rel="noopener noreferrer" className="flex justify-center w-full">
+      <div className="relative rounded-lg p-2 hover:bg-red-700 transition-colors justify-center">
+        <div className="relative w-64 h-64 rounded-lg "> {/* Square image container */}
           <img
-            className="h-full w-full object-cover absolute inset-0"
+            className="h-full w-full object-cover rounded-lg"
             src={cardData.imageUrl}
             alt={cardData.label}
           />
-          <p className="absolute text-center text-lg font-medium text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            {cardData.label}
-          </p>
+         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-lg">
+            <p className="text-center text-xl font-medium text-white">
+              {cardData.label}
+            </p>
+          </div>
         </div>
       </div>
     </a>
