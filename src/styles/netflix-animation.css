@@ -1,0 +1,44 @@
+.netflix-container {
+  position: relative;
+  transform-origin: center;
+  animation: netflixStart 3s ease-in-out forwards;
+}
+
+.netflix-logo {
+  filter: brightness(100%) contrast(120%);
+  animation: netflixGlow 3s ease-in-out forwards;
+}
+
+@keyframes netflixStart {
+  0% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  85% {
+    transform: scale(4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 1;
+  }
+}
+
+@keyframes netflixGlow {
+  0% {
+    filter: brightness(100%) contrast(120%);
+  }
+  40% {
+    filter: brightness(200%) contrast(150%);
+  }
+  80% {
+    filter: brightness(100%) contrast(120%);
+  }
+  100% {
+    filter: brightness(0%) contrast(100%);
+  }
+}

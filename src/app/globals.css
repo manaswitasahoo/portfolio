@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css');
-
+@import '../styles/netflix-animation.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -361,4 +361,32 @@
 .underline-dashed:hover {
   text-decoration-color: red; /* Hover underline color */
   color: red; /* Hover text color */
+}
+
+
+@keyframes netflix-intro {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  35% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  85% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-netflix-intro {
+  animation: netflix-intro 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
