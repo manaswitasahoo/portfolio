@@ -73,24 +73,38 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           {/* Existing buttons */}
-          <button className="play-button flex items-center bg-white text-black py-3 px-6 rounded hover:bg-gray-200 transition-colors">
+          <a 
+            href="https://docs.google.com/document/d/1HkDCeBy6N7mrUgJAJ5Gxm7MGYNqA04kA/edit?usp=sharing&ouid=103884992942385089784&rtpof=true&sd=true" 
+            target="_blank" 
+            className="play-button flex items-center bg-white text-black py-3 px-6 rounded hover:bg-gray-200 transition-colors"
+          >
             <FaPlay className="h-6 w-6 mr-2" />
             <div className="spacer mr-2"></div>
             <span className="label text-lg font-medium">Resume</span>
-          </button>
+          </a>
 
-          <button className="more-info-button flex items-center bg-gray-600/70 text-white py-3 px-6 rounded hover:bg-gray-500/70 transition-colors">
+          <a 
+            href="https://www.linkedin.com/in/apoorv-abhishek-a9a083144/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="more-info-button flex items-center bg-gray-600/70 text-white py-3 px-6 rounded hover:bg-gray-500/70 transition-colors"
+          >
             <FaLinkedin className="h-6 w-6 mr-2" />
             <div className="spacer mr-2"></div>
             <span className="label">LinkedIn</span>
-          </button>
+          </a>
 
           {/* New GitHub button */}
-          <button className="github-button flex items-center bg-gray-600/70 text-white py-3 px-6 rounded hover:bg-gray-500/70 transition-colors">
+          <a 
+            href="https://github.com/apo1397" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="github-button flex items-center bg-gray-600/70 text-white py-3 px-6 rounded hover:bg-gray-500/70 transition-colors"
+          >
             <FaGithub className="h-6 w-6 mr-2" />
             <div className="spacer mr-2"></div>
             <span className="label">GitHub</span>
-          </button>
+          </a>
         </motion.div>
       </div>
     </div>

@@ -7,6 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { MainLayout } from '@/components/layout/MainLayout';
 import { ProfileBanner } from '@/components/profile/ProfileBanner';
 import { CardRow } from '@/components/profile/CardRow';
+// Update imports at the top
+import { Card } from '@/components/profile/Card';
 
 // Top Picks cards data
 const topPicksCards = [
@@ -131,25 +133,3 @@ export default function RecruiterProfile() {
     </MainLayout>
   );
 }
-
-
-const Card = ({ cardData }: { cardData: any }) => {
-  return (
-    <a href={cardData.href} target="_blank" rel="noopener noreferrer" className="flex justify-center w-full">
-      <div className="relative rounded-lg p-2 hover:bg-red-700 transition-colors justify-center">
-        <div className="relative w-64 h-64 rounded-lg "> {/* Square image container */}
-          <img
-            className="h-full w-full object-cover rounded-lg"
-            src={cardData.imageUrl}
-            alt={cardData.label}
-          />
-         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-lg">
-            <p className="text-center text-xl font-medium text-white">
-              {cardData.label}
-            </p>
-          </div>
-        </div>
-      </div>
-    </a>
-  );
-};
