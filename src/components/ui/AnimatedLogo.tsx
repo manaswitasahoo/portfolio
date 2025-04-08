@@ -64,7 +64,7 @@ export default function AnimatedLogo() {
           fill
           style={{ objectFit: 'contain' }}
           className={`${canPlay ? 'animate-netflix-intro' : 'scale-100'}`}
-          priority
+          priority // Always prioritize logo loading
         />
       </div>
     </div>

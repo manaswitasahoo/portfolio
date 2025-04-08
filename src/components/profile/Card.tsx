@@ -1,20 +1,29 @@
-export const Card = ({ cardData }: { cardData: any }) => {
+import Link from 'next/link';
+import Image from 'next/image';
+
+interface CardProps {
+  cardData: {
+    href: string;
+    imageUrl: string;
+    label: string;
+    priority?: boolean;
+  };
+}
+
+export function Card({ cardData }: CardProps) {
   return (
-    <a href={cardData.href} target="_blank" rel="noopener noreferrer" className="flex justify-center w-full">
-      <div className="relative rounded-lg p-2 hover:bg-red-700 transition-colors flex justify-center w-full max-w-[240px]">
-        <div className="relative w-60 h-60 rounded-lg"> {/* Changed to w-60 h-60 (240px) */}
-          <img
-            className="h-full w-full object-cover rounded-lg"
-            src={cardData.imageUrl}
-            alt={cardData.label}
-          />
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-lg">
-            <p className="text-center text-xl font-medium text-white">
-              {cardData.label}
-            </p>
-          </div>
-        </div>
+    <Link href={cardData.href}>
+      <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+        <Image
+          src={cardData.imageUrl}
+          alt={`${cardData.label} - Portfolio Section`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform hover:scale-105"
+          {...(cardData.priority ? { priority: true } : { loading: 'lazy' })}
+        />
       </div>
-    </a>
+      <h3 className="mt-2 text-lg font-medium">{cardData.label}</h3>
+    </Link>
   );
-};
+}

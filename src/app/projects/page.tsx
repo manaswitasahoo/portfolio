@@ -189,36 +189,36 @@ export default function ProjectsPage() {
             {projects.map((project, index) => (
               <motion.div
                 key={`project-${index}`}
-                className="project-card bg-zinc-900 rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(229,9,20,0.5)] "
+                className="project-card bg-zinc-900 rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(229,9,20,0.5)]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 + (index * 0.1) }}
               >
-                <div className="relative h-48">
-                  <div className="relative h-48 flex items-center justify-center bg-zinc-800 overflow-hidden">
-                    {/* Blurred background */}
-                    <div className="absolute inset-0 z-0">
-                      <Image
-                        src={project.imageUrl}
-                        alt=""
-                        fill
-                        className="object-cover blur-md scale-110 opacity-50"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </div>
-                    {/* Main image */}
-                    <div className="relative z-10 w-full h-full">
-                      <Image
-                        src={project.imageUrl}
-                        alt={project.title}
-                        fill
-                        className="object-contain p-2"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        priority={index === 0}
-                      />
-                    </div>
+                <div className="relative h-48 flex items-center justify-center bg-zinc-800 overflow-hidden">
+                  {/* Blurred background */}
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src={project.imageUrl}
+                      alt={`${project.title} background`}
+                      fill
+                      className="object-cover blur-md scale-110 opacity-50"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      loading="lazy"
+                    />
+                  </div>
+                  {/* Main image */}
+                  <div className="relative z-10 w-full h-full">
+                    <Image
+                      src={project.imageUrl}
+                      alt={`${project.title} - Project Screenshot`}
+                      fill
+                      className="object-contain p-4"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      {...(index === 0 ? { priority: true } : { loading: 'lazy' })}
+                    />
                   </div>
                 </div>
+                
                 <div className="p-5">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                   <p className="text-gray-300 text-sm mb-4 h-24 overflow-y-auto">
