@@ -1,38 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-  distDir: process.env.NODE_ENV === "production" ? "build" : ".next",
+  output: 'export',
   images: {
     unoptimized: true,
-    domains: [
-      "source.unsplash.com",
-      "images.unsplash.com",
-      "ext.same-assets.com",
-      "ugc.same-assets.com",
-    ],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "source.unsplash.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "ext.same-assets.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "ugc.same-assets.com",
-        pathname: "/**",
-      },
-    ],
   },
+  // Only apply basePath and assetPrefix in production
+  ...(process.env.NODE_ENV === 'production' ? {
+    basePath: '/portfolio',
+    assetPrefix: '/portfolio',
+  } : {})
 }
 
-export default nextConfig;
+// Using ES module export
+export default nextConfig

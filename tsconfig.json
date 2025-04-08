@@ -29,10 +29,11 @@
     }
   },
   "include": [
-    "src/**/*",
-    "src/declarations.d.ts" // Ensure this line is included
+    ".next/types/**/*.ts",
+    "src/**/*" // Ensure this line is included
     ,
-    ".next/types/**/*.ts"
+    "src/declarations.d.ts",
+    "build/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
