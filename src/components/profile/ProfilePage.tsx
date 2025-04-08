@@ -9,7 +9,7 @@ import { CardRow } from '@/components/profile/CardRow';
 import { Card } from '@/components/profile/Card';
 
 interface ProfilePageProps {
-  type: 'recruiter' | 'developer';
+  type: 'Recruiter' | 'Developer';
   bannerImage: string;
 }
 
@@ -24,16 +24,16 @@ const sharedTopPicks = [
     imageUrl: "https://ext.same-assets.com/212574815/3750205781.jpeg",
     href: "/work-experience"
   },
-  {
-    label: "Certifications",
-    imageUrl: "https://ext.same-assets.com/1505963160/3618664127.jpeg",
-    href: "/certifications"
-  },
-  {
-    label: "Recommendations",
-    imageUrl: "https://ext.same-assets.com/1667344157/2764858541.jpeg",
-    href: "/recommendations"
-  },
+  // {
+  //   label: "Certifications",
+  //   imageUrl: "https://ext.same-assets.com/1505963160/3618664127.jpeg",
+  //   href: "/certifications"
+  // },
+  // {
+  //   label: "Recommendations",
+  //   imageUrl: "https://ext.same-assets.com/1667344157/2764858541.jpeg",
+  //   href: "/recommendations"
+  // },
   {
     label: "Projects",
     imageUrl: "https://ext.same-assets.com/3968966852/4022270945.jpeg",
@@ -50,13 +50,13 @@ const sharedContinueWatching = [
   {
     label: "Music",
     imageUrl: "https://ext.same-assets.com/2856441299/1368048024.jpeg",
-    href: "/music"
+    href: "https://music.youtube.com/playlist?list=PL6qQQNNGPuiWYfBLslrAf8k47dRlXpNoU&si=ZHnzcAMsbVKnR7J1"
   },
-  {
-    label: "Blogs",
-    imageUrl: "https://ext.same-assets.com/2637683392/3018728848.jpeg",
-    href: "/blogs"
-  },
+  // {
+  //   label: "Blogs",
+  //   imageUrl: "https://ext.same-assets.com/2637683392/3018728848.jpeg",
+  //   href: "/blogs"
+  // },
   {
     label: "Contact Me",
     imageUrl: "https://ext.same-assets.com/1216415949/1587688894.jpeg",
@@ -101,22 +101,27 @@ export function ProfilePage({ type, bannerImage }: ProfilePageProps) {
     <MainLayout>
       <ProfileBanner backgroundImage={bannerImage} />
 
-      <div className="flex flex-col px-4 md:px-8">
-        <h2 className="text-2xl font-bold mb-4">Today's Top Picks for {type}</h2>
-        <Slider {...sliderSettings}>
+      <div className="flex flex-col px-4 md:px-8 mt-8 mb-12">
+        <h2 className="text-2xl font-bold mb-6 text-red-600">Today's Top Picks for {type}</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {sharedTopPicks.map((card) => (
-            <div key={card.label} className="flex items-center justify-center">
+            <div key={card.label} className="flex flex-col">
               <Card cardData={card} />
             </div>
           ))}
-        </Slider>
+        </div>
       </div>
 
-      <CardRow
-        title={`Continue Watching for ${type}`}
-        cards={sharedContinueWatching}
-        isWatching={true}
-      />
+      <div className="flex flex-col px-4 md:px-8 mb-12">
+        <h2 className="text-2xl font-bold mb-6 text-red-600">Continue Watching for {type}</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {sharedContinueWatching.map((card) => (
+            <div key={card.label} className="flex flex-col">
+              <Card cardData={card} />
+            </div>
+          ))}
+        </div>
+      </div>
     </MainLayout>
   );
 }

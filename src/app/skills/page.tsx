@@ -66,7 +66,7 @@ export default function SkillsPage() {
     <MainLayout>
       <div className="pt-24 p-8 min-h-screen">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-8"
+          className="text-4xl md:text-5xl font-bold mb-8 text-red-600"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -88,7 +88,7 @@ export default function SkillsPage() {
           {categories.map((category, categoryIndex) => (
             <div key={category} className="mb-8">
               <motion.h2
-                className="text-2xl font-bold mb-4 text-red-600"
+                className="text-2xl font-bold mb-4 "
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + (categoryIndex * 0.1) }}

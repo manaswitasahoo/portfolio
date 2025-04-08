@@ -9,7 +9,7 @@ export default function ContactMePage() {
     <MainLayout>
       <div className="pt-20 p-8 min-h-screen">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-8"
+          className="text-4xl md:text-5xl font-bold mb-8 text-red-600"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}

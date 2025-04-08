@@ -307,7 +307,7 @@ export default function WorkExperience() {
       <div className="min-h-screen bg-black text-white py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto px-4"> {/* Increased max-width and added padding */}
           {/* Adjusted title position */}
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center relative mt-12">
+          <h1 className=" text-red-600 text-3xl md:text-4xl font-bold mb-4 text-center relative mt-12">
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center bg-black h-8">Work Experience</div>
           </h1>
 

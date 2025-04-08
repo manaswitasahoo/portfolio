@@ -83,20 +83,20 @@ export default function ProjectsPage() {
   return (
     <MainLayout>
       <div className="projects-container pt-24 px-4 md:px-8 pb-16">
-        <motion.h1
-          className="text-3xl md:text-5xl font-bold mb-8 text-white text-center"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+      <motion.h1 
+            className="text-6xl font-bold mb-12 text-red-600"
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ type: "spring", stiffness: 100 }}
+          >
           Projects
-        </motion.h1>
+          </motion.h1>
 
         <motion.p
-          className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto text-center"
-          initial={{ opacity: 0, y: -20 }}
+          className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl "
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
           A showcase of my work spanning from enterprise applications to personal projects.
         </motion.p>
@@ -104,7 +104,7 @@ export default function ProjectsPage() {
         {/* Featured Project (if any) */}
         {projects.find(p => p.featured) && (
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-6 text-red-600">Featured Project</h2>
+            <h2 className="text-2xl font-bold mb-6">Featured Project</h2>
             {projects
               .filter(project => project.featured)
               .map((project, index) => (

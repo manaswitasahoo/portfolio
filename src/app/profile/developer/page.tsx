@@ -13,7 +13,7 @@ export default function DeveloperProfile() {
         keywords="developer, full stack, technical skills, programming"
       />
       <ProfilePage 
-        type="developer"
+        type="Developer"
         bannerImage="https://ext.same-assets.com/2325684012/2846338995.gif"
       />
     </>
