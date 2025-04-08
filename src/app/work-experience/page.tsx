@@ -333,9 +333,16 @@ export default function WorkExperiencePage() {
     <MainLayout>
       <div className="min-h-screen bg-black text-white py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-12 text-center relative mt-24">
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center bg-black h-8">Work Experience</div>
-          </h1>
+        <motion.h1 className=" text-6xl font-bold mb-12 text-red-600 md:text-4xl text-center relative mt-24"
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
+        transition={{ type: "spring", stiffness: 100 }}>
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 
+            -translate-y-1/2 w-full text-center bg-black h-8">Work Experience</div>
+        </motion.h1>
+          {/* <h1 className=" text-6xl font-bold mb-12 text-red-600 md:text-4xl text-center relative mt-24">
+            
+          </h1> */}
 
           <div className="relative" ref={timelineRef.ref}>
             <div className="h-16"></div>
