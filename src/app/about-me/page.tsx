@@ -1,7 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from 'framer-motion';
 import { MainLayout } from '@/components/layout/MainLayout';import GithubCalendarComponent from '@/components/GithubCalendarComponent';
-import { FaHandsHelping, FaCode,FaProductHunt, FaGlobe, FaMusic, FaCamera } from 'react-icons/fa';
+import { FaHandsHelping, FaBrain,FaProductHunt, FaGlobe, FaFlag, FaCamera } from 'react-icons/fa';
 import { SiLeetcode, SiCodechef } from 'react-icons/si';
 import { useState } from 'react';
 
@@ -22,9 +22,14 @@ const facts = [
     text: "Part of Anokha; an NGO in Vellore specializing in education of children-in-need."
   },
   {
-    icon: <FaMusic />,
-    title: "Music",
-    text: "Learnt Tabla for 2 years when I was 8."
+    icon: <FaFlag/>,
+    title: "French",
+    text: "Runner up in the National French Spelling Bee."
+  },
+  {
+    icon: <FaBrain />,
+    title: "Quiz",
+    text: "Avid Quizzer. Runner up in the Hindu Quiz."
   },
   {
     icon: <FaCamera />,
@@ -50,6 +55,11 @@ const codingStats = [
 
 export default function AboutMe() {
   const [selectedFact, setSelectedFact] = useState(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
 
   return (
     <MainLayout>
@@ -121,25 +131,70 @@ export default function AboutMe() {
           </div>
         </section> */}
 
-        {/* Music Section with Enhanced Styling */}
+        {/* Instagram Feed Section */}
+        {/* Social & Location Section */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-white">Music Taste</h2>
-          <motion.div 
-            className="bg-zinc-900 p-6 rounded-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <iframe
-              src="https://open.spotify.com/embed/playlist/37i9dQZEVXbNG2KDcFcKOF"
-              width="100%"
-              height="380"
-              className="rounded-lg"
-              frameBorder="0"
-              allowTransparency={true}
-              allow="encrypted-media"
-            />
-          </motion.div>
+          <h2 className="text-3xl font-bold mb-8 text-white">Social & Location</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Google Maps Column */}
+            <motion.div 
+              className="bg-zinc-900 p-6 rounded-lg overflow-hidden relative"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <h3 className="text-xl font-semibold text-white mb-4">Location History</h3>
+              <motion.div
+                animate={{ height: isExpanded ? '600px' : '300px' }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <iframe 
+                  src="https://www.google.com/maps/d/u/0/embed?mid=14TxVcRYWQJPRomUMZJQMKlw1ai4R2nrv&ehbc=2E312F" 
+                  width="100%" 
+                  height="100%"
+                  className="rounded-lg"
+                  style={{ border: 0 }}
+                />
+              </motion.div>
+              <div 
+                className="flex items-center justify-center cursor-pointer mt-4 text-gray-400 hover:text-white transition-colors"
+                onClick={toggleExpand}
+              >
+                <span className="mr-2">{isExpanded ? 'Show Less' : 'Show More'}</span>
+                <span className={`transition-transform ${isExpanded ? 'rotate-180' : ''}`}>▼</span>
+              </div>
+            </motion.div>
+
+            {/* Instagram Column */}
+            <motion.div 
+              className="bg-zinc-900 p-6 rounded-lg overflow-hidden relative"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <h3 className="text-xl font-semibold text-white mb-4">Instagram Feed</h3>
+              <motion.div
+                animate={{ height: isExpanded ? '600px' : '300px' }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+                style={{ position: 'relative' }}
+              >
+                <div 
+                  className="elfsight-app-90c0f33d-2357-415f-88f2-b9c53882d3be" 
+                  data-elfsight-app-lazy
+                  style={{ height: '100%' }}
+                />
+              </motion.div>
+              <div 
+                className="flex items-center justify-center cursor-pointer mt-4 text-gray-400 hover:text-white transition-colors"
+                onClick={toggleExpand}
+              >
+                <span className="mr-2">{isExpanded ? 'Show Less' : 'Show More'}</span>
+                <span className={`transition-transform ${isExpanded ? 'rotate-180' : ''}`}>▼</span>
+              </div>
+            </motion.div>
+          </div>
         </section>
 
         {/* GitHub Activity */}

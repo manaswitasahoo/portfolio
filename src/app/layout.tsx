@@ -24,6 +24,10 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <script 
+          src="https://static.elfsight.com/platform/platform.js" 
+          async
+        />
       </head>
       <body className="font-poppins">
       {/* <body> */}
