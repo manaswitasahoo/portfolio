@@ -225,7 +225,7 @@ export default function ProjectsPage() {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                    {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
                         className="bg-zinc-800 text-xs px-2 py-1 rounded-full text-gray-300 flex items-center gap-1"
@@ -234,11 +234,11 @@ export default function ProjectsPage() {
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 3 && (
+                    {/* {project.technologies.length > 3 && (
                       <span className="bg-zinc-800 text-xs px-2 py-1 rounded-full text-gray-300">
                         +{project.technologies.length - 3}
                       </span>
-                    )}
+                    )} */}
                   </div>
                   <div className="flex justify-between">
                     {project.githubUrl && (

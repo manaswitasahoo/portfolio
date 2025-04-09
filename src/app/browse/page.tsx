@@ -186,19 +186,22 @@ export default function BrowsePage() {
                       className={cn(
                         "rounded-md w-24 h-24 md:w-32 md:h-32 mb-4 flex items-center justify-center text-5xl",
                         profile.color,
-                        "hover:shadow-gray-500 hover:border-2 hover:border-white hover:rounded-xl" //Corrected hover styles
+                        "hover:shadow-gray-500 hover:border-2 hover:border-white hover:rounded-xl"
                       )}
                     >
                       {/* Simple smiley face */}
                       <div className="relative w-full h-full">
                         <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-black rounded-full"></div>
                         <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-black rounded-full"></div>
-                        <div className="absolute bottom-1/3 left-1/2 -translate-x-1/2 w-12 h-6 border-black border-b-2 rounded-b-full"></div>  {/*Centered the mouth*/}
-                        {/* <div className="absolute top-2/5 left-1/5 w-1 h-1 bg-white rounded-full"></div> */}
-                        {/* <div className="absolute top-2/5 right-1/5 w-1 h-1 bg-white rounded-full"></div> */}
+                        <div className="absolute bottom-1/3 left-1/2 -translate-x-1/2 w-12 h-6 border-black border-b-2 rounded-b-full"></div>
                       </div>
                     </div>
                     <h3 className="profile-name text-lg md:text-xl text-gray-300">{profile.name}</h3>
+                    {profile.name === "Apoorv" && (
+                      <p className="text-xs text-red-500 mt-1 italic animate-pulse">
+                        Psst, try logging in
+                      </p>
+                    )}
                   </motion.div>
                 </Link>
               ))}

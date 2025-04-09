@@ -52,7 +52,7 @@ export default function AnimatedLogo() {
 
   return (
     <div 
-      className="fixed inset-0 flex items-center justify-center bg-black cursor-pointer"
+      className="fixed inset-0 flex flex-col items-center justify-center bg-black cursor-pointer"
       onClick={startIntro}
     >
       <div className="relative w-[300px] h-[300px]">
@@ -62,9 +62,12 @@ export default function AnimatedLogo() {
           fill
           style={{ objectFit: 'contain' }}
           className={`${canPlay ? 'animate-netflix-intro' : 'scale-100'}`}
-          priority // Always prioritize logo loading
+          priority
         />
       </div>
+      <p className={`text-red-500 mt-4 text-sm animate-pulse ${canPlay ? 'hidden' : ''}`}>
+        Click to continue
+      </p>
     </div>
   );
 }
