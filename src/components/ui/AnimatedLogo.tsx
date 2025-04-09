@@ -65,7 +65,7 @@ export default function AnimatedLogo() {
           priority
         />
       </div>
-      <p className={`text-red-500 mt-4 text-sm animate-pulse ${canPlay ? 'hidden' : ''}`}>
+      <p className={`text-red-500 text-sm animate-pulse ${canPlay ? 'hidden' : ''}`}>
         Click to continue
       </p>
     </div>
