@@ -1,5 +1,5 @@
 "use client";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { MainLayout } from '@/components/layout/MainLayout';
 import GithubCalendarComponent from '@/components/GithubCalendarComponent';
 import { FaHandsHelping, FaBrain,FaProductHunt, FaGlobe, FaFlag, FaCamera } from 'react-icons/fa';
@@ -58,11 +58,8 @@ const codingStats = [
 
 export default function AboutMe() {
   const [selectedFact, setSelectedFact] = useState(null);
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
+  const [isMapExpanded, setIsMapExpanded] = useState(false);
+  const [isInstaExpanded, setIsInstaExpanded] = useState(false);
 
   return (
     <>
@@ -152,9 +149,9 @@ export default function AboutMe() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <h3 className="text-xl font-semibold text-white mb-4">Location History</h3>
+                <h3 className="text-xl font-semibold text-white mb-4">My Nomadic Life</h3>
                 <motion.div
-                  animate={{ height: isExpanded ? '600px' : '300px' }}
+                  animate={{ height: isMapExpanded ? '600px' : '300px' }}
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
@@ -168,23 +165,22 @@ export default function AboutMe() {
                 </motion.div>
                 <div 
                   className="flex items-center justify-center cursor-pointer mt-4 text-gray-400 hover:text-white transition-colors"
-                  onClick={toggleExpand}
+                  onClick={() => setIsMapExpanded(!isMapExpanded)}
                 >
-                  <span className="mr-2">{isExpanded ? 'Show Less' : 'Show More'}</span>
-                  <span className={`transition-transform ${isExpanded ? 'rotate-180' : ''}`}>▼</span>
+                  <span className="mr-2">{isMapExpanded ? 'Show Less' : 'Show More'}</span>
+                  <span className={`transition-transform ${isMapExpanded ? 'rotate-180' : ''}`}>▼</span>
                 </div>
               </motion.div>
-
               {/* Instagram Column */}
               <motion.div 
                 className="bg-zinc-900 p-6 rounded-lg overflow-hidden relative"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.4 }}
               >
-                <h3 className="text-xl font-semibold text-white mb-4">Instagram Feed</h3>
+                <h3 className="text-xl font-semibold text-white mb-4">Friends & Family</h3>
                 <motion.div
-                  animate={{ height: isExpanded ? '600px' : '300px' }}
+                  animate={{ height: isInstaExpanded ? '600px' : '300px' }}
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                   style={{ position: 'relative' }}
@@ -192,15 +188,15 @@ export default function AboutMe() {
                   <div 
                     className="elfsight-app-90c0f33d-2357-415f-88f2-b9c53882d3be" 
                     data-elfsight-app-lazy
-                    style={{ height: '100%' }}
+                    style={{ height: '100%', minHeight: '300px' }}
                   />
                 </motion.div>
                 <div 
                   className="flex items-center justify-center cursor-pointer mt-4 text-gray-400 hover:text-white transition-colors"
-                  onClick={toggleExpand}
+                  onClick={() => setIsInstaExpanded(!isInstaExpanded)}
                 >
-                  <span className="mr-2">{isExpanded ? 'Show Less' : 'Show More'}</span>
-                  <span className={`transition-transform ${isExpanded ? 'rotate-180' : ''}`}>▼</span>
+                  <span className="mr-2">{isInstaExpanded ? 'Show Less' : 'Show More'}</span>
+                  <span className={`transition-transform ${isInstaExpanded ? 'rotate-180' : ''}`}>▼</span>
                 </div>
               </motion.div>
             </div>

@@ -40,28 +40,28 @@ const sharedTopPicks = [
     href: "/projects"
   },
   {
-    label: "Contact Me",
+    label: "About Me",
     imageUrl: "https://ext.same-assets.com/1216415949/1587688894.jpeg",
-    href: "/contact-me"
+    href: "/about-me"
   }
 ];
 
 const sharedContinueWatching = [
   {
+    label: "Contact Me",
+    imageUrl: "https://ext.same-assets.com/1216415949/1587688894.jpeg",
+    href: "/contact-me"
+  },{
     label: "Music",
     imageUrl: "https://ext.same-assets.com/2856441299/1368048024.jpeg",
     href: "https://music.youtube.com/playlist?list=PL6qQQNNGPuiWYfBLslrAf8k47dRlXpNoU&si=ZHnzcAMsbVKnR7J1"
-  },
+  }
   // {
   //   label: "Blogs",
   //   imageUrl: "https://ext.same-assets.com/2637683392/3018728848.jpeg",
   //   href: "/blogs"
   // },
-  {
-    label: "Contact Me",
-    imageUrl: "https://ext.same-assets.com/1216415949/1587688894.jpeg",
-    href: "/contact-me"
-  }
+  
 ];
 
 const sliderSettings = {

@@ -8,6 +8,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: "Apoorv Abhishek -  Product Manager | Restauranteur | Vibe Coder",
   description: "Portfolio of Apoorv Abhishek, an experienced Product Manager, Restauranteur and Developer with experience in AI/ML, Data Analytics, and Web Development. Explore my work experience, projects, and skills.",
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
   keywords: "Apoorv Abhishek, Product Manager, Cloud Kitchen, Full Stack Developer, AI/ML, Data Analytics, Portfolio",
   authors: [{ name: "Apoorv Abhishek" }],
   openGraph: {
