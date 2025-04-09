@@ -3,13 +3,11 @@
   "name": "nextjs-shadcn",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://apo1397.github.io/portfolio",
   "scripts": {
     "dev": "next dev -H 0.0.0.0 --turbopack",
-    "build": "next build && next export",
+    "build": "next build", 
     "start": "next start",
-    "lint": "next lint",
-    "deploy": "npm run build && touch ./out/.nojekyll && echo 'portfolio.apo1397.github.io' > ./out/CNAME"
+    "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.1",
