@@ -30,10 +30,11 @@
   },
   "include": [
     ".next/types/**/*.ts",
-    "src/**/*" // Ensure this line is included
+    "build/types/**/*.ts" // Ensure this line is included
     ,
+    "src/**/*",
     "src/declarations.d.ts",
-    "build/types/**/*.ts"
+    "out/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

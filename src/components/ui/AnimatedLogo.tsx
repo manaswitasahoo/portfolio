@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import netflixLogo from '@/assets/images/apoorv_logo3_cropped.png';
@@ -11,24 +11,8 @@ export default function AnimatedLogo() {
   const [canPlay, setCanPlay] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout>();
 
-  useEffect(() => {
-    // Auto-play after 5 seconds if no interaction
-    timeoutRef.current = setTimeout(() => {
-      if (!canPlay) {
-        startIntro();
-      }
-    }, 5000);
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [canPlay]);
-
-  const startIntro = async () => {
+  const startIntro = useCallback(async () => {
     if (!canPlay) {
-      // Clear auto-play timeout if user clicks
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
@@ -50,7 +34,21 @@ export default function AnimatedLogo() {
         }, 3000);
       }
     }
-  };
+  }, [canPlay, router]);
+
+  useEffect(() => {
+    timeoutRef.current = setTimeout(() => {
+      if (!canPlay) {
+        startIntro();
+      }
+    }, 5000);
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [canPlay, startIntro]);
 
   return (
     <div 

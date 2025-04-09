@@ -73,8 +73,13 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      
+      # Add Sharp for image processing
+      - name: Install Sharp
+        run: npm install sharp --no-optional
+        
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build --no-lint
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
       - name: Upload artifact
