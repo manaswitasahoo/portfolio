@@ -16,12 +16,12 @@ interface ProfilePageProps {
 const sharedTopPicks = [
   {
     label: "Skills",
-    imageUrl: "https://ext.same-assets.com/586183396/1724732849.jpeg",
+    imageUrl: "/surfer.webp",  // Updated path to use public directory
     href: "/skills"
   },
   {
     label: "Experience",
-    imageUrl: "https://ext.same-assets.com/212574815/3750205781.jpeg",
+    imageUrl: "/experience.webp",
     href: "/work-experience"
   },
   // {
@@ -36,12 +36,12 @@ const sharedTopPicks = [
   // },
   {
     label: "Projects",
-    imageUrl: "https://ext.same-assets.com/3968966852/4022270945.jpeg",
+    imageUrl: "/painter.webp",
     href: "/projects"
   },
   {
     label: "About Me",
-    imageUrl: "https://ext.same-assets.com/1216415949/1587688894.jpeg",
+    imageUrl: "/apoorv.webp",
     href: "/about-me"
   }
 ];
