@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://your-domain.com',
+    url: 'https://portfolio-git-main-apoorvsinha1397-gmailcoms-projects.vercel.app/',
     siteName: 'Apoorv Abhishek Portfolio',
     title: 'Apoorv Abhishek -  Product Manager | Restauranteur | Vibe Coder',
     description: 'Portfolio of Apoorv Abhishek, an experienced Product Manager, Restauranteur and Developer with experience in AI/ML, Data Analytics, and Web Development. Explore my work experience, projects, and skills.',
