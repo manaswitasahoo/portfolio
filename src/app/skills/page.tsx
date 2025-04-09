@@ -1,5 +1,5 @@
 "use client";
-
+import { useState } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { motion } from 'framer-motion';
 
@@ -11,11 +11,7 @@ type Skill = {
 };
 
 const skills: Skill[] = [
-  // Data Analytics
-  { name: "Metabase", proficiency: 95, category: "Data Analytics", url: "https://metabase.com/" },
-  { name: "Mixpanel", proficiency: 95, category: "Data Analytics", url: "https://mixpanel.com/" },
-  { name: "Google Analytics", proficiency: 70, category: "Data Analytics", url: "https://analytics.google.com/" },
-
+  
   // AI / LLM
   { name: "Cursor (AI Code Editor)", proficiency: 80, category: "AI / LLM", url: "https://cursor.so/" },
   { name: "Trae (AI Code Editor)" , proficiency: 90, category: "AI / LLM", url: "https://www.trae.ai/" },
@@ -26,6 +22,10 @@ const skills: Skill[] = [
   { name: "Stanford STORM", proficiency: 60, category: "AI / LLM", url: "https://storm.genie.stanford.edu/" },
   { name: "DeepSeek", proficiency: 80, category: "AI / LLM", url: "https://chat.deepseek.com/" },
   { name: "Google BERT", proficiency: 70, category: "AI / LLM", url: "https://research.google/pubs/bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding/" },
+
+  { name: "Metabase", proficiency: 95, category: "Data Analytics", url: "https://metabase.com/" },
+  { name: "Mixpanel", proficiency: 95, category: "Data Analytics", url: "https://mixpanel.com/" },
+  { name: "Google Analytics", proficiency: 70, category: "Data Analytics", url: "https://analytics.google.com/" },
 
 
   // Product Management
@@ -64,6 +64,16 @@ const skills: Skill[] = [
 const categories = [...new Set(skills.map(skill => skill.category))];
 
 export default function SkillsPage() {
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+
+  const toggleCategory = (category: string) => {
+    setExpandedCategories(prev => 
+      prev.includes(category) 
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+    );
+  };
+
   return (
     <MainLayout>
       <div className="pt-24 p-8 min-h-screen">
@@ -87,25 +97,29 @@ export default function SkillsPage() {
         </motion.p>
 
         <div className="space-y-12">
-          {categories.map((category, categoryIndex) => (
-            <div key={category} className="mb-8">
-              <motion.h2
-                className="text-2xl font-bold mb-4 underline decoration-gray-500 "
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 + (categoryIndex * 0.1) }}
-              >
-                {category}
-              </motion.h2>
+          {categories.map((category, categoryIndex) => {
+            const categorySkills = skills.filter(skill => skill.category === category);
+            const isExpanded = expandedCategories.includes(category);
+            const displaySkills = isExpanded ? categorySkills : categorySkills.slice(0, 3);
+            const hasMore = categorySkills.length > 3;
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {skills
-                  .filter(skill => skill.category === category)
-                  .map((skill, skillIndex) => (
+            return (
+              <div key={category} className="mb-8">
+                <motion.h2
+                  className="text-2xl font-bold mb-4 underline decoration-gray-500"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 + (categoryIndex * 0.1) }}
+                >
+                  {category}
+                </motion.h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {displaySkills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
-                      className="bg-zinc-900 p-5 rounded-lg cursor-pointer " // Add cursor pointer for UX
-                      onClick={() => window.open(skill.url, '_blank')} // Open link in new tab
+                      className="bg-zinc-900 p-5 rounded-lg cursor-pointer"
+                      onClick={() => window.open(skill.url, '_blank')}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{
@@ -126,9 +140,26 @@ export default function SkillsPage() {
                       </div>
                     </motion.div>
                   ))}
+                </div>
+
+                {hasMore && (
+                  <motion.button
+                    className="md:hidden mt-4 text-red-600 hover:text-red-500 font-medium flex items-center gap-2 mx-auto"
+                    onClick={() => toggleCategory(category)}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    {isExpanded ? (
+                      <>View Less <span className="text-xl">↑</span></>
+                    ) : (
+                      <>View More <span className="text-xl">↓</span></>
+                    )}
+                  </motion.button>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </MainLayout>

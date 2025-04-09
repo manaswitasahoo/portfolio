@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from '@/lib/utils';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { FaPlay, FaLinkedin, FaGithub } from 'react-icons/fa';
@@ -13,6 +14,7 @@ type ProfileBannerProps = {
 export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps) {
   const { theme } = useTheme();
   const isDarkMode = theme === 'dark';
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const bannerStyle = {
     // backgroundColor: isDarkMode ? 'gray-800' : 'white', // Dynamic background color
@@ -25,7 +27,7 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
   return (
     <div
       className={cn(
-        "profile-banner relative w-full min-h-[90vh] flex items-center bg-cover bg-center bg-no-repeat",
+        "profile-banner relative w-full min-h-[70vh] md:min-h-[90vh] flex items-center bg-cover bg-center bg-no-repeat",
         className
       )}
       style={{
@@ -38,33 +40,63 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
       {/* Banner Content */}
       <div
         className={cn(
-          "banner-content relative z-10 w-3/4 mx-auto px-4 md:px-8 pt-16 md:pt-0"
+          "banner-content relative z-10 w-full md:w-[85%] mx-auto px-4 md:px-8 pt-24 md:pt-0"
         )}
         style={bannerStyle}
       >
         <motion.h1
           id="headline"
-          className="banner-headline text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-3/4 mx-auto"
+          className="banner-headline text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 max-w-full md:max-w-3/4 mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-         <span className= 'underline'> Apoorv Abhishek </span> <br></br>
-          <span className='text-xl'>Product Manager | Restauranteur | Vibe Coder</span>
+          <span className="underline">Apoorv Abhishek</span> <br />
+          <span className="text-lg md:text-xl leading-0.5">Product Manager | Restauranteur | Vibe Coder</span>
         </motion.h1>
 
-        <motion.p
-          className="banner-description text-gray-200 text-base md:text-lg mb-8 max-w-3/4 mx-auto"
+        <motion.div
+          className="banner-description text-gray-200 text-sm md:text-lg mb-6 md:mb-8 max-w-full md:max-w-3/4 mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Experienced Product Manager with a strong background in backend development and a hands-on
-          approach. <br></br>I have driven success across sectors including real estate, AI-driven B2B SaaS, e-commerce, influencer
-          marketing, and cloud kitchens. I leverage cutting-edge technologies like LLMs and Agentic AI to craft innovative,
-          data-driven strategies. In November 2024, I launched <a href="https://links.sauci.in">Sauci</a>, a cloud kitchen where I manage daily operations,
-          marketing, hiring, and expansion—gaining harsh but valuable industry insights every single day.
-        </motion.p>
+          <p className="md:hidden">
+            {!isExpanded ? (
+              <>
+                Experienced Product Manager with a strong background in backend development. 
+                I leverage cutting-edge technologies like LLMs and Agentic AI to craft innovative solutions.
+                <button 
+                  onClick={() => setIsExpanded(true)}
+                  className="text-red-500 ml-2 underline"
+                >
+                  Read More
+                </button>
+              </>
+            ) : (
+              <>
+                Experienced Product Manager with a strong background in backend development and a hands-on
+                approach. I have driven success across sectors including real estate, AI-driven B2B SaaS, e-commerce, influencer
+                marketing, and cloud kitchens. I leverage cutting-edge technologies like LLMs and Agentic AI to craft innovative,
+                data-driven strategies. In November 2024, I launched <a href="https://links.sauci.in">Sauci</a>, a cloud kitchen where I manage daily operations,
+                marketing, hiring, and expansion—gaining harsh but valuable industry insights every single day.
+                <button 
+                  onClick={() => setIsExpanded(false)}
+                  className="text-red-500 block mt-2 underline"
+                >
+                  Read Less
+                </button>
+              </>
+            )}
+          </p>
+          <p className="hidden md:block">
+            Experienced Product Manager with a strong background in backend development and a hands-on
+            approach. I have driven success across sectors including real estate, AI-driven B2B SaaS, e-commerce, influencer
+            marketing, and cloud kitchens. I leverage cutting-edge technologies like LLMs and Agentic AI to craft innovative,
+            data-driven strategies. In November 2024, I launched <a href="https://links.sauci.in">Sauci</a>, a cloud kitchen where I manage daily operations,
+            marketing, hiring, and expansion—gaining harsh but valuable industry insights every single day.
+          </p>
+        </motion.div>
 
         <motion.div
           className="banner-buttons flex flex-wrap gap-4"
@@ -72,7 +104,6 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          {/* Existing buttons */}
           <a 
             href="https://docs.google.com/document/d/1HkDCeBy6N7mrUgJAJ5Gxm7MGYNqA04kA/edit?usp=sharing&ouid=103884992942385089784&rtpof=true&sd=true" 
             target="_blank" 
@@ -94,7 +125,6 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
             <span className="label">LinkedIn</span>
           </a>
 
-          {/* New GitHub button */}
           <a 
             href="https://github.com/apo1397" 
             target="_blank" 
