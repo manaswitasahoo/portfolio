@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  distDir: 'out', // Explicitly set the output directory
   images: {
     unoptimized: true,
   },
@@ -8,5 +9,4 @@ const nextConfig = {
   assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio/' : '',
 }
 
-// Using ES module export syntax
 export default nextConfig

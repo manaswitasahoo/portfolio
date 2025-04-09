@@ -5,10 +5,11 @@
   "private": true,
   "homepage": "https://apo1397.github.io/portfolio",
   "scripts": {
-    "dev": "next dev -H 0.0.0.0 --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+  "dev": "next dev -H 0.0.0.0 --turbopack",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint",
+  "deploy": "npm run build && touch ./out/.nojekyll && echo 'portfolio.apo1397.github.io' > ./out/CNAME"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.1",
