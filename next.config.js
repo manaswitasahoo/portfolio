@@ -4,12 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Only apply basePath and assetPrefix in production
-  ...(process.env.NODE_ENV === 'production' ? {
-    basePath: '/portfolio',
-    assetPrefix: '/portfolio',
-  } : {})
+  basePath: process.env.NODE_ENV === 'production' ? '/portfolio' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio/' : '',
 }
 
-// Using ES module export
+// Using ES module export syntax
 export default nextConfig
