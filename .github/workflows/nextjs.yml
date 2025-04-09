@@ -74,9 +74,10 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       
-      # Add Sharp for image processing
-      - name: Install Sharp
-        run: npm install sharp --no-optional
+      # Add platform-specific Sharp installation
+      - name: Install Sharp for Linux
+        run: npm install --os=linux --cpu=x64 sharp
+        if: runner.os == 'Linux'
         
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build --no-lint
