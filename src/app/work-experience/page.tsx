@@ -7,6 +7,7 @@ import { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import { Briefcase } from 'lucide-react';
 import { BsBuilding } from 'react-icons/bs';
 import { cn } from '@/lib/utils';
+import { Favicon } from '@/components/ui/Favicon';
 
 // Custom hook for intersection observer
 const useIntersectionObserver = ({ threshold = 0, rootMargin = '0px' }) => {
@@ -92,34 +93,36 @@ function ExperienceItem({ position, company, period, technologies, achievements,
     return colorMap[color];
   };
 
+  // Update the cardContent section in ExperienceItem
   const cardContent = (
-    <div ref={contentRef}>
-      <h3 className="text-lg md:text-xl font-bold mb-1">{position} 🚀</h3>
-      <h4 className={cn("text-base md:text-lg mb-3 underline-dashed cursor-pointer", 
-        hasAnimated && "animate-fade-in")} onClick={handleCompanyClick}>
-        {company}
-      </h4>
-      <p className="text-sm md:text-base mb-3">{technologies}</p>
-      <div className={cn(
-        "transition-all duration-300",
-        !isExpanded && "max-h-[200px] overflow-hidden"
-      )}>
-        <ul className="space-y-1 text-xs md:text-sm">
-          {achievements.map((achievement, i) => (
-            <li key={i} className={!isExpanded ? "line-clamp-2" : ""}>- {achievement}</li>
-          ))}
-        </ul>
+      <div ref={contentRef}>
+        <h3 className="text-lg md:text-xl font-bold mb-1">{position} 🚀</h3>
+        <h4 className={cn("text-base md:text-lg mb-3 underline-dashed cursor-pointer flex items-center gap-2", 
+          hasAnimated && "animate-fade-in")} onClick={handleCompanyClick}>
+          {url && url !== '#' && <Favicon url={url} />}
+          {company}
+        </h4>
+        <p className="text-sm md:text-base mb-3">{technologies}</p>
+        <div className={cn(
+          "transition-all duration-300",
+          !isExpanded && "max-h-[200px] overflow-hidden"
+        )}>
+          <ul className="space-y-1 text-xs md:text-sm">
+            {achievements.map((achievement, i) => (
+              <li key={i} className={!isExpanded ? "line-clamp-2" : ""}>- {achievement}</li>
+            ))}
+          </ul>
+        </div>
+        {showToggle && (
+          <button 
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="w-full mt-3 py-2 text-sm bg-black/20 hover:bg-black/40 rounded-md transition-colors flex items-center justify-center gap-2 text-white/90 font-medium"
+          >
+            {isExpanded ? 'Show Less' : 'Show More'} 
+            <span className="text-xs">{isExpanded ? '▲' : '▼'}</span>
+          </button>
+        )}
       </div>
-      {showToggle && (
-        <button 
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full mt-3 py-2 text-sm bg-black/20 hover:bg-black/40 rounded-md transition-colors flex items-center justify-center gap-2 text-white/90 font-medium"
-        >
-          {isExpanded ? 'Show Less' : 'Show More'} 
-          <span className="text-xs">{isExpanded ? '▲' : '▼'}</span>
-        </button>
-      )}
-    </div>
   );
 
   return (
@@ -298,7 +301,7 @@ export default function WorkExperiencePage() {
       achievements: ["CGPA 8.50"],
       isLeft: false,
       color: "gray" as AllowedColor,
-      url: "#",
+      url: "https://vit.ac.in/",
       isEducation: true,
     }
   ];
