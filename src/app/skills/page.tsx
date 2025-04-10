@@ -11,7 +11,11 @@ type Skill = {
 };
 
 const skills: Skill[] = [
-  
+  // Data Analytics
+  { name: "Metabase", proficiency: 95, category: "Data Analytics", url: "https://metabase.com/" },
+  { name: "Mixpanel", proficiency: 95, category: "Data Analytics", url: "https://mixpanel.com/" },
+  { name: "Google Analytics", proficiency: 70, category: "Data Analytics", url: "https://analytics.google.com/" },
+
   // AI / LLM
   { name: "Cursor (AI Code Editor)", proficiency: 80, category: "AI / LLM", url: "https://cursor.so/" },
   { name: "Trae (AI Code Editor)" , proficiency: 90, category: "AI / LLM", url: "https://www.trae.ai/" },
@@ -22,10 +26,6 @@ const skills: Skill[] = [
   { name: "Stanford STORM", proficiency: 60, category: "AI / LLM", url: "https://storm.genie.stanford.edu/" },
   { name: "DeepSeek", proficiency: 80, category: "AI / LLM", url: "https://chat.deepseek.com/" },
   { name: "Google BERT", proficiency: 70, category: "AI / LLM", url: "https://research.google/pubs/bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding/" },
-
-  { name: "Metabase", proficiency: 95, category: "Data Analytics", url: "https://metabase.com/" },
-  { name: "Mixpanel", proficiency: 95, category: "Data Analytics", url: "https://mixpanel.com/" },
-  { name: "Google Analytics", proficiency: 70, category: "Data Analytics", url: "https://analytics.google.com/" },
 
 
   // Product Management
@@ -144,14 +144,14 @@ export default function SkillsPage() {
 
                 {hasMore && (
                   <motion.button
-                    className="md:hidden mt-4 text-red-600 hover:text-red-500 font-medium flex items-center gap-2 mx-auto"
+                    className="md:hidden mt-4 text-red-600 hover:text-red-500 font-medium flex items-center gap-2"
                     onClick={() => toggleCategory(category)}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                   >
                     {isExpanded ? (
-                      <>View Less <span className="text-xl">↑</span></>
+                      <>View Less <span className="text-xl ">↑</span></>
                     ) : (
                       <>View More <span className="text-xl">↓</span></>
                     )}

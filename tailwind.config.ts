@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"], // Add Poppins font family
-        roboto: ["Roboto", "sans-serif"], // Add Roboto font family
+        sans: ['Poppins', 'sans-serif'], // Make Poppins the default sans font
+        poppins: ['Poppins', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

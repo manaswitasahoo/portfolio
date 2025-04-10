@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ClientBody from "./ClientBody";
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Apoorv Abhishek -  Product Manager | Restauranteur | Vibe Coder",
@@ -55,8 +59,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body>{children}</body>
+    <html lang="en" className={poppins.className}>
+      <body>
+        <ClientBody>{children}</ClientBody>
+      </body>
     </html>
-  )
+  );
 }

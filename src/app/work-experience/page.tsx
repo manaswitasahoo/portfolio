@@ -52,20 +52,19 @@ type ExperienceItemProps = {
   isEducation?: boolean;
 };
 
-function ExperienceItem({
-  position,
-  company,
-  period,
-  technologies,
-  achievements,
-  isLeft,
-  color,
-  index,
-  url,
-  isEducation,
-}: ExperienceItemProps) {
+function ExperienceItem({ position, company, period, technologies, achievements, isLeft, color, index, url, isEducation }: ExperienceItemProps) {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 })
   const [hasAnimated, setHasAnimated] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const [showToggle, setShowToggle] = useState(false)
+
+  useEffect(() => {
+    if (contentRef.current) {
+      const height = contentRef.current.scrollHeight;
+      setShowToggle(height > 300); // Show toggle if content height > 300px
+    }
+  }, [achievements]);
 
   useEffect(() => {
     if (isIntersecting && !hasAnimated) {
@@ -93,98 +92,96 @@ function ExperienceItem({
     return colorMap[color];
   };
 
+  const cardContent = (
+    <div ref={contentRef}>
+      <h3 className="text-lg md:text-xl font-bold mb-1">{position} 🚀</h3>
+      <h4 className={cn("text-base md:text-lg mb-3 underline-dashed cursor-pointer", 
+        hasAnimated && "animate-fade-in")} onClick={handleCompanyClick}>
+        {company}
+      </h4>
+      <p className="text-sm md:text-base mb-3">{technologies}</p>
+      <div className={cn(
+        "transition-all duration-300",
+        !isExpanded && "max-h-[200px] overflow-hidden"
+      )}>
+        <ul className="space-y-1 text-xs md:text-sm">
+          {achievements.map((achievement, i) => (
+            <li key={i} className={!isExpanded ? "line-clamp-2" : ""}>- {achievement}</li>
+          ))}
+        </ul>
+      </div>
+      {showToggle && (
+        <button 
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="w-full mt-3 py-2 text-sm bg-black/20 hover:bg-black/40 rounded-md transition-colors flex items-center justify-center gap-2 text-white/90 font-medium"
+        >
+          {isExpanded ? 'Show Less' : 'Show More'} 
+          <span className="text-xs">{isExpanded ? '▲' : '▼'}</span>
+        </button>
+      )}
+    </div>
+  );
+
   return (
-    <div ref={ref} className="relative flex items-center justify-center">
+    <div ref={ref} className="relative flex flex-col md:flex-row items-center justify-center py-4 md:py-0">
       {isLeft ? (
         <>
-          <div className={cn("w-full md:w-6/12 md:pr-8 order-1 md:order-1 min-w-[250px]", hasAnimated && "animate-card-appear-left")}>
+          <div className={cn("w-full md:w-6/12 px-4 md:pr-8 order-2 md:order-1", 
+            hasAnimated && "animate-card-appear-left")}>
             <div className={`${getColorClass(color)} rounded-lg p-4 shadow-lg`}>
-              <h3 className="text-xl font-bold mb-1 m-0">{position} 🚀</h3>
-              <h4 className={cn("text-lg mb-3 m-0 underline-dashed", hasAnimated && "animate-fade-in")} onClick={handleCompanyClick}>
-                {company}
-              </h4>
-              <p className="mb-3 m-0">{technologies}</p>
-              <ul className="space-y-1 text-sm md:text-base text-[0.75rem] font-roboto">
-                {achievements.map((achievement, i) => (
-                  <li key={i}>- {achievement}</li>
-                ))}
-              </ul>
+              {cardContent}
             </div>
           </div>
-
-          <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-            <div
-              className={cn(
-                `bg-${color}-500 rounded-full w-12 h-12 flex items-center justify-center z-10`,
-                hasAnimated && "animate-icon-pop",
-              )}
-            >
+          <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center my-2 md:my-0">
+            <div className={cn(
+              "rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center z-10",
+              color === "gray" ? "bg-gray-500" : `bg-${color}-500`,
+              hasAnimated && "animate-icon-pop"
+            )}>
               {isEducation ? (
-                <BsBuilding className="w-6 h-6 text-white" />
+                <BsBuilding className="w-4 h-4 md:w-6 md:h-6 text-white" />
               ) : (
-                <Briefcase className="w-6 h-6 text-white" />
+                <Briefcase className="w-4 h-4 md:w-6 md:h-6 text-white" />
               )}
             </div>
           </div>
 
-          <div
-            className={cn(
-              "w-full md:w-6/12 md:pl-8 order-2 md:order-2 flex items-center",
-              hasAnimated && "animate-fade-in",
-            )}
-          >
-            <div className="text-white font-medium">{period}</div>
+          <div className={cn(
+            "w-full md:w-6/12 px-4 md:pl-8 order-1 md:order-2 text-center md:text-left mb-2 md:mb-0",
+            hasAnimated && "animate-fade-in"
+          )}>
+            <div className="text-white font-medium text-sm md:text-base">{period}</div>
           </div>
         </>
       ) : (
         <>
-          <div
-            className={cn(
-              "w-full md:w-6/12 md:pr-8 order-2 md:order-1 flex items-center justify-end",
-              hasAnimated && "animate-fade-in",
-            )}
-          >
-            <div className="text-white font-medium">{period}</div>
+          <div className={cn(
+            "w-full md:w-6/12 px-4 md:pr-8 order-1 md:order-1 text-center md:text-right mb-2 md:mb-0",
+            hasAnimated && "animate-fade-in"
+          )}>
+            <div className="text-white font-medium text-sm md:text-base">{period}</div>
           </div>
 
-          <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-            <div
-              className={cn(
-                `bg-${color}-500 rounded-full w-12 h-12 flex items-center justify-center z-10`,
-                hasAnimated && "animate-icon-pop",
-              )}
-            >
+          <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center my-2 md:my-0">
+            <div className={cn(
+              "rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center z-10",
+              color === "gray" ? "bg-gray-500" : `bg-${color}-500`,
+              hasAnimated && "animate-icon-pop"
+            )}>
               {isEducation ? (
-                <BsBuilding className="w-6 h-6 text-white" />
+                <BsBuilding className="w-4 h-4 md:w-6 md:h-6 text-white" />
               ) : (
-                <Briefcase className="w-6 h-6 text-white" />
+                <Briefcase className="w-4 h-4 md:w-6 md:h-6 text-white" />
               )}
             </div>
           </div>
 
-          <div
-            className={cn(
-              "w-full md:w-6/12 md:pl-8 order-1 md:order-2 min-w-[250px]",
-              hasAnimated && "animate-card-appear-right",
-            )}
-          >
-            <div
-              className={
-                color === "gray"
-                  ? "bg-gray-100 text-black rounded-lg p-4 shadow-lg"
-                  : `bg-${color}-500 rounded-lg p-4 shadow-lg`
-              }
-            >
-              <h3 className="text-xl font-bold mb-1 m-0">{position} 🚀</h3>
-              <h4 className={cn("text-lg mb-3 m-0 underline-dashed", hasAnimated && "animate-fade-in")} onClick={handleCompanyClick}>
-                {company}
-              </h4>
-              <p className="mb-3 m-0">{technologies}</p>
-              <ul className="space-y-1 text-sm md:text-base text-[0.75rem] font-roboto">
-                {achievements.map((achievement, i) => (
-                  <li key={i}>- {achievement}</li>
-                ))}
-              </ul>
+          <div className={cn(
+            "w-full md:w-6/12 px-4 md:pl-8 order-2 md:order-2",
+            hasAnimated && "animate-card-appear-right"
+          )}>
+            <div className={color === "gray" ? "bg-gray-100 text-black rounded-lg p-4 shadow-lg" : `${getColorClass(color)} rounded-lg p-4 shadow-lg`}>
+              {cardContent}
             </div>
           </div>
         </>
@@ -333,42 +330,39 @@ export default function WorkExperiencePage() {
     <MainLayout>
       <div className="min-h-screen bg-black text-white py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto px-4">
-        <motion.h1 className=" text-6xl font-bold mb-12 text-red-600 md:text-4xl text-center relative mt-24"
-        initial={{ x: -100 }}
-        animate={{ x: 0 }}
-        transition={{ type: "spring", stiffness: 100 }}>
+        <motion.h1 className="text-4xl md:text-6xl font-bold mb-16 md:mb-12 text-red-600 text-center relative mt-16 md:mt-20 z-10"
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ type: "spring", stiffness: 100 }}>
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 
             -translate-y-1/2 w-full text-center bg-black h-8">Work Experience</div>
         </motion.h1>
-          {/* <h1 className=" text-6xl font-bold mb-12 text-red-600 md:text-4xl text-center relative mt-24">
-            
-          </h1> */}
 
-          <div className="relative" ref={timelineRef.ref}>
-            <div className="h-16"></div>
-            
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-white origin-top"
-              style={{
-                height: timelineHeight,
-                animation: timelineRef.isIntersecting ? 'grow-line 1.5s ease-out forwards' : 'none',
-                top: "2rem"
-              }}>
-            </div>
+        <div className="relative" ref={timelineRef.ref}>
+          <div className="h-8 md:h-16"></div>
+          
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-white origin-top"
+            style={{
+              height: timelineHeight,
+              animation: timelineRef.isIntersecting ? 'grow-line 1.5s ease-out forwards' : 'none',
+              top: "2rem"
+            }}>
+          </div>
 
-            <div className="space-y-16 md:space-y-24 mt-16" ref={timelineItemsContainerRef}>
-              {experiences.map((experience, index) => (
-                <ExperienceItem
-                  key={`${experience.company}-${index}`}
-                  {...experience}
-                  index={index}
-                />
-              ))}
-            </div>
+          <div className="space-y-16 md:space-y-24 mt-8 md:mt-16" ref={timelineItemsContainerRef}>
+            {experiences.map((experience, index) => (
+              <ExperienceItem
+                key={`${experience.company}-${index}`}
+                {...experience}
+                index={index}
+              />
+            ))}
+          </div>
 
             {/* Add a spacer div between timeline items and birth info */}
             <div className="h-16"></div>
 
-            <div ref={birthInfoRef} className="flex justify-center mt-4 mb-8">
+            <div ref={birthInfoRef} className="flex justify-center mt-4 mb-8 relative z-10">
               <div className="bg-gray-700 p-4 rounded-lg text-center max-w-xs">
                 <p className="text-white">Born: 13 January 1998 in Patna</p>
               </div>
