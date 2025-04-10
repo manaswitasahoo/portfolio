@@ -16,8 +16,8 @@ const facts = [
   },
   {
     icon: <FaGlobe />,
-    title: "Truly Desi",
-    text: "Studied at 9 schools before college"
+    title: "Nomadic Life",
+    text: "Studied at 9 schools before college. Dad was in LIC, retired in 2021 as an Executive Director. "
   },
   {
     icon: <FaHandsHelping />,
@@ -27,7 +27,7 @@ const facts = [
   {
     icon: <FaFlag/>,
     title: "French",
-    text: "Runner up in the National French Spelling Bee."
+    text: "Runner up in the National French Spelling Bee. Living in Mauritius helped."
   },
   {
     icon: <FaBrain />,
@@ -35,24 +35,9 @@ const facts = [
     text: "Avid Quizzer. Runner up in the Hindu Quiz."
   },
   {
-    icon: <FaCamera />,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-ball-tennis"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M6 5.3a9 9 0 0 1 0 13.4" /><path d="M18 5.3a9 9 0 0 0 0 13.4" /></svg>,
     title: "Tennis",
-    text: "District level Tennis player, favouring clay courts but a die hard fan of Federer."
-  }
-];
-
-const codingStats = [
-  {
-    platform: "LeetCode",
-    icon: <SiLeetcode />,
-    problems: 300,
-    ranking: "Top 5%"
-  },
-  {
-    platform: "CodeChef",
-    icon: <SiCodechef />,
-    rating: 1800,
-    contests: 45
+    text: "District level Tennis player, favouring clay courts & a die hard fan of Federer."
   }
 ];
 
@@ -185,10 +170,11 @@ export default function AboutMe() {
                   className="overflow-hidden"
                   style={{ position: 'relative' }}
                 >
-                  <div 
-                    className="elfsight-app-90c0f33d-2357-415f-88f2-b9c53882d3be" 
-                    data-elfsight-app-lazy
-                    style={{ height: '100%', minHeight: '300px' }}
+                  <iframe 
+                    src="https://embedsocial.com/api/pro_hashtag/0a44997a7a34e59968acb5e8655e7f0ff024b2e6" 
+                    width="100%" 
+                    height="100%" 
+                    className="rounded-lg"
                   />
                 </motion.div>
                 <div 
