@@ -78,44 +78,64 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
     }
   };
 
+  // Update the getColorClass function for solid colors
   const getColorClass = (color: AllowedColor) => {
     const colorMap = {
       red: 'bg-red-500',
       blue: 'bg-blue-500',
       green: 'bg-green-500',
-      yellow: 'bg-yellow-500',
+      yellow: 'bg-amber-400',
       purple: 'bg-purple-500',
       pink: 'bg-pink-500',
       indigo: 'bg-indigo-500',
-      gray: 'bg-gray-100 text-black',
+      gray: 'bg-gray-100 text-gray-900',
     };
     return colorMap[color];
   };
-
-  // Update the cardContent section in ExperienceItem
+  
+  // Update the cardContent section with improved hierarchy
   const cardContent = (
-      <div ref={contentRef}>
-        <h3 className="text-lg md:text-xl font-bold mb-1">{position}</h3>
-        <h4 className={cn("text-base md:text-lg mb-3 underline-dashed cursor-pointer flex items-center gap-2", 
-          hasAnimated && "animate-fade-in")} onClick={handleCompanyClick}>
-          {url && url !== '#' && <Favicon url={url} />}
-          {company}
-        </h4>
-        <p className="text-sm md:text-base mb-3">{skills}</p>
-        <div className={cn(
-          "transition-all duration-300",
-          !isExpanded && "max-h-[200px] overflow-hidden"
-        )}>
-          <ul className="space-y-1 text-xs md:text-sm">
-            {achievements.map((achievement, i) => (
-              <li key={i} className={!isExpanded ? "" : ""}>- {achievement}</li>
-            ))}
-          </ul>
+      <div ref={contentRef} className="space-y-4">
+        <div className="space-y-2">
+          <h3 className="text-xl md:text-2xl font-bold tracking-tight">{position}</h3>
+          <h4 className={cn(
+            "text-base md:text-lg flex items-center gap-2 opacity-90", 
+            hasAnimated && "animate-fade-in"
+          )} onClick={handleCompanyClick}>
+            {url && url !== '#' && <Favicon url={url} />}
+            <span className="underline decoration-dashed cursor-pointer">{company}</span>
+          </h4>
         </div>
+  
+        <div className="space-y-1">
+          <p className="text-[0.5rem] text-gray-700 uppercase tracking-wider opacity-75 font-medium">Skills</p>
+          <p className="text-xs md:text-[0.9rem] opacity-90 leading-relaxed">{skills}</p>
+        </div>
+
+        <div className="space-y-2">
+          <p className="text-[0.5rem] text-gray-700 uppercase tracking-wider opacity-75 font-medium">Key Achievements</p>
+          <div className={cn(
+            "transition-all duration-300",
+            !isExpanded && "max-h-[200px] overflow-hidden relative"
+          )}>
+            <ul className="text-xs md:text-[0.9rem] opacity-90">
+              {achievements.map((achievement, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="text-xs mt-1.5">•</span>
+                  <span className="leading-relaxed">{achievement}</span>
+                </li>
+              ))}
+            </ul>
+            {!isExpanded && showToggle && (
+              <div className="absolute bottom-0 left-0 right-0 h-16 " />
+            )}
+          </div>
+        </div>
+  
         {showToggle && (
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="w-full mt-3 py-2 text-sm bg-black/20 hover:bg-black/40 rounded-md transition-colors flex items-center justify-center gap-2 text-white/90 font-medium"
+            className="w-full py-2 text-sm bg-black/20 hover:bg-black/30 rounded-md transition-all flex items-center justify-center gap-2 font-medium backdrop-blur-sm"
           >
             {isExpanded ? 'Show Less' : 'Show More'} 
             <span className="text-xs">{isExpanded ? '▲' : '▼'}</span>
@@ -123,17 +143,24 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
         )}
       </div>
   );
-
+  
   return (
     <div ref={ref} className="relative flex flex-col md:flex-row items-center justify-center py-4 md:py-0">
       {isLeft ? (
         <>
-          <div className={cn("w-full md:w-6/12 px-4 md:pr-8 order-2 md:order-1", 
-            hasAnimated && "animate-card-appear-left")}>
-            <div className={`${getColorClass(color)} rounded-lg p-4 shadow-lg`}>
+          <div className={cn(
+            "w-full md:w-6/12 px-4 md:pr-8 order-2 md:order-1",
+            hasAnimated && "animate-card-appear-left"
+          )}>
+            <div className={cn(
+              getColorClass(color),
+              "rounded-xl p-6 shadow-lg backdrop-blur-sm border border-white/10",
+              "transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            )}>
               {cardContent}
             </div>
           </div>
+
           <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center my-2 md:my-0">
             <div className={cn(
               "rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center z-10",
@@ -195,7 +222,7 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
 export default function WorkExperiencePage() {
   const experiences = [
     {
-      position: "Founder, Director",
+      position: "Founder",
       company: "Sauci",
       period: "Nov 2024 - Current",
       skills: "Management, Operations, Procurement, Marketing, Hiring, Growth, P&L, Design",
