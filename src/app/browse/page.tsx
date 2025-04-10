@@ -115,17 +115,18 @@ export default function BrowsePage() {
     }
   }, []);
 
+  // Remove the auto-timer useEffect and replace with a callback
+  const handleLogoAnimationComplete = useCallback(() => {
+    setShowProfiles(true);
+  }, []);
+
   useEffect(() => {
-    handleLogoHeight(); // Call once after mount
-    const observer = new ResizeObserver(handleLogoHeight); // Add resize observer
+    handleLogoHeight();
+    const observer = new ResizeObserver(handleLogoHeight);
     observer.observe(logoRef.current!);
-    const timer = setTimeout(() => {
-      setShowProfiles(true);
-    }, 2000); // Adjust the duration as needed
 
     return () => {
-      clearTimeout(timer);
-      observer.disconnect(); // Cleanup observer on unmount
+      observer.disconnect();
     };
   }, [handleLogoHeight]);
 
@@ -134,14 +135,14 @@ export default function BrowsePage() {
       <AnimatePresence>
         {!showProfiles && (
           <motion.div
-            ref={logoRef} // Assign ref to get the DOM element
+            ref={logoRef}
             className='w-full'
             initial={{ opacity: 1, scale: 1 }}
             animate={{ opacity: showProfiles ? 0 : 1, scale: showProfiles ? 0.8 : 1 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
             style={{ height: `${logoHeight}px` }}
           >
-            <AnimatedLogo />
+            <AnimatedLogo onAnimationComplete={handleLogoAnimationComplete} />
           </motion.div>
         )}
       </AnimatePresence>

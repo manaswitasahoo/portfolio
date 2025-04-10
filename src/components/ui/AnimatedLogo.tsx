@@ -1,22 +1,21 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import netflixLogo from '@/assets/images/apoorv_logo3_cropped.png';
 
-export default function AnimatedLogo() {
+type AnimatedLogoProps = {
+  onAnimationComplete?: () => void;
+};
+
+export default function AnimatedLogo({ onAnimationComplete }: AnimatedLogoProps) {
   const router = useRouter();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [canPlay, setCanPlay] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout>();
 
   const startIntro = useCallback(async () => {
     if (!canPlay) {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-      
       setCanPlay(true);
       const audio = new Audio('/netflix-intro.mp3');
       audio.volume = 1.0;
@@ -25,30 +24,18 @@ export default function AnimatedLogo() {
       try {
         await audio.play();
         setTimeout(() => {
+          onAnimationComplete?.();
           router.push('/browse');
         }, 3000);
       } catch (error) {
         console.error("Audio playback failed:", error);
         setTimeout(() => {
+          onAnimationComplete?.();
           router.push('/browse');
         }, 3000);
       }
     }
-  }, [canPlay, router]);
-
-  useEffect(() => {
-    timeoutRef.current = setTimeout(() => {
-      if (!canPlay) {
-        startIntro();
-      }
-    }, 5000);
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [canPlay, startIntro]);
+  }, [canPlay, router, onAnimationComplete]);
 
   return (
     <div 
