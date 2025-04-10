@@ -2,7 +2,6 @@
 
 import { MainLayout } from '@/components/layout/MainLayout';
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaGraduationCap, FaStar } from 'react-icons/fa';
 import { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import { Briefcase } from 'lucide-react';
 import { BsBuilding } from 'react-icons/bs';
@@ -44,7 +43,7 @@ type ExperienceItemProps = {
   position: string;
   company: string;
   period: string;
-  technologies: string;
+  skills: string;
   achievements: string[];
   isLeft: boolean;
   color: AllowedColor;
@@ -53,7 +52,7 @@ type ExperienceItemProps = {
   isEducation?: boolean;
 };
 
-function ExperienceItem({ position, company, period, technologies, achievements, isLeft, color, index, url, isEducation }: ExperienceItemProps) {
+function ExperienceItem({ position, company, period, skills, achievements, isLeft, color, index, url, isEducation }: ExperienceItemProps) {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 })
   const [hasAnimated, setHasAnimated] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
@@ -96,20 +95,20 @@ function ExperienceItem({ position, company, period, technologies, achievements,
   // Update the cardContent section in ExperienceItem
   const cardContent = (
       <div ref={contentRef}>
-        <h3 className="text-lg md:text-xl font-bold mb-1">{position} 🚀</h3>
+        <h3 className="text-lg md:text-xl font-bold mb-1">{position}</h3>
         <h4 className={cn("text-base md:text-lg mb-3 underline-dashed cursor-pointer flex items-center gap-2", 
           hasAnimated && "animate-fade-in")} onClick={handleCompanyClick}>
           {url && url !== '#' && <Favicon url={url} />}
           {company}
         </h4>
-        <p className="text-sm md:text-base mb-3">{technologies}</p>
+        <p className="text-sm md:text-base mb-3">{skills}</p>
         <div className={cn(
           "transition-all duration-300",
           !isExpanded && "max-h-[200px] overflow-hidden"
         )}>
           <ul className="space-y-1 text-xs md:text-sm">
             {achievements.map((achievement, i) => (
-              <li key={i} className={!isExpanded ? "line-clamp-2" : ""}>- {achievement}</li>
+              <li key={i} className={!isExpanded ? "" : ""}>- {achievement}</li>
             ))}
           </ul>
         </div>
@@ -199,7 +198,7 @@ export default function WorkExperiencePage() {
       position: "Founder, Director",
       company: "Sauci",
       period: "Nov 2024 - Current",
-      technologies: "Marketing, Hiring, Growth, P&L, Design",
+      skills: "Management, Operations, Procurement, Marketing, Hiring, Growth, P&L, Design",
       achievements: [
         "Launched Sauci, a Cloud Kitchen specialising in Pastas & Sauces, in Nov 2024.",
         "Handled everything from recipe curation, design, packaging, marketing, hiring (multiple times), vendor selection all while being frugal with budget.",
@@ -215,7 +214,7 @@ export default function WorkExperiencePage() {
       position: "Product Manager",
       company: "Hypothesis by Only Much Louder (OML)",
       period: "Mar 2023 - Current",
-      technologies: "React, Context API, Twilio, Razorpay, AWS",
+      skills: "Product Management, Product Engineer, Sales (Pitches & Demos), Roadmap, Customer Success, LLMs",
       achievements: [
         "Scaled product from $0 to $160K ARR since GA/GTM in Q4FY24, managing sprints, budgets, and cross-functional teams.",
         "Negotiated 25% reduction in operational expenses through vendor contract optimization.",
@@ -237,7 +236,7 @@ export default function WorkExperiencePage() {
       position: "Associate Product Manager - SuperStore",
       company: "Meesho",
       period: "Aug 2022 - Feb 2023",
-      technologies: "Ruby on Rails, React, Node.js, AWS, PostgreSQL",
+      skills: "Product Management, User Research, Data Analytics, Cross Functional Teams, Usability Testing, Ground Visits, Competitive Benchmarking",
       achievements: [
         "Owned Product Quality in Retention & Discovery charter. Drove significant impact on key metrics, nearly doubling M1 Retention and increasing Add To Cart / DAU by 12-15% overall",
         "Boosted Add To Cart/DAU ratio by 16% through category-specific Ratings & Reviews and 15% via a 'Basket Initiator' widget for highly discounted products, driving strategic user engagement and conversion.",
@@ -253,7 +252,7 @@ export default function WorkExperiencePage() {
       position: "Associate Product Manager - Returns",
       company: "Meesho",
       period: "Oct 2021 - Aug 2021",
-      technologies: "Vue.js, Vuex, Tailwind CSS, Firebase",
+      skills: "User Research, Product Roadmap, Vendor Management, Product Analytics, Cross Functional Teams, Usability Testing, SQL",
       achievements: [
         "Owned supplier side of Returns & Product Quality Dashboard for suppliers. ",
         "Led cross-functional projects to tackle cross-subsidization, cutting seller return penalties by Rs 10-39 and driving a 0.59% platform-wide price reduction.",
@@ -271,9 +270,12 @@ export default function WorkExperiencePage() {
       position: "Associate Product Manager | Product Analyst",
       company: "Cognizer AI",
       period: "Jan 2021 - Sep 2021",
-      technologies: "Vue.js, Vuex, Tailwind CSS, Firebase",
+      skills: "Product Analytics, Product Engineer, Wireframing, Product Roadmap",
       achievements: [
-        ""
+        "Collaborated with executive leadership to define product roadmaps, draft PRDs, and develop MVP features for successful beta and pre-Series A launches along with 2 global clients.",
+"Led end-to-end Stripe integration for platform monetization, from scoping to wireframing to technical implementation, driving 60% conversion of waitlist users to paid subscriptions.",
+"Established in-product analytics. Set up Amplitude, and Metabase and worked on Product Analytics along with Observability.",
+"Part of the 5-member research team working on Knowledge Graphs, Semantic Search and Conversational AI."
       ],
       isLeft: false,
       color: "indigo" as AllowedColor,
@@ -284,21 +286,24 @@ export default function WorkExperiencePage() {
       position: "Software Engineer | Associate Software Engineer",
       company: "Cognizer AI",
       period: "Jan 2019 - Jan 2021",
-      technologies: "Vue.js, Vuex, Tailwind CSS, Firebase",
+      skills: "Java, Python, MongoDB, ElasticSearch, SQL, Redis, Apache Kafka, Git, ",
       achievements: [
-       
+        "Migrated entire infra to Java Vertx, an asynchronous framework, capable of ingesting & enriching upto ~2TB files a day. This improved RPS by 45%, reduced latency by 40%, and cut resource costs by 30-50%.",
+        "Part of 2 member team which built and maintained event-driven, real-time integrations with Google Drive, Google Docs, Google Calendar, Google Contacts, OneDrive, SharePoint, DropBox, Box.",
+        "Awarded for my performance and extraordinary commitment to the job by single-handedly completing Platform integration with Chrome extension, communicating to multiple teams be it Frontend, WebUI, Inference AI, Product or within Platform.",
+        "Designed the entire Cassandra Database Schema with a focus on multi-tenancy and scalability and taking the next 6 months of requirement from the roadmap into account."
       ],
       isLeft: true,
       color: "green" as AllowedColor,
-      url: "https://www.meesho.com/",
+      url: "https://www.cognizer.ai/",
       isEducation: false,
     },
     {
       position: "Vellore Institute of Technology",
       company: "VIT Vellore",
       period: "May 2015 - May 2019",
-      technologies: "👀Computer Science Education",
-      achievements: ["CGPA 8.50"],
+      skills: "Computer Science Education, NGO, Hackathons, Entrepreneurship Cell",
+      achievements: ["CGPA - 8.50","Part of the Entrepreneurship Cell", "Taught underprivileged girls as part of an NGO called Anokha"],
       isLeft: false,
       color: "gray" as AllowedColor,
       url: "https://vit.ac.in/",
