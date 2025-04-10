@@ -13,6 +13,4 @@ Feel free to connect with me on:
 [Email](mailto:apoorvsinha1397@gmail.com)  <br/>
 I'm always open to discussing new opportunities and collaborating on exciting projects.
 
-This portfolio is inspired by the design and structure found on [Sumanth Samala's website](https://sumanthsamala.com/).
-
 
