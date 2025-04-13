@@ -15,13 +15,14 @@ import {
   SiJavascript, SiTensorflow,
   SiPytorch, SiScikitlearn,
   SiHuggingface, SiKeras,
-  SiGooglecolab
+  SiGooglecolab, SiAnthropic,SiGooglechrome
 } from 'react-icons/si';
 
 // Update the techIcons mapping
 const techIcons: { [key: string]: JSX.Element } = {
   'React': <SiReact className="text-gray-400 w-4 h-4" />,
   'Next.js': <SiNextdotjs className="text-gray-400 w-4 h-4" />,
+  'NextJS': <SiNextdotjs className="text-gray-400 w-4 h-4" />,
   'Python': <SiPython className="text-gray-400 w-4 h-4" />,
   'Tailwind': <SiTailwindcss className="text-gray-400 w-4 h-4" />,
   'TypeScript': <SiTypescript className="text-gray-400 w-4 h-4" />,
@@ -43,6 +44,8 @@ const techIcons: { [key: string]: JSX.Element } = {
   'Google Colab': <SiGooglecolab className="text-gray-400 w-4 h-4" />,
   'Supabase': <SiSupabase className="text-gray-400 w-4 h-4" />,
   'Gemini': <SiGooglegemini className="text-gray-400 w-4 h-4" />,
+  'Claude 3.5': <SiAnthropic className="text-gray-400 w-4 h-4" />,
+  'Chrome Extension': <SiGooglechrome className="text-gray-400 w-4 h-4" />,
 };
 
 // Update ProjectProps type
@@ -60,6 +63,14 @@ type ProjectProps = {
 // Update projects array with status
 const projects: ProjectProps[] = [
   {
+    title: "Portfolio",
+    description: "Netflix inspired portfolio to showcase myself and my work. The site you're currently on!",
+    technologies: ["NextJS", "Tailwind","Claude 3.5","Trae AI"],
+    imageUrl: "apoorv_logo3_cropped.png",
+    githubUrl: "https://github.com/apo1397/portfolio",
+    status: 'Completed'
+  },
+  {
     title: "Link2Reel",
     description: "AI-powered tool that transforms any public URL into engaging TikTok-style reels by extracting USPs and generating scripts automatically.",
     technologies: ["Python", "Void(Open Source Cursor)", "Gemini", "React","Supabase"],
@@ -68,6 +79,7 @@ const projects: ProjectProps[] = [
     featured: true,
     status: 'WIP'
   },
+  
   {
     title: "Policy Insights",
     description: "Chrome Extension that detects policy pages and provides insights for ethical decision-making.",
