@@ -12,7 +12,7 @@ const facts = [
   {
     icon: <FaProductHunt />,
     title: "Product Journey",
-    text: "Switched to Product Management from Engineering, without an MBA"
+    text: "Switched to Product Management from Engineering, without an MBA."
   },
   {
     icon: <FaGlobe />,

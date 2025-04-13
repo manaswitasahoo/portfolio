@@ -4,7 +4,8 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-// Update the imports at the top
+import { cn } from '@/lib/utils';
+
 import { 
   SiSupabase,SiGooglegemini,SiReact, SiNextdotjs, SiPython, 
   SiTailwindcss, SiTypescript,
@@ -44,6 +45,7 @@ const techIcons: { [key: string]: JSX.Element } = {
   'Gemini': <SiGooglegemini className="text-gray-400 w-4 h-4" />,
 };
 
+// Update ProjectProps type
 type ProjectProps = {
   title: string;
   description: string;
@@ -52,30 +54,44 @@ type ProjectProps = {
   githubUrl?: string;
   liveUrl?: string;
   featured?: boolean;
+  status: 'WIP' | 'Completed' | 'Abandoned';  // Add this line
 };
 
+// Update projects array with status
 const projects: ProjectProps[] = [
-  {
-    title: "What2Make",
-    description: "A collaborative meal planning app that helps roommates decide what to cook. Simplifies the daily decision-making process for lunch and dinner.",
-    technologies: ["Cursor","React", "Python", "MongoDB", "Tailwind"],
-    imageUrl: "/images/w2m_notblurred.svg",
-    githubUrl: "https://github.com/apo1397/what2make"
-  },
   {
     title: "Link2Reel",
     description: "AI-powered tool that transforms any public URL into engaging TikTok-style reels by extracting USPs and generating scripts automatically.",
     technologies: ["Python", "Void(Open Source Cursor)", "Gemini", "React","Supabase"],
     imageUrl: "/images/link2reel.svg",
     githubUrl: "https://github.com/apo1397/link2reel",
-    featured: true
+    featured: true,
+    status: 'WIP'
+  },
+  {
+    title: "Policy Insights",
+    description: "Chrome Extension that detects policy pages and provides insights for ethical decision-making.",
+    technologies: ["Chrome Extension","Python", "Void(Open Source Cursor)", "Gemini","Supabase"],
+    imageUrl: "/images/policy_insights.png",
+    githubUrl: "https://github.com/apo1397/policy-checker",
+    featured: false,
+    status: 'WIP'
   },
   {
     title: "Linktree for Sauci",
-    description: "A Linktree style landing page for my cloud kitchen - Sauci.",
+    description: "A Linktree style landing page for my cloud kitchen - Sauci. Allowed users to order as well share feedback and connect with the brand.",
     technologies: ["Cursor","HTML", "CSS", "JavaScript"],
     imageUrl: "/images/sauci_header.png",
     githubUrl: "https://github.com/apo1397/sauci",
+    status: 'Completed'
+  },
+  {
+    title: "What2Make",
+    description: "A collaborative meal planning app that helps roommates decide what to cook. Simplifies the daily decision-making process for lunch and dinner.",
+    technologies: ["Cursor","React", "Python", "MongoDB", "Tailwind"],
+    imageUrl: "/images/w2m_notblurred.svg",
+    githubUrl: "https://github.com/apo1397/what2make",
+    status: 'Abandoned'
   }
 ];
 
@@ -139,8 +155,19 @@ export default function ProjectsPage() {
                         />
                       </div>
                     </div>
+
                     <div className="p-6 md:w-2/5">
-                      <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
+                      <div className="flex items-center gap-3 mb-3">
+                        <h3 className="text-2xl font-bold">{project.title}</h3>
+                        <span className={cn(
+                          "text-xs px-2 py-1 rounded-full font-medium",
+                          project.status === 'WIP' && "bg-yellow-500/20 text-yellow-300",
+                          project.status === 'Completed' && "bg-green-500/20 text-green-300",
+                          project.status === 'Abandoned' && "bg-red-500/20 text-red-300"
+                        )}>
+                          {project.status}
+                        </span>
+                      </div>
                       <p className="text-gray-300 mb-4">{project.description}</p>
                       <div className="flex flex-wrap gap-2 mb-6">
                         {project.technologies.map((tech, techIndex) => (
@@ -220,7 +247,17 @@ export default function ProjectsPage() {
                 </div>
                 
                 <div className="p-5">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <div className="flex items-center gap-2 mb-2">
+    <h3 className="text-xl font-bold">{project.title}</h3>
+    <span className={cn(
+      "text-xs px-2 py-0.5 rounded-full font-medium",
+      project.status === 'WIP' && "bg-yellow-500/20 text-yellow-300",
+      project.status === 'Completed' && "bg-green-500/20 text-green-300",
+      project.status === 'Abandoned' && "bg-red-500/20 text-red-300"
+    )}>
+      {project.status}
+    </span>
+  </div>
                   <p className="text-gray-300 text-sm mb-4 h-24 overflow-y-auto">
                     {project.description}
                   </p>

@@ -101,9 +101,11 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
           <h4 className={cn(
             "text-base md:text-lg flex items-center gap-2 opacity-90", 
             hasAnimated && "animate-fade-in"
-          )} onClick={handleCompanyClick}>
+          )} onClick={url && url !== '#' ? handleCompanyClick : undefined}>
             {url && url !== '#' && <Favicon url={url} />}
-            <span className="underline decoration-dashed cursor-pointer">{company}</span>
+            <span className={url && url !== '#' ? "underline decoration-dashed cursor-pointer" : ""}>
+              {company}
+            </span>
           </h4>
         </div>
   
@@ -224,17 +226,17 @@ export default function WorkExperiencePage() {
     {
       position: "Founder",
       company: "Sauci",
-      period: "Nov 2024 - Current",
+      period: "Sep 2024 - Mar 2025",
       skills: "Management, Operations, Procurement, Marketing, Hiring, Growth, P&L, Design",
       achievements: [
-        "Launched Sauci, a Cloud Kitchen specialising in Pastas & Sauces, in Nov 2024.",
+        "Launched my side hustle, Sauci, a Cloud Kitchen specialising in Pastas & Sauces, in Sep 2024.",
         "Handled everything from recipe curation, design, packaging, marketing, hiring (multiple times), vendor selection all while being frugal with budget.",
-        "Operates only from 7pm - 1130pm.",
         "4.5 Stars & 4.2 Stars on Swiggy & Zomato respectively.",
+        "Had to hand it over to another partner due to lack of focus."
       ],
       isLeft: false,
       color: "yellow" as AllowedColor,
-      url: "https://links.sauci.in",
+      url: "#",
       isEducation: false,
     },
     {
