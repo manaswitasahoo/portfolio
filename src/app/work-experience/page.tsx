@@ -194,9 +194,18 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
           </div>
 
           <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center my-2 md:my-0">
-            <div className={cn(
+          <div className={cn(
               "rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center z-10",
-              color === "gray" ? "bg-gray-500" : `bg-${color}-500`,
+              {
+                'bg-gray-500': color === 'gray',
+                'bg-red-500': color === 'red',
+                'bg-blue-500': color === 'blue',
+                'bg-green-500': color === 'green',
+                'bg-amber-400': color === 'yellow',
+                'bg-purple-500': color === 'purple',
+                'bg-pink-500': color === 'pink',
+                'bg-indigo-500': color === 'indigo',
+              },
               hasAnimated && "animate-icon-pop"
             )}>
               {isEducation ? (
