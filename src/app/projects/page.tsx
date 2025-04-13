@@ -57,7 +57,7 @@ type ProjectProps = {
   githubUrl?: string;
   liveUrl?: string;
   featured?: boolean;
-  status: 'WIP' | 'Completed' | 'Abandoned';  // Add this line
+  status: 'WIP' | 'Completed' | 'Abandoned'; 
 };
 
 // Update projects array with status
@@ -67,7 +67,6 @@ const projects: ProjectProps[] = [
     description: "Netflix inspired portfolio to showcase myself and my work. The site you're currently on!",
     technologies: ["NextJS", "Tailwind","Claude 3.5","Trae AI"],
     imageUrl: "apoorv_logo3_cropped.png",
-    githubUrl: "https://github.com/apo1397/portfolio",
     status: 'Completed'
   },
   {
@@ -270,7 +269,7 @@ export default function ProjectsPage() {
       {project.status}
     </span>
   </div>
-                  <p className="text-gray-300 text-sm mb-4 h-24 overflow-y-auto">
+                  <p className="text-gray-300 text-sm mb-4 h-16 overflow-y-auto">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
