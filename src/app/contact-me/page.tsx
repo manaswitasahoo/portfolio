@@ -3,6 +3,7 @@
 import { MainLayout } from '@/components/layout/MainLayout';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { track } from '@vercel/analytics';
 
 export default function ContactMePage() {
   return (
@@ -43,9 +44,22 @@ export default function ContactMePage() {
 
 // Modified Button Component (icon on top)
 const Button = ({ href, icon, title }: { href: string; icon: JSX.Element; title: string }) => {
+  const handleClick = () => {
+    track('contact_click', {
+      method: title,
+      timestamp: new Date().toISOString()
+    });
+  };
+
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center w-full px-6 py-4 border border-gray-400 text-gray-400 rounded-md hover:bg-red-600 hover:text-white hover:border-red-600 transition-colors">
-      <span className="text-xl">{icon}</span> {/* Increased icon size */}
+    <a 
+      href={href} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      onClick={handleClick}
+      className="flex flex-col items-center justify-center w-full px-6 py-4 border border-gray-400 text-gray-400 rounded-md hover:bg-red-600 hover:text-white hover:border-red-600 transition-colors"
+    >
+      <span className="text-xl">{icon}</span>
       <p className="mt-2">{title}</p>
     </a>
   );

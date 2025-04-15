@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ClientBody from "./ClientBody";
 import { Poppins } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react';
 
 const poppins = Poppins({ 
   subsets: ['latin'],
@@ -56,12 +57,13 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en">
       <body>
-        <ClientBody>{children}</ClientBody>
+        {children}
+        <Analytics />
       </body>
     </html>
   );

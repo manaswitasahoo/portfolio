@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import AnimatedLogo from '../../components/ui/AnimatedLogo';
 import { useEffect, useState, useRef,useCallback } from 'react';
 import { Dialog } from '@headlessui/react';
+import { track } from '@vercel/analytics';
 
 type ProfileProps = {
   name: string;
@@ -130,6 +131,13 @@ export default function BrowsePage() {
     };
   }, [handleLogoHeight]);
 
+  const handleProfileClick = (profileName: string) => {
+    track('profile_click', { 
+      profile: profileName,
+      timestamp: new Date().toISOString()
+    });
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black" style={{ overflow: 'hidden' }}>
       <AnimatePresence>
@@ -171,6 +179,7 @@ export default function BrowsePage() {
                   href={profile.href} 
                   key={profile.name}
                   onClick={(e) => {
+                    handleProfileClick(profile.name);
                     if (profile.name === "Apoorv") {
                       e.preventDefault();
                       setIsLoginOpen(true);

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { FaPlay, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { track } from '@vercel/analytics';
 
 type ProfileBannerProps = {
   className?: string;
@@ -22,6 +23,13 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
     borderRadius: '1rem',
     marginLeft: '1rem',
     width: '90%'
+  };
+
+  const handleLinkClick = (linkType: string) => {
+    track('profile_link_click', {
+      type: linkType,
+      timestamp: new Date().toISOString()
+    });
   };
 
   return (
@@ -106,7 +114,8 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
         >
           <a 
             href="https://drive.google.com/file/d/17GUuoqCh6pLtPoolsMSfhglm73itkC3I/view?usp=sharing" 
-            target="_blank" 
+            target="_blank"
+            onClick={() => handleLinkClick('resume')}
             className="play-button flex items-center bg-white text-black py-3 px-6 rounded hover:bg-gray-200 transition-colors"
           >
             <FaPlay className="h-6 w-6 mr-2" />
@@ -117,7 +126,8 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           <a 
             href="https://www.linkedin.com/in/apoorv-abhishek-a9a083144/" 
             target="_blank" 
-            rel="noopener noreferrer" 
+            rel="noopener noreferrer"
+            onClick={() => handleLinkClick('linkedin')}
             className="more-info-button flex items-center bg-gray-600/70 text-white py-3 px-6 rounded hover:bg-gray-500/70 transition-colors"
           >
             <FaLinkedin className="h-6 w-6 mr-2" />
@@ -128,7 +138,8 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           <a 
             href="https://github.com/apo1397" 
             target="_blank" 
-            rel="noopener noreferrer" 
+            rel="noopener noreferrer"
+            onClick={() => handleLinkClick('github')}
             className="github-button flex items-center bg-gray-600/70 text-white py-3 px-6 rounded hover:bg-gray-500/70 transition-colors"
           >
             <FaGithub className="h-6 w-6 mr-2" />
