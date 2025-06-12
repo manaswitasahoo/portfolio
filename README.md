@@ -2,7 +2,7 @@
 
 This is the online portfolio of Apoorv Abhishek, showcasing projects and experiences and hoping a recruiter sees this!
 
-99% of the code is written by AI and totally free.
+99% of the code is written by AI and didn't cost a cent.
 These are the tools used:
 - [Void](https://github.com/voideditor/void) an Open Source AI Code Editor with Gemini 1.5 which provides free API calls.
 - [Trae](https://trae.ai), a Free Open Source AI Code Editor which is currently providing free access to models like GPT 4o, Claude 3.5, Claude 3.7, DeepSeek V3
