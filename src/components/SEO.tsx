@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 export default function SEO({ title, description, canonical, pagePath, keywords, imageUrl }: SEOProps) {
-  const siteUrl = 'https://portfolio-git-main-apoorvsinha1397-gmailcoms-projects.vercel.app/';
+  const siteUrl = 'https://apo1397.in/';
   const fullUrl = pagePath ? `${siteUrl}${pagePath}` : siteUrl;
   const defaultImage = `${siteUrl}/apoorv_logo3_cropped.png`;
 
