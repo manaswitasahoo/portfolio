@@ -113,7 +113,7 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <a 
-            href="https://drive.google.com/file/d/17GUuoqCh6pLtPoolsMSfhglm73itkC3I/view?usp=sharing" 
+            href="https://drive.google.com/file/d/1c0bSDZm5UUsnQZkzwb0DhKN_etoD2e_T/view?usp=sharing" 
             target="_blank"
             onClick={() => handleLinkClick('resume')}
             className="play-button flex items-center bg-white text-black py-3 px-6 rounded hover:bg-gray-200 transition-colors"
