@@ -63,6 +63,15 @@ type ProjectProps = {
 // Update projects array with status
 const projects: ProjectProps[] = [
   {
+    title: "MCP Server for Influencer Discovery",
+    description: "Discover perfect influencers instantly with my MCP Server - just specify your requirements and get AI-powered matches delivered straight to your platform.",
+    technologies: ["Python", "Gemini","Model Context Protocol","Modash"],
+    imageUrl: "/images/mcp_logo.jpg",
+    githubUrl:"https://github.com/apo1397/mcp-server-influencer-search",
+    status: 'Completed',
+    featured: true
+  },
+  {
     title: "Portfolio",
     description: "Netflix inspired portfolio to showcase myself and my work. The site you're currently on!",
     technologies: ["NextJS", "Tailwind","Claude 3.5","Trae AI"],
@@ -75,7 +84,7 @@ const projects: ProjectProps[] = [
     technologies: ["Python", "Void(Open Source Cursor)", "Gemini", "React","Supabase"],
     imageUrl: "/images/link2reel.svg",
     githubUrl: "https://github.com/apo1397/link2reel",
-    featured: true,
+    // featured: true,
     status: 'WIP'
   },
   
