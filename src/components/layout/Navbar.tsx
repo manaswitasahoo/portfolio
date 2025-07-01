@@ -90,6 +90,7 @@ const navbarLinks = [
   { href: "/skills", text: "Skills" },
   { href: "/projects", text: "Projects" },
   { href: "/about-me", text: "About Me" },
+  { href: "/blogs", text: "Blogs" }, // Added Blogs link
   { href: "/contact-me", text: "Hire Me" }
   
 ]
