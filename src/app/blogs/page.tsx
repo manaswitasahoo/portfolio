@@ -12,7 +12,7 @@ const blogPosts: BlogPost[] = [
     title: "Unlocking Seamless AI Integration: A Deep Dive into the Model Context Protocol (MCP)",
     subheading: "Discover how the Model Context Protocol is revolutionizing the way we build and interact with AI models, making them more accessible and powerful than ever before.",
     thumbnail: "/images/mcp_logo.jpg",
-    publishDate: "July 1, 2024",
+    publishDate: "July 2, 2024",
     slug: "model-context-protocol"
   }
   // {
