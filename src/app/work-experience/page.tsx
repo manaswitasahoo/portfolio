@@ -232,22 +232,7 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
 
 export default function WorkExperiencePage() {
   const experiences = [
-    {
-      position: "Founder",
-      company: "Sauci",
-      period: "Sep 2024 - Mar 2025",
-      skills: "Management, Operations, Procurement, Marketing, Hiring, Growth, P&L, Design",
-      achievements: [
-        "Launched my side hustle, Sauci, a Cloud Kitchen specialising in Pastas & Sauces, in Sep 2024.",
-        "Handled everything from recipe curation, design, packaging, marketing, hiring (multiple times), vendor selection all while being frugal with budget.",
-        "4.5 Stars & 4.2 Stars on Swiggy & Zomato respectively.",
-        "Had to hand it over to another partner due to lack of focus."
-      ],
-      isLeft: false,
-      color: "yellow" as AllowedColor,
-      url: "#",
-      isEducation: false,
-    },
+    
     {
       position: "Product Manager",
       company: "Hypothesis by Only Much Louder (OML)",
@@ -255,8 +240,8 @@ export default function WorkExperiencePage() {
       skills: "Product Management, Product Engineer, Sales (Pitches & Demos), Roadmap, Customer Success, LLMs",
       achievements: [
         "Scaled product from $0 to $160K ARR since GA/GTM in Q4FY24, managing sprints, budgets, and cross-functional teams.",
-        "Negotiated 25% reduction in operational expenses through vendor contract optimization.",
-        "Secured additional funding by presenting strategic initiatives to the OML board.",
+        "Built backend and rule-based prompt flows for LLM-powered discovery search (40+ filters), improving shortlisting conversion and speed by ~30% (in beta); currently building the MCP server for scalable creator discovery.",
+        "Optimized Meta & YouTube API usage, reducing quota consumption from 90% to 10% by refactoring request flows and eliminating redundant authenticated calls.",
         "Led GDPR & ISO compliance across OML, ensuring EU market access.",
         "Conducted product demos via online sessions and offline expos, generating 40+ qualified leads.",
         "Enabled seamless client onboarding with training and WhatsApp support.",
@@ -265,9 +250,25 @@ export default function WorkExperiencePage() {
         "Created actionable Mixpanel/Metabase dashboards for data-driven decision-making.",
         "Established creator outreach program (hired 3 executives) for clients like Flipkart & Meesho."
       ],
-      isLeft: true,
+      isLeft: false,
       color: "blue" as AllowedColor,
       url: "https://hyp.io",
+      isEducation: false,
+    },
+    {
+      position: "Founder",
+      company: "Sauci",
+      period: "Sep 2024 - May 2025",
+      skills: "Management, Operations, Procurement, Marketing, Hiring, Growth, P&L, Design",
+      achievements: [
+        "Launched my side hustle, Sauci, a Cloud Kitchen specialising in Pastas & Sauces, in Sep 2024.",
+        "Handled everything from recipe curation, design, packaging, marketing, hiring (multiple times), vendor selection all while being frugal with budget.",
+        "4.5 Stars & 4.2 Stars on Swiggy & Zomato respectively.",
+        "Had to hand it over to another partner due to lack of focus."
+      ],
+      isLeft: true,
+      color: "yellow" as AllowedColor,
+      url: "#",
       isEducation: false,
     },
     {
@@ -327,9 +328,9 @@ export default function WorkExperiencePage() {
       skills: "Java, Python, MongoDB, ElasticSearch, SQL, Redis, Apache Kafka, Git, ",
       achievements: [
         "Migrated entire infra to Java Vertx, an asynchronous framework, capable of ingesting & enriching upto ~2TB files a day. This improved RPS by 45%, reduced latency by 40%, and cut resource costs by 30-50%.",
-        "Part of 2 member team which built and maintained event-driven, real-time integrations with Google Drive, Google Docs, Google Calendar, Google Contacts, OneDrive, SharePoint, DropBox, Box.",
+        "Part of 2 member team which built and maintained event-driven, real-time integrations with APIs & SDKs from Google Drive, Google Docs, Google Calendar, Google Contacts, OneDrive, SharePoint, DropBox, Box.",
         "Awarded for my performance and extraordinary commitment to the job by single-handedly completing Platform integration with Chrome extension, communicating to multiple teams be it Frontend, WebUI, Inference AI, Product or within Platform.",
-        "Designed the entire Cassandra Database Schema with a focus on multi-tenancy and scalability and taking the next 6 months of requirement from the roadmap into account."
+        "Designed the entire MongoDB & Cassandra Database Schema with a focus on multi-tenancy and scalability and taking the next 6 months of requirement from the roadmap into account."
       ],
       isLeft: true,
       color: "green" as AllowedColor,
