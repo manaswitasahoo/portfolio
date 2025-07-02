@@ -12,17 +12,17 @@ const blogPosts: BlogPost[] = [
     title: "Unlocking Seamless AI Integration: A Deep Dive into the Model Context Protocol (MCP)",
     subheading: "Discover how the Model Context Protocol is revolutionizing the way we build and interact with AI models, making them more accessible and powerful than ever before.",
     thumbnail: "/images/mcp_logo.jpg",
-    publishDate: "July 26, 2024",
+    publishDate: "July 1, 2024",
     slug: "model-context-protocol"
-  },
-  {
-    id: '2',
-    title: "What's up with ONDC?",
-    subheading: "Has Open Network for Digital Commerce (ONDC) lived up to its hype?",
-    thumbnail: "/images/link2reel.svg",
-    publishDate: "July 15, 2024",
-    slug: "ondc-hype-or-not"
   }
+  // {
+  //   id: '2',
+  //   title: "What's up with ONDC?",
+  //   subheading: "Has Open Network for Digital Commerce (ONDC) lived up to its hype?",
+  //   thumbnail: "/images/link2reel.svg",
+  //   publishDate: "July 15, 2024",
+  //   slug: "ondc-hype-or-not"
+  // }
 ];
 
 export default function BlogsPage() {

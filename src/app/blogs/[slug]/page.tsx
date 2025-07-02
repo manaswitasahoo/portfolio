@@ -21,33 +21,35 @@ const blogPosts: Record<string, {
     title: "Unlocking Seamless AI Integration: A Deep Dive into the Model Context Protocol (MCP)",
     subheading: "Discover how the Model Context Protocol is revolutionizing the way we build and interact with AI models, making them more accessible and powerful than ever before.",
     thumbnail: "/images/mcp_logo.jpg",
-    publishDate: "July 26, 2024",
+    publishDate: "July 2, 2024",
     toc: [
       { title: "What is the Model Context Protocol?", id: "what-is-mcp" },
       { title: "The Problem with Current AI Integration", id: "problem" },
-      { title: "How MCP Provides a Solution", id: "solution" },
-      { title: "Getting Started with MCP", id: "getting-started" },
-      { title: "The Future of AI is Interoperable", id: "future" },
+      { title: "MCP Servers aren’t complicated", id: "easy" },
+      { title: "Getting Started with MCP", id: "getting-started" }
     ],
     content: `
-      <p>The world of Artificial Intelligence is expanding at an unprecedented rate. Yet, for all the advancements in model capabilities, a significant hurdle remains: the complexity of integration. Developers often face a steep learning curve and a fragmented ecosystem when trying to incorporate different AI models into their applications. This is where the <strong>Model Context Protocol (MCP)</strong> comes in.</p>
+      <p>If you’re anything like me, you’re always on the lookout for the next big thing in AI and automation. Recently, I stumbled upon <strong>MCP Servers</strong>, a trend that’s buzzing in the developer community. Naturally, I wanted to see if I could weave it into my own product, especially since I’d already built a feature that converts user requirements into smart filter combinations for influencer discovery.<br> My thought? Why not migrate this logic to an MCP Server and let it return influencers directly from our massive database, using nearly 40 different filters!</p>
+      <p>Here's a quick demo video of the MCP Server I created : <br> </p>
       <h3 id="what-is-mcp">What is the Model Context Protocol?</h3>
-      <p>MCP is an open-source specification that standardizes the communication between AI models and applications. Think of it as a universal translator for AI. It defines a common language and structure for passing context, capabilities, and requests, abstracting away the unique APIs and data formats of individual models.</p>
-      <p>You can explore the concept further at the <a href="https://www.modelcontext.org/" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:underline">official MCP website</a>.</p>
+      <p>MCP is an open-source specification created by <a href="https://www.anthropic.com/ target="_blank" rel="noopener noreferrer">Anthropic</a> that standardizes the communication between AI models and applications. Think of it as a universal translator for AI (the term “USB-C port” for AI applications has also been used). This means you can build AI agents and workflows that tap into different databases, APIs, or even your own files, all through a consistent, secure protocol</p>
+      <p>Their <a href="https://www.modelcontext.org/" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:underline">official MCP website</a> is a great place to start, if you already have a technical backgound. Otherwise, I've mentioned some videos below.</p>
       <h3 id="problem">The Problem with Current AI Integration</h3>
-      <p>Currently, integrating an AI model from providers like OpenAI, Anthropic, or Google requires bespoke code for each. This leads to vendor lock-in, increased development time, and difficulty in switching or combining models to leverage their unique strengths.</p>
-      <h3 id="solution">How MCP Provides a Solution</h3>
-      <p>MCP introduces a standardized 'context window' that applications can interact with. This allows developers to:
-        <ul>
-          <li><strong>Switch Models Seamlessly:</strong> Swap out one model for another with minimal code changes.</li>
-          <li><strong>Orchestrate Multiple Models:</strong> Combine the strengths of different models for more complex tasks.</li>
-          <li><strong>Future-Proof Applications:</strong> Easily adopt new models as they become available without a complete rewrite.</li>
-        </ul>
-      </p>
+      <p>Before MCP, if you wanted your AI to fetch data or perform actions, you had to custom-integrate every tool or API—think of it as building a new adapter for every device you want to connect. With MCP, you get a <strong>plug-and-play</strong> system: agents can discover, access, and use new capabilities on the fly, making them far more flexible and powerful</p>
+      <p>For example, in my product, I can expose our influencer search endpoint as an <a href= "https://modelcontextprotocol.io/docs/concepts/tools"target="_blank" rel="noopener noreferrer" class="text-red-500 hover:underline">MCP Tool</a> in my MCP Server. Now, instead of manually coding all the logic for filtering influencers, my AI agent can just “ask” the MCP Server. I've added the prompt to convert the requirements to a payload that our existing API can use and added the necessary security measures.</p>
+      <h3 id="easy">Why MCP Servers Aren’t as Complicated as They Sound</h3>
+      <p>At first glance, “MCP Server” might sound intimidating. But under the hood, it’s just a wrapper around existing APIs and data sources. If you’ve ever built an API or connected to one, you’re already halfway there! MCP simply adds a layer of standardization, making it easier for AI agents to find and use your APIs without custom code each time.</p>
+      <p>This concept might sound familiar, cuz it is! <a href= "https://www.dailydoseofds.com/p/function-calling-mcp-for-llms/" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:underline">Function calling</a> lets an LLM decide which tool or API to use based on the user’s request. It’s like telling your AI, “Here’s a toolbox—pick the right tool for the job.” The catch? Every tool needs its own custom integration, and there’s no universal standard</p>
       <h3 id="getting-started">Getting Started with MCP</h3>
-      <p>Several open-source projects are already implementing MCP. A great example is the <a href="https://github.com/apo1397/mcp-server-influencer-search" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:underline">MCP Server for Influencer Discovery</a>, which demonstrates how to build a practical application using the protocol.</p>
-      <h3 id="future">The Future of AI is Interoperable</h3>
-      <p>The Model Context Protocol represents a paradigm shift towards a more open and interoperable AI ecosystem. By simplifying integration, it empowers developers to focus on creating innovative applications, rather than wrestling with APIs. As more tools and models adopt MCP, we can expect a surge in creative and powerful AI-driven solutions.</p>
+      <p>There are tons of blogs, videos and posts about MCP Servers, but to try them out, you first need an MCP Client which can connect to the server.</p>
+      <p>Since Anthropic started this protocol, one of the most popular MCP Clients is <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude Desktop.</a> My go-to is my personal favourite AI Code Editor, <a href="https://www.trae.ai/" target="_blank" rel="noopener noreferrer">Trae</a> followed by <a href="https://www.cursor.com/" target="_blank" rel="noopener noreferrer">Cursor</a> but here's a list of some more MCP Clients shared on <a href="https://github.com/punkpeye/awesome-mcp-clients/" target="_blank" rel="noopener noreferrer">GitHub</a> </p>
+      <p>Once you've setup your client, then look at any of these videos or pages to understand more about MCP Servers and how to start with your own.</p>
+      <ul className="list-disc list-inside">
+        <li className="-mt-1">This <a href="https://www.youtube.com/watch?v=7j1t3UZA1TY" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:underline">video</a> by IBM gives a very simple explanation of MCP and compares it to APIs in general.</li>
+        <li className="-mt-1"><a href="https://www.youtube.com/watch?v=-8k9lGpGQ6g" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:underline">Tech With Tim</a>'s tutorial really helped me get started.</li>
+        <li className="-mt-1">This list of <a href="https://github.com/punkpeye/awesome-mcp-servers">Awesome MCP Servers</a> will definitely have an interesting MCP server for you to try out.</li>
+      </ul>
+      <p>So go ahead, try something out and <a href="https://apo1397.in/contact-me">let me know</a> how it goes!</p>
     `
   },
   "ondc-hype-or-not": {
