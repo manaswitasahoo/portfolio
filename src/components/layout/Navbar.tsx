@@ -86,10 +86,11 @@ export function Navbar({ className }: NavbarProps) {
 //Define links outside to avoid redundancy in the JSX
 const navbarLinks = [
   // { href: "/browse", text: "Home" },
-  { href: "/work-experience", text: "History" },
+  { href: "/work-experience", text: "Experience" },
   { href: "/skills", text: "Skills" },
   { href: "/projects", text: "Projects" },
   { href: "/about-me", text: "About Me" },
+  { href: "/blogs", text: "Blogs" }, // Added Blogs link
   { href: "/contact-me", text: "Hire Me" }
   
 ]
