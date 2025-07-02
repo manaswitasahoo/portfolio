@@ -31,6 +31,16 @@ const blogPosts: Record<string, {
     content: `
       <p>If you’re anything like me, you’re always on the lookout for the next big thing in AI and automation. Recently, I stumbled upon <strong>MCP Servers</strong>, a trend that’s buzzing in the developer community. Naturally, I wanted to see if I could weave it into my own product, especially since I’d already built a feature that converts user requirements into smart filter combinations for influencer discovery.<br> My thought? Why not migrate this logic to an MCP Server and let it return influencers directly from our massive database, using nearly 40 different filters!</p>
       <p>Here's a quick demo video of the MCP Server I created : <br> </p>
+      <div className="relative max-w-4xl mx-auto aspect-video mb-6">
+        <iframe
+          className="absolute top-0 left-0 w-full h-full rounded-lg"
+          src="https://www.youtube.com/embed/AKgwcr18AGQ"
+          title="MCP Server Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+      
       <h3 id="what-is-mcp">What is the Model Context Protocol?</h3>
       <p>MCP is an open-source specification created by <a href="https://www.anthropic.com/ target="_blank" rel="noopener noreferrer">Anthropic</a> that standardizes the communication between AI models and applications. Think of it as a universal translator for AI (the term “USB-C port” for AI applications has also been used). This means you can build AI agents and workflows that tap into different databases, APIs, or even your own files, all through a consistent, secure protocol</p>
       <p>Their <a href="https://www.modelcontext.org/" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:underline">official MCP website</a> is a great place to start, if you already have a technical backgound. Otherwise, I've mentioned some videos below.</p>
