@@ -15,7 +15,7 @@ import {
   SiJavascript, SiTensorflow,
   SiPytorch, SiScikitlearn,
   SiHuggingface, SiKeras,
-  SiGooglecolab, SiAnthropic,SiGooglechrome
+  SiGooglecolab, SiAnthropic,SiGooglechrome,SiLangchain
 } from 'react-icons/si';
 
 // Update the techIcons mapping
@@ -46,6 +46,7 @@ const techIcons: { [key: string]: JSX.Element } = {
   'Gemini': <SiGooglegemini className="text-gray-400 w-4 h-4" />,
   'Claude 3.5': <SiAnthropic className="text-gray-400 w-4 h-4" />,
   'Chrome Extension': <SiGooglechrome className="text-gray-400 w-4 h-4" />,
+  'LangChain': <SiLangchain className="text-gray-400 w-4 h-4" />,
 };
 
 // Update ProjectProps type
@@ -72,21 +73,30 @@ const projects: ProjectProps[] = [
     featured: true
   },
   {
+    title: "PageRAG",
+    description: "RAG & VectorDB powered Chrome Extension that turns your browsing history into a searchable, smart archive.",
+    technologies: ["ChromaDB", "LangChain","Python", "Trae AI", "Gemini","MongoDB"],
+    imageUrl: "/images/Page.jpg",
+    githubUrl: "https://github.com/apo1397/pageRAG-chrome-extension",
+    // featured: true,
+    status: 'Completed'
+  },
+  {
     title: "Portfolio",
     description: "Netflix inspired portfolio to showcase myself and my work. The site you're currently on!",
     technologies: ["NextJS", "Tailwind","Claude 3.5","Trae AI"],
     imageUrl: "apoorv_logo3_cropped.png",
     status: 'Completed'
   },
-  {
-    title: "Link2Reel",
-    description: "AI-powered tool that transforms any public URL into engaging TikTok-style reels by extracting USPs and generating scripts automatically.",
-    technologies: ["Python", "Void(Open Source Cursor)", "Gemini", "React","Supabase"],
-    imageUrl: "/images/link2reel.svg",
-    githubUrl: "https://github.com/apo1397/link2reel",
-    // featured: true,
-    status: 'WIP'
-  },
+  // {
+  //   title: "Link2Reel",
+  //   description: "AI-powered tool that transforms any public URL into engaging TikTok-style reels by extracting USPs and generating scripts automatically.",
+  //   technologies: ["Python", "Void(Open Source Cursor)", "Gemini", "React","Supabase"],
+  //   imageUrl: "/images/link2reel.svg",
+  //   githubUrl: "https://github.com/apo1397/link2reel",
+  //   // featured: true,
+  //   status: 'WIP'
+  // },
   
   {
     title: "Policy Insights",
