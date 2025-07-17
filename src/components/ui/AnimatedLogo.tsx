@@ -42,6 +42,9 @@ export default function AnimatedLogo({ onAnimationComplete }: AnimatedLogoProps)
       className="fixed inset-0 flex flex-col items-center justify-center bg-black cursor-pointer"
       onClick={startIntro}
     >
+      <p className={`text-red-500 text-sm animate-pulse mb-2 ${canPlay ? 'hidden' : ''}`}>
+        Vibe Coded by
+      </p>
       <div className="relative w-[300px] h-[300px]">
         <Image
           src={netflixLogo}
@@ -52,6 +55,7 @@ export default function AnimatedLogo({ onAnimationComplete }: AnimatedLogoProps)
           priority
         />
       </div>
+      
       <p className={`text-red-500 text-sm animate-pulse ${canPlay ? 'hidden' : ''}`}>
         Click to continue
       </p>
