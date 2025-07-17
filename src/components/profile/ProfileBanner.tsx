@@ -72,8 +72,7 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           <p className="md:hidden">
             {!isExpanded ? (
               <>
-                Experienced Product Manager with a strong background in backend development. 
-                I leverage cutting-edge technologies like LLMs and Agentic AI to craft innovative solutions.
+                Generalist, Builder, Product Manager & Coder with 6.5 years of experience (4.5 in PM, 2 in Backend Development) along with a short entrepreneurial stint.
                 <button 
                   onClick={() => setIsExpanded(true)}
                   className="text-red-500 ml-2 underline"
@@ -83,11 +82,7 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
               </>
             ) : (
               <>
-                Experienced Product Manager with a strong background in backend development and a hands-on
-                approach. I have driven success across sectors including real estate, AI-driven B2B SaaS, e-commerce, influencer
-                marketing, and cloud kitchens. I leverage cutting-edge technologies like LLMs and Agentic AI to craft innovative,
-                data-driven strategies. In November 2024, I launched <a href="https://links.sauci.in">Sauci</a>, a cloud kitchen where I manage daily operations,
-                marketing, hiring, and expansion—gaining harsh but valuable industry insights every single day.
+                Generalist, Builder, Product Manager & Coder with 6.5 years of experience (4.5 in PM, 2 in Backend Development). I’ve driven growth & retention for AI & MarTech B2B SaaS and E-commerce products. I've scaled products to significant ARR, notably achieving $200K ARR at Hypothesis, and improved key metrics like retention and conversion. Passionate about leveraging APIs, AI / LLMs, and MCP Servers for innovative solutions in the Indian market, my entrepreneurial venture, Sauci (cloud kitchen), has also provided valuable, hands-on experience in operations and marketing.
                 <button 
                   onClick={() => setIsExpanded(false)}
                   className="text-red-500 block mt-2 underline"
@@ -98,11 +93,8 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
             )}
           </p>
           <p className="hidden md:block">
-            Experienced Product Manager with a strong background in backend development and a hands-on
-            approach. I have driven success across sectors including real estate, AI-driven B2B SaaS, e-commerce, influencer
-            marketing, and cloud kitchens. I leverage cutting-edge technologies like LLMs and Agentic AI to craft innovative,
-            data-driven strategies. In November 2024, I launched <a href="https://links.sauci.in">Sauci</a>, a cloud kitchen where I manage daily operations,
-            marketing, hiring, and expansion—gaining harsh but valuable industry insights every single day.
+            Generalist, Builder, Product Manager & Coder with 6.5 years of experience (4.5 in PM, 2 in Backend Development). I’ve driven growth & retention for AI & MarTech B2B SaaS and E-commerce products. I've scaled products to significant ARR, notably achieving $160K ARR at Hypothesis, and improved key metrics like retention and conversion. Passionate about leveraging APIs, AI / LLMs, and MCP Servers for innovative solutions in the Indian market, my entrepreneurial venture, Sauci (cloud kitchen), has also provided valuable, hands-on experience in operations and marketing.
+
           </p>
         </motion.div>
 
