@@ -60,7 +60,7 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           transition={{ duration: 0.5 }}
         >
           <span className="underline">Apoorv Abhishek</span> <br />
-          <span className="text-lg md:text-xl leading-0.5">Product Manager | Restauranteur | Vibe Coder</span>
+          <span className="text-lg md:text-xl leading-0.5">Product Manager | Vibe Coder | Restauranteur</span>
         </motion.h1>
 
         <motion.div

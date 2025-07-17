@@ -40,7 +40,7 @@ export default function SEO({ title, description, canonical, pagePath, keywords,
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
-          name: "Apoorv Abhishek -  Product Manager | Restauranteur | Vibe Coder",
+          name: "Apoorv Abhishek -  Product Manager | Vibe Coder | Restauranteur",
           url: siteUrl,
           sameAs: [
             "https://www.linkedin.com/in/apoorv-abhishek-a9a083144/",
