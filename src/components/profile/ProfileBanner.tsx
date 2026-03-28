@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import { FaPlay, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaPlay, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { track } from '@vercel/analytics';
 
 type ProfileBannerProps = {
@@ -59,8 +59,8 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="underline">Apoorv Abhishek</span> <br />
-          <span className="text-lg md:text-xl leading-0.5">Product Manager | Vibe Coder | Restauranteur</span>
+          <span className="underline">Manaswita Sahoo</span> <br />
+          <span className="text-lg md:text-xl leading-0.5">Growth Marketing Professional | Brand Partnerships | Data-Driven Growth</span>
         </motion.h1>
 
         <motion.div
@@ -72,8 +72,8 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           <p className="md:hidden">
             {!isExpanded ? (
               <>
-                Generalist, Builder, Product Manager & Coder with 6.5 years of experience (4.5 in PM, 2 in Backend Development) along with a short entrepreneurial stint.
-                <button 
+                Growth marketing professional with expertise in Meta Ads, Google Ads, CRM, and brand partnerships. Currently driving growth at Aurm through data-driven strategies.
+                <button
                   onClick={() => setIsExpanded(true)}
                   className="text-red-500 ml-2 underline"
                 >
@@ -82,8 +82,8 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
               </>
             ) : (
               <>
-                Generalist, Builder, Product Manager & Coder with 6.5 years of experience (4.5 in PM, 2 in Backend Development). I’ve driven growth & retention for AI & MarTech B2B SaaS and E-commerce products. I've scaled products to significant ARR, notably achieving $200K ARR at Hypothesis, and improved key metrics like retention and conversion. Passionate about leveraging APIs, AI / LLMs, and MCP Servers for innovative solutions in the Indian market, my entrepreneurial venture, Sauci (cloud kitchen), has also provided valuable, hands-on experience in operations and marketing.
-                <button 
+                Growth marketing professional with a strong track record in performance marketing, brand partnerships, and retention marketing. Reduced CPL by 34% and CAC by 45% at Aurm. Previously scaled ad spend from ₹2Cr to ₹8.4Cr/month at Kapiva (320% growth) and drove loyalty program success at Rapido. MBA in Marketing from KIIT School of Management.
+                <button
                   onClick={() => setIsExpanded(false)}
                   className="text-red-500 block mt-2 underline"
                 >
@@ -93,7 +93,7 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
             )}
           </p>
           <p className="hidden md:block">
-            Generalist, Builder, Product Manager & Coder with 6.5 years of experience (4.5 in PM, 2 in Backend Development). I’ve driven growth & retention for AI & MarTech B2B SaaS and E-commerce products. I've scaled products to significant ARR, notably achieving $160K ARR at Hypothesis, and improved key metrics like retention and conversion. Passionate about leveraging APIs, AI / LLMs, and MCP Servers for innovative solutions in the Indian market, my entrepreneurial venture, Sauci (cloud kitchen), has also provided valuable, hands-on experience in operations and marketing.
+            Growth marketing professional with a strong track record in performance marketing, brand partnerships, and retention marketing. Reduced CPL by 34% and CAC by 45% at Aurm. Previously scaled ad spend from ₹2Cr to ₹8.4Cr/month at Kapiva (320% growth) and drove loyalty program success at Rapido. MBA in Marketing from KIIT School of Management. Passionate about data-driven growth, creative strategy, and building impactful brand narratives.
 
           </p>
         </motion.div>
@@ -115,9 +115,9 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
             <span className="label text-lg font-medium">Resume</span>
           </a>
 
-          <a 
-            href="https://www.linkedin.com/in/apoorv-abhishek-a9a083144/" 
-            target="_blank" 
+          <a
+            href="https://www.linkedin.com/in/manaswita-sahoo-62227a1a6"
+            target="_blank"
             rel="noopener noreferrer"
             onClick={() => handleLinkClick('linkedin')}
             className="more-info-button flex items-center bg-gray-600/70 text-white py-3 px-6 rounded hover:bg-gray-500/70 transition-colors"
@@ -127,16 +127,14 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
             <span className="label">LinkedIn</span>
           </a>
 
-          <a 
-            href="https://github.com/apo1397" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            onClick={() => handleLinkClick('github')}
-            className="github-button flex items-center bg-gray-600/70 text-white py-3 px-6 rounded hover:bg-gray-500/70 transition-colors"
+          <a
+            href="mailto:manaswitasahoo5@gmail.com"
+            onClick={() => handleLinkClick('email')}
+            className="email-button flex items-center bg-gray-600/70 text-white py-3 px-6 rounded hover:bg-gray-500/70 transition-colors"
           >
-            <FaGithub className="h-6 w-6 mr-2" />
+            <FaEnvelope className="h-6 w-6 mr-2" />
             <div className="spacer mr-2"></div>
-            <span className="label">GitHub</span>
+            <span className="label">Email</span>
           </a>
         </motion.div>
       </div>

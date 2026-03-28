@@ -1,6 +1,6 @@
-# Apoorv Abhishek - Portfolio
+# Manaswita Sahoo - Growth Marketing Portfolio
 
-This is the online portfolio of Apoorv Abhishek, showcasing projects and experiences and hoping a recruiter sees this!
+This is the online portfolio of Manaswita Sahoo, showcasing growth marketing expertise, brand partnerships, and campaign optimization achievements!
 
 99% of the code is written by AI and didn't cost a cent.
 These are the tools used:
@@ -9,11 +9,10 @@ These are the tools used:
 
 ## About Me
 
-I'm Apoorv Abhishek, a Product Manager with a background in backend development. My experience encompasses diverse industries, from the intricacies of B2B SaaS solutions to the fast-paced dynamics of e-commerce marketplaces and the unique challenges of real estate platforms. I thrive on creating innovative products that solve real-world problems and improve user experiences. In my spare time (what little there is!), I've recently become a restaurateur, adding another dimension to my ever-evolving journey. I believe in embracing change, learning constantly, and always striving for the "new vibe code."
-
+I'm Manaswita Sahoo, a Growth Marketing Professional with an MBA in Marketing. My experience spans performance marketing, brand partnerships, CRM retention, and data-driven growth strategies. I've helped companies scale their customer acquisition from ₹2Cr to ₹8.4Cr/month while reducing CPL by 34% and CAC by 45%. I thrive on leveraging data analytics, creative experimentation, and high-intent channel strategies to drive sustainable growth. Passionate about building strategic partnerships, optimizing marketing funnels, and using AI tools to enhance marketing workflows.
 
 **Contact**
 Feel free to connect with me on:
-[LinkedIn](https://linkedin.com)  <br/>
-[Email](mailto:apoorvsinha1397@gmail.com)  <br/>
+[LinkedIn](https://www.linkedin.com/in/manaswita-sahoo-62227a1a6)  <br/>
+[Email](mailto:manaswitasahoo5@gmail.com)  <br/>
 I'm always open to discussing new opportunities and collaborating on exciting projects.

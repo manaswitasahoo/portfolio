@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image'; // Make sure to import the Image component
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import logo from '@/assets/images/apoorv_logo3_cropped.png';
+import logo from '@/assets/images/manaswita_logo.svg';
 
 type NavbarProps = {
   className?: string;
@@ -27,7 +27,7 @@ export function Navbar({ className }: NavbarProps) {
             <div className="w-[100px] h-[50px] relative">
               <Image
                 src={logo}
-                alt="Apoorv Abhishek Logo"
+                alt="Manaswita Sahoo Logo"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center' }}
               />

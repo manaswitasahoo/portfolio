@@ -11,35 +11,35 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Apoorv Abhishek -  Product Manager | Vibe Coder | Restauranteur",
-  description: "Portfolio of Apoorv Abhishek, a Developer turned Product Manager and a Restauranteur with experience in AI/ML, Data Analytics, and Web Development. Explore my work experience, projects, and skills.",
+  title: "Manaswita Sahoo - Growth Marketing Professional",
+  description: "Portfolio of Manaswita Sahoo, Growth Marketing Professional with expertise in Meta Ads, Google Ads, CRM, Brand Partnerships, and Data Analytics. MBA in Marketing.",
   icons: {
     icon: '/favicon.png',
     apple: '/favicon.png',
   },
-  keywords: "Apoorv Abhishek, Developer, Vibe Coder, Product Manager, Cloud Kitchen, Full Stack Developer, AI/ML, Data Analytics, Portfolio",
-  authors: [{ name: "Apoorv Abhishek" }],
+  keywords: "Manaswita Sahoo, Growth Marketing, Brand Partnerships, Digital Marketing, Meta Ads, Google Ads, CRM, Data Analytics, MBA Marketing",
+  authors: [{ name: "Manaswita Sahoo" }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://portfolio-git-main-apoorvsinha1397-gmailcoms-projects.vercel.app/',
-    siteName: 'Apoorv Abhishek Portfolio',
-    title: 'Apoorv Abhishek -  Product Manager | Vibe Coder | Restauranteur',
-    description: 'Portfolio of Apoorv Abhishek, a Developer turned Product Manager and a Restauranteur with experience in AI/ML, Data Analytics, and Web Development. Explore my work experience, projects, and skills.',
+    url: 'https://manaswita.vercel.app/',
+    siteName: 'Manaswita Sahoo Portfolio',
+    title: 'Manaswita Sahoo - Growth Marketing Professional',
+    description: 'Portfolio of Manaswita Sahoo, Growth Marketing Professional with expertise in Meta Ads, Google Ads, CRM, Brand Partnerships, and Data Analytics. MBA in Marketing.',
     images: [
       {
-        url: 'src/assets/images/apoorv_logo3_cropped.png',
+        url: 'src/assets/images/manaswita_logo.png',
         width: 1200,
         height: 630,
-        alt: 'Apoorv Abhishek Portfolio',
+        alt: 'Manaswita Sahoo Portfolio',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apoorv Abhishek - Product Manager | Vibe Coder | Restauranteur',
-    description: 'Product Manager and Backend Developer specializing in AI/ML and Data Analytics',
-    images: ['src/assets/images/apoorv_logo3_cropped.png'],
+    title: 'Manaswita Sahoo - Growth Marketing Professional',
+    description: 'Growth Marketing Professional specializing in Meta Ads, Google Ads, and Brand Partnerships',
+    images: ['src/assets/images/manaswita_logo.png'],
   },
   robots: {
     index: true,

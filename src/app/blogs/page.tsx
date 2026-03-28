@@ -28,9 +28,9 @@ const blogPosts: BlogPost[] = [
 export default function BlogsPage() {
   return (
     <>
-      <SEO 
-        title="Blog - Apoorv Abhishek"
-        description="Exploring ideas in technology, product management, and AI."
+      <SEO
+        title="Blog - Manaswita Sahoo"
+        description="Thoughts on marketing, growth, and brand building."
         pagePath="/blogs"
       />
       <MainLayout>

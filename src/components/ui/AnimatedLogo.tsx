@@ -3,7 +3,7 @@
 import { useCallback, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import netflixLogo from '@/assets/images/apoorv_logo3_cropped.png';
+import netflixLogo from '@/assets/images/manaswita_logo.svg';
 
 type AnimatedLogoProps = {
   onAnimationComplete?: () => void;
@@ -43,7 +43,7 @@ export default function AnimatedLogo({ onAnimationComplete }: AnimatedLogoProps)
       onClick={startIntro}
     >
       <p className={`text-red-500 text-sm animate-pulse mb-2 ${canPlay ? 'hidden' : ''}`}>
-        Vibe Coded by
+        Portfolio of
       </p>
       <div className="relative w-[300px] h-[300px]">
         <Image

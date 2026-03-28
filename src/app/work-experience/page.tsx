@@ -92,60 +92,60 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
     };
     return colorMap[color];
   };
-  
+
   // Update the cardContent section with improved hierarchy
   const cardContent = (
-      <div ref={contentRef} className="space-y-4">
-        <div className="space-y-2">
-          <h3 className="text-xl md:text-2xl font-bold tracking-tight">{position}</h3>
-          <h4 className={cn(
-            "text-base md:text-lg flex items-center gap-2 opacity-90", 
-            hasAnimated && "animate-fade-in"
-          )} onClick={url && url !== '#' ? handleCompanyClick : undefined}>
-            {url && url !== '#' && <Favicon url={url} />}
-            <span className={url && url !== '#' ? "underline decoration-dashed cursor-pointer" : ""}>
-              {company}
-            </span>
-          </h4>
-        </div>
-  
-        <div className="space-y-1">
-          <p className="text-[0.5rem] text-gray-700 uppercase tracking-wider opacity-75 font-medium">Skills</p>
-          <p className="text-xs md:text-[0.9rem] opacity-90 leading-relaxed">{skills}</p>
-        </div>
-
-        <div className="space-y-2">
-          <p className="text-[0.5rem] text-gray-700 uppercase tracking-wider opacity-75 font-medium">Key Achievements</p>
-          <div className={cn(
-            "transition-all duration-300",
-            !isExpanded && "max-h-[200px] overflow-hidden relative"
-          )}>
-            <ul className="text-xs md:text-[0.9rem] opacity-90">
-              {achievements.map((achievement, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="text-xs mt-1.5">•</span>
-                  <span className="leading-relaxed">{achievement}</span>
-                </li>
-              ))}
-            </ul>
-            {!isExpanded && showToggle && (
-              <div className="absolute bottom-0 left-0 right-0 h-16 " />
-            )}
-          </div>
-        </div>
-  
-        {showToggle && (
-          <button 
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="w-full py-2 text-sm bg-black/20 hover:bg-black/30 rounded-md transition-all flex items-center justify-center gap-2 font-medium backdrop-blur-sm"
-          >
-            {isExpanded ? 'Show Less' : 'Show More'} 
-            <span className="text-xs">{isExpanded ? '▲' : '▼'}</span>
-          </button>
-        )}
+    <div ref={contentRef} className="space-y-4">
+      <div className="space-y-2">
+        <h3 className="text-xl md:text-2xl font-bold tracking-tight">{position}</h3>
+        <h4 className={cn(
+          "text-base md:text-lg flex items-center gap-2 opacity-90",
+          hasAnimated && "animate-fade-in"
+        )} onClick={url && url !== '#' ? handleCompanyClick : undefined}>
+          {url && url !== '#' && <Favicon url={url} />}
+          <span className={url && url !== '#' ? "underline decoration-dashed cursor-pointer" : ""}>
+            {company}
+          </span>
+        </h4>
       </div>
+
+      <div className="space-y-1">
+        <p className="text-[0.5rem] text-gray-700 uppercase tracking-wider opacity-75 font-medium">Skills</p>
+        <p className="text-xs md:text-[0.9rem] opacity-90 leading-relaxed">{skills}</p>
+      </div>
+
+      <div className="space-y-2">
+        <p className="text-[0.5rem] text-gray-700 uppercase tracking-wider opacity-75 font-medium">Key Achievements</p>
+        <div className={cn(
+          "transition-all duration-300",
+          !isExpanded && "max-h-[200px] overflow-hidden relative"
+        )}>
+          <ul className="text-xs md:text-[0.9rem] opacity-90">
+            {achievements.map((achievement, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <span className="text-xs mt-1.5">•</span>
+                <span className="leading-relaxed">{achievement}</span>
+              </li>
+            ))}
+          </ul>
+          {!isExpanded && showToggle && (
+            <div className="absolute bottom-0 left-0 right-0 h-16 " />
+          )}
+        </div>
+      </div>
+
+      {showToggle && (
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="w-full py-2 text-sm bg-black/20 hover:bg-black/30 rounded-md transition-all flex items-center justify-center gap-2 font-medium backdrop-blur-sm"
+        >
+          {isExpanded ? 'Show Less' : 'Show More'}
+          <span className="text-xs">{isExpanded ? '▲' : '▼'}</span>
+        </button>
+      )}
+    </div>
   );
-  
+
   return (
     <div ref={ref} className="relative flex flex-col md:flex-row items-center justify-center py-4 md:py-0">
       {isLeft ? (
@@ -194,7 +194,7 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
           </div>
 
           <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center my-2 md:my-0">
-          <div className={cn(
+            <div className={cn(
               "rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center z-10",
               {
                 'bg-gray-500': color === 'gray',
@@ -232,120 +232,104 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
 
 export default function WorkExperiencePage() {
   const experiences = [
-    
     {
-      position: "Product Manager",
-      company: "Hypothesis by Only Much Louder (OML)",
-      period: "Mar 2023 - Current",
-      skills: "Product Management, Product Engineer, Sales (Pitches & Demos), Roadmap, Customer Success, LLMs",
+      position: "Growth Marketing Associate",
+      company: "Aurm",
+      period: "Sep 2025 - Present",
+      skills: "Meta Ads, Google Ads, CRM & Retention Marketing, Creative Strategy, Data Analytics & Reporting",
       achievements: [
-        "Scaled product from $0 to $160K ARR since GA/GTM in Q4FY24, managing sprints, budgets, and cross-functional teams.",
-        "Built backend and rule-based prompt flows for LLM-powered discovery search (40+ filters), improving shortlisting conversion and speed by ~30% (in beta); currently building the MCP server for scalable creator discovery.",
-        "Optimized Meta & YouTube API usage, reducing quota consumption from 90% to 10% by refactoring request flows and eliminating redundant authenticated calls.",
-        "Led GDPR & ISO compliance across OML, ensuring EU market access.",
-        "Conducted product demos via online sessions and offline expos, generating 40+ qualified leads.",
-        "Enabled seamless client onboarding with training and WhatsApp support.",
-        "Designed (using Figma), developed (GoLang backend using ChatGPT) & launched authenticated creator metrics in just 2 days.",
-        "Built in-house transformer (using Falcon 7B model run using OLlama to generate NSFW training data) for creator Brand Safety.",
-        "Created actionable Mixpanel/Metabase dashboards for data-driven decision-making.",
-        "Established creator outreach program (hired 3 executives) for clients like Flipkart & Meesho."
+        "Ran Advantage+ campaigns focused on awareness, resulting in a 4.5% increase in website sessions and traffic.",
+        "Executed Top-of-Funnel (TOF) campaigns that improved overall engagement by 35%.",
+        "Managed Bottom-of-Funnel (BOF) campaigns that increased lead volume by 8.7%.",
+        "Improved lead conversion by 3.5% through optimized audience targeting and creatives.",
+        "Reduced CPL by 34% and CAC by 45%.",
+        "Managed Search campaigns to capture high-intent users.",
+        "Ran Demand Gen campaigns aimed at boosting brand awareness, increasing Traffic Acquisition by 21.94%.",
+        "Executed WhatsApp campaigns for retargeting, reactivation, and lead nurturing.",
+        "Managed email marketing campaigns improving user engagement and conversion rates by almost 5%.",
+        "Developed high-converting messaging frameworks that increased CTR by 3.1% across priority campaign creatives.",
+        "Built a centralized dashboard to monitor performance across Meta, Google, CRM, and key funnel metrics."
       ],
       isLeft: false,
       color: "blue" as AllowedColor,
-      url: "https://hyp.io",
+      url: "https://www.aurm.in",
       isEducation: false,
     },
     {
-      position: "Founder",
-      company: "Sauci",
-      period: "Sep 2024 - May 2025",
-      skills: "Management, Operations, Procurement, Marketing, Hiring, Growth, P&L, Design",
+      position: "Brand Partnership Associate",
+      company: "Kapiva",
+      period: "June 2024 - Sep 2025",
+      skills: "Campaign Management, Revenue Generation, Brand Partnerships, Performance Marketing, Fraud Detection, P&L Analysis",
       achievements: [
-        "Launched my side hustle, Sauci, a Cloud Kitchen specialising in Pastas & Sauces, in Sep 2024.",
-        "Handled everything from recipe curation, design, packaging, marketing, hiring (multiple times), vendor selection all while being frugal with budget.",
-        "4.5 Stars & 4.2 Stars on Swiggy & Zomato respectively.",
-        "Had to hand it over to another partner due to lack of focus."
-      ],
-      isLeft: true,
-      color: "yellow" as AllowedColor,
-      url: "#",
-      isEducation: false,
-    },
-    {
-      position: "Associate Product Manager - SuperStore",
-      company: "Meesho",
-      period: "Aug 2022 - Feb 2023",
-      skills: "Product Management, User Research, Data Analytics, Cross Functional Teams, Usability Testing, Ground Visits, Competitive Benchmarking",
-      achievements: [
-        "Owned Product Quality in Retention & Discovery charter. Drove significant impact on key metrics, nearly doubling M1 Retention and increasing Add To Cart / DAU by 12-15% overall",
-        "Boosted Add To Cart/DAU ratio by 16% through category-specific Ratings & Reviews and 15% via a 'Basket Initiator' widget for highly discounted products, driving strategic user engagement and conversion.",
-        "Launched Product Variant Discovery to improve the conversion of products with variants by almost 13%.",
-        "Conducted Ground Visits to Nagpur for problem discovery, in-person Usability Testing & competitive benchmarking."
-      ],
-      isLeft: false,
-      color: "gray" as AllowedColor,
-      url: "https://www.meesho.io/blog/origin-story-meesho-superstore-grocery-business-farmiso-mandi-e-commerce",
-      isEducation: false,
-    },
-    {
-      position: "Associate Product Manager - Returns",
-      company: "Meesho",
-      period: "Oct 2021 - Aug 2021",
-      skills: "User Research, Product Roadmap, Vendor Management, Product Analytics, Cross Functional Teams, Usability Testing, SQL",
-      achievements: [
-        "Owned supplier side of Returns & Product Quality Dashboard for suppliers. ",
-        "Led cross-functional projects to tackle cross-subsidization, cutting seller return penalties by Rs 10-39 and driving a 0.59% platform-wide price reduction.",
-        "Improved Return Panel accuracy with 3rd Party Logistic partners, reducing perceived high returns from 7% to 0.5%(from their actual return rate) and boosting Seller Return NPS by ~11 points.",
-        "Reduced supplier tickets by 36% for the top return dispute by optimizing 3PL systems and collaborating with support agents and suppliers, hence improving CSAT.",
-        "Improved the Product Quality Dashboard giving access to quality-related insights & trends leading to a reduction in returns by 0.2% and improving Customer NPS by ~5 pts.",
-        "Managed & mentored 2 Product Analysts who quickly rose the ranks in the Analytics team."
-      ],
-      isLeft: true,
-      color: "red" as AllowedColor,
-      url: "https://www.meesho.com/",
-      isEducation: false,
-    },
-    {
-      position: "Associate Product Manager | Product Analyst",
-      company: "Cognizer AI",
-      period: "Jan 2021 - Sep 2021",
-      skills: "Product Analytics, Product Engineer, Wireframing, Product Roadmap",
-      achievements: [
-        "Collaborated with executive leadership to define product roadmaps, draft PRDs, and develop MVP features for successful beta and pre-Series A launches along with 2 global clients.",
-"Led end-to-end Stripe integration for platform monetization, from scoping to wireframing to technical implementation, driving 60% conversion of waitlist users to paid subscriptions.",
-"Established in-product analytics. Set up Amplitude, and Metabase and worked on Product Analytics along with Observability.",
-"Part of the 5-member research team working on Knowledge Graphs, Semantic Search and Conversational AI."
-      ],
-      isLeft: false,
-      color: "indigo" as AllowedColor,
-      url: "https://www.cognizer.ai/",
-      isEducation: false,
-    },
-    {
-      position: "Software Engineer | Associate Software Engineer",
-      company: "Cognizer AI",
-      period: "Jan 2019 - Jan 2021",
-      skills: "Java, Python, MongoDB, ElasticSearch, SQL, Redis, Apache Kafka, Git, ",
-      achievements: [
-        "Migrated entire infra to Java Vertx, an asynchronous framework, capable of ingesting & enriching upto ~2TB files a day. This improved RPS by 45%, reduced latency by 40%, and cut resource costs by 30-50%.",
-        "Part of 2 member team which built and maintained event-driven, real-time integrations with APIs & SDKs from Google Drive, Google Docs, Google Calendar, Google Contacts, OneDrive, SharePoint, DropBox, Box.",
-        "Awarded for my performance and extraordinary commitment to the job by single-handedly completing Platform integration with Chrome extension, communicating to multiple teams be it Frontend, WebUI, Inference AI, Product or within Platform.",
-        "Designed the entire MongoDB & Cassandra Database Schema with a focus on multi-tenancy and scalability and taking the next 6 months of requirement from the roadmap into account."
+        "Managed campaigns across GPay Console, PhonePe, and Amazon Pay, achieving 70% of revenue through strategic bid placements and monthly creative updates, boosting CTR by 18%.",
+        "Generated ₹40 Lakhs monthly from PhonePe and GPay (67% of total campaign revenue) and ₹20 Lakhs from affiliate marketing via agencies and coupon/cashback sites.",
+        "Onboarded key partners such as Flipkart, Jio, Paytm, Mobikwik, Magicpin, Plum, Plutosone, expanding the affiliate partnership network by 30%.",
+        "Scaled Meta and Google Ads budgets from ₹2Cr to ₹8.4Cr/month (320% growth) while maintaining cost efficiency and improving conversion metrics.",
+        "Boosted ROAS from 0.47 to 0.52 and reduced CPL by 6.2% through audience segmentation, creative optimization, and bid strategy refinements.",
+        "Increased awareness budget share from 5% to 10% for top-performing SKUs, improving funnel efficiency and lowering acquisition costs.",
+        "Implemented bid multipliers, Advantage+ setups on Meta and Performance Max, automated bidding on Google, driving 12% reduction in CPA for priority products.",
+        "Identified and resolved ₹98K in revenue fraud by leveraging Trackier dashboard analytics and conducting detailed analyses of click IPs, operating systems, and cookie durations.",
+        "Conducted spend vs. revenue analysis to optimize budget allocation, increasing ROI by 20%."
       ],
       isLeft: true,
       color: "green" as AllowedColor,
-      url: "https://www.cognizer.ai/",
+      url: "https://www.kapiva.in",
       isEducation: false,
     },
     {
-      position: "Vellore Institute of Technology",
-      company: "VIT Vellore",
-      period: "May 2015 - May 2019",
-      skills: "Computer Science Education, NGO, Hackathons, Entrepreneurship Cell",
-      achievements: ["CGPA - 8.50","Part of the Entrepreneurship Cell", "Taught underprivileged girls as part of an NGO called Anokha"],
+      position: "Brand Partnership Executive",
+      company: "Rapido",
+      period: "Dec 2023 - June 2024",
+      skills: "Loyalty Programs, Brand Partnerships, API Integrations, Growth Marketing, User Retention",
+      achievements: [
+        "Initiated loyalty program for Rapido Captains to increase Daily Rides by 7.8%, working days by 5% and quality by 12%.",
+        "Conducted 300+ interviews with Rapido Captains across India to reduce monetary incentives, reducing costs by 15%.",
+        "Partnered with 10+ new brands such as Swiggy, Netmeds, Pharmeasy, IOCL, Unigas, Total Gas, Alt Balaji, Zee5 to provide vouchers to Captains, increasing retention by 3.2%.",
+        "Facilitated API integrations with Delhi Metro to augment a new source of ride booking, boosting daily transaction value by ₹14 lakhs.",
+        "Successfully conducted PWA PoCs with Urban Company, DriveU, Meesho, Nobroker to improve commute efficiency of service partners by 15-20% and increasing rides by 1.6%.",
+        "Designed and implemented brand visibility campaigns with Dineout, CRED and Explorex increasing FTUs by 2.8%.",
+        "Co-ordinated 50+ meme marketing assets with media agencies increasing platform subscribers by 20%."
+      ],
+      isLeft: false,
+      color: "purple" as AllowedColor,
+      url: "https://www.rapido.bike",
+      isEducation: false,
+    },
+    {
+      position: "Marketing and Sales Intern",
+      company: "Mondelez International",
+      period: "June 2022 - July 2022",
+      skills: "Sales, Retail Distribution, Planogram Analysis, Brand Presence",
+      achievements: [
+        "Increased outlets in existing routes improving resource utilization per route.",
+        "Added 27 new outlets to Cadbury's Brand Presence.",
+        "Conducted comprehensive planogram analysis to identify strategic merchandising opportunities within retail outlets."
+      ],
+      isLeft: true,
+      color: "yellow" as AllowedColor,
+      url: "https://www.mondelezinternational.com",
+      isEducation: false,
+    },
+    {
+      position: "MBA - Marketing",
+      company: "KIIT School of Management, Bhubaneswar",
+      period: "2021 - 2023",
+      skills: "Marketing Strategy, Consumer Behavior, Brand Management, Market Research",
+      achievements: ["MBA with specialization in Marketing from KIIT Deemed University."],
       isLeft: false,
       color: "gray" as AllowedColor,
-      url: "https://vit.ac.in/",
+      url: "https://ksom.ac.in",
+      isEducation: true,
+    },
+    {
+      position: "B.Sc",
+      company: "Unitech Degree College, Nayagarh, Odisha",
+      period: "2017 - 2020",
+      skills: "Science, Foundational Education",
+      achievements: ["Bachelor of Science from Utkal University."],
+      isLeft: true,
+      color: "gray" as AllowedColor,
+      url: "#",
       isEducation: true,
     }
   ];
@@ -377,41 +361,41 @@ export default function WorkExperiencePage() {
     <MainLayout>
       <div className="min-h-screen bg-black text-white py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto px-4">
-        <motion.h1 className="text-4xl md:text-6xl font-bold mb-16 md:mb-12 text-red-600 text-center relative mt-16 md:mt-20 z-10"
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ type: "spring", stiffness: 100 }}>
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 
+          <motion.h1 className="text-4xl md:text-6xl font-bold mb-16 md:mb-12 text-red-600 text-center relative mt-16 md:mt-20 z-10"
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ type: "spring", stiffness: 100 }}>
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 
             -translate-y-1/2 w-full text-center bg-black h-8">Work Experience</div>
-        </motion.h1>
+          </motion.h1>
 
-        <div className="relative" ref={timelineRef.ref}>
-          <div className="h-8 md:h-16"></div>
-          
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-white origin-top"
-            style={{
-              height: timelineHeight,
-              animation: timelineRef.isIntersecting ? 'grow-line 1.5s ease-out forwards' : 'none',
-              top: "2rem"
-            }}>
-          </div>
+          <div className="relative" ref={timelineRef.ref}>
+            <div className="h-8 md:h-16"></div>
 
-          <div className="space-y-16 md:space-y-24 mt-8 md:mt-16" ref={timelineItemsContainerRef}>
-            {experiences.map((experience, index) => (
-              <ExperienceItem
-                key={`${experience.company}-${index}`}
-                {...experience}
-                index={index}
-              />
-            ))}
-          </div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-white origin-top"
+              style={{
+                height: timelineHeight,
+                animation: timelineRef.isIntersecting ? 'grow-line 1.5s ease-out forwards' : 'none',
+                top: "2rem"
+              }}>
+            </div>
+
+            <div className="space-y-16 md:space-y-24 mt-8 md:mt-16" ref={timelineItemsContainerRef}>
+              {experiences.map((experience, index) => (
+                <ExperienceItem
+                  key={`${experience.company}-${index}`}
+                  {...experience}
+                  index={index}
+                />
+              ))}
+            </div>
 
             {/* Add a spacer div between timeline items and birth info */}
             <div className="h-16"></div>
 
             <div ref={birthInfoRef} className="flex justify-center mt-4 mb-8 relative z-10">
               <div className="bg-gray-700 p-4 rounded-lg text-center max-w-xs">
-                <p className="text-white">Born: 13 January 1998 in Patna</p>
+                <p className="text-white">Based in: Bengaluru, Karnataka</p>
               </div>
             </div>
           </div>

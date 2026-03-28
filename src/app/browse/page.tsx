@@ -21,12 +21,12 @@ const profiles: ProfileProps[] = [
     href: "/profile/recruiter"
   },
   {
-    name: "Developer",
-    color: "bg-gray-500",
-    href: "/profile/developer"
+    name: "Brand/Agency",
+    color: "bg-green-500",
+    href: "/profile/brand-agency"
   },
   {
-    name: "Apoorv",
+    name: "Manaswita",
     color: "bg-red-500",
     href: "#"
   }
@@ -54,7 +54,7 @@ const LoginPopup = ({ isOpen, onClose }: LoginPopupProps) => {
              alt="Identity theft is not a joke" 
              class="rounded-lg shadow-lg mb-4"
         />
-        <p class="text-xl text-red-600 font-bold text-center">You're not Apoorv! Identity theft is not a joke, Jim! 🕵️‍♂️</p>
+        <p class="text-xl text-red-600 font-bold text-center">You're not Manaswita! Identity theft is not a joke, Jim! 🕵️‍♂️</p>
       `;
       container.appendChild(imgDiv);
       
@@ -180,7 +180,7 @@ export default function BrowsePage() {
                   key={profile.name}
                   onClick={(e) => {
                     handleProfileClick(profile.name);
-                    if (profile.name === "Apoorv") {
+                    if (profile.name === "Manaswita") {
                       e.preventDefault();
                       setIsLoginOpen(true);
                     }
@@ -223,7 +223,7 @@ export default function BrowsePage() {
                       </div>
                     </div>
                     <h3 className="profile-name text-lg md:text-xl text-gray-300">{profile.name}</h3>
-                    {profile.name === "Apoorv" && (
+                    {profile.name === "Manaswita" && (
                       <p className="text-xs text-red-500 mt-1 italic animate-pulse">
                         Psst, try logging in
                       </p>

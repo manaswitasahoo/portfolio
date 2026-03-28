@@ -20,8 +20,8 @@ export function Sidebar({ className }: SidebarProps) {
     <div className={cn("sidebar fixed top-0 left-0 h-full w-64 bg-black/95 text-white transform -translate-x-full transition-transform duration-300 ease-in-out z-40 pt-20", className)}>
       <div className="sidebar-logo px-4 mb-6">
         <Image
-          src="https://ext.same-assets.com/377476235/1080792221.png"
-          alt="Logo"
+          src="/manaswita_logo.svg"
+          alt="Manaswita Sahoo Logo"
           width={100}
           height={30}
           className="mx-auto"

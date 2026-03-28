@@ -11,54 +11,42 @@ type Skill = {
 };
 
 const skills: Skill[] = [
-  // Data Analytics
-  { name: "Metabase", proficiency: 95, category: "Data Analytics", url: "https://metabase.com/" },
-  { name: "Mixpanel", proficiency: 95, category: "Data Analytics", url: "https://mixpanel.com/" },
-  { name: "Google Analytics", proficiency: 70, category: "Data Analytics", url: "https://analytics.google.com/" },
+  // Advertising & Performance Marketing
+  { name: "Meta Ads Manager", proficiency: 90, category: "Advertising & Performance Marketing", url: "https://www.facebook.com/business/tools/ads-manager" },
+  { name: "Google Ads Manager", proficiency: 85, category: "Advertising & Performance Marketing", url: "https://ads.google.com" },
+  { name: "Google Analytics 4", proficiency: 85, category: "Advertising & Performance Marketing", url: "https://analytics.google.com" },
+  { name: "Trackier", proficiency: 80, category: "Advertising & Performance Marketing", url: "https://trackier.com" },
+  { name: "AppsFlyer", proficiency: 75, category: "Advertising & Performance Marketing", url: "https://www.appsflyer.com" },
 
-  // AI / LLM
-  { name: "Cursor (AI Code Editor)", proficiency: 80, category: "AI / LLM", url: "https://cursor.so/" },
-  { name: "Trae (AI Code Editor)" , proficiency: 90, category: "AI / LLM", url: "https://www.trae.ai/" },
-  { name: "Void (Open Source AI Code Editor)", proficiency: 85, category: "AI / LLM", url: "https://github.com/voideditor/void" },
-  { name: "Qwen-7B", proficiency: 100, category: "AI / LLM", url: "https://github.com/QwenLM/Qwen-7B" },
-  { name: "Kimi", proficiency: 100, category: "AI / LLM", url: "https://kimi.ai/" },
-  { name: "Uncensored Falcon 7B", proficiency: 75, category: "AI / LLM", url: "https://huggingface.co/uncensored-falcon-7b" },
-  { name: "Stanford STORM", proficiency: 60, category: "AI / LLM", url: "https://storm.genie.stanford.edu/" },
-  { name: "DeepSeek", proficiency: 80, category: "AI / LLM", url: "https://chat.deepseek.com/" },
-  { name: "Google BERT", proficiency: 70, category: "AI / LLM", url: "https://research.google/pubs/bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding/" },
+  // Analytics & Data
+  { name: "Metabase", proficiency: 85, category: "Analytics & Data", url: "https://www.metabase.com" },
+  { name: "SQL", proficiency: 70, category: "Analytics & Data", url: "https://en.wikipedia.org/wiki/SQL" },
+  { name: "Python", proficiency: 60, category: "Analytics & Data", url: "https://www.python.org" },
+  { name: "R", proficiency: 50, category: "Analytics & Data", url: "https://www.r-project.org" },
+  { name: "Semrush", proficiency: 70, category: "Analytics & Data", url: "https://www.semrush.com" },
+  { name: "Google Search Console", proficiency: 70, category: "Analytics & Data", url: "https://search.google.com/search-console" },
 
+  // CRM & Marketing Tools
+  { name: "Zoho CRM", proficiency: 80, category: "CRM & Marketing Tools", url: "https://www.zoho.com/crm/" },
+  { name: "Google Pay Console", proficiency: 75, category: "CRM & Marketing Tools", url: "https://pay.google.com" },
+  { name: "Modash.io", proficiency: 75, category: "CRM & Marketing Tools", url: "https://www.modash.io" },
+  { name: "Qoruz", proficiency: 70, category: "CRM & Marketing Tools", url: "https://www.qoruz.com" },
 
-  // Product Management
-  { name: "Jira", proficiency: 85, category: "Product Management", url: "https://www.atlassian.com/software/jira" },
-  { name: "Notion", proficiency: 90, category: "Product Management", url: "https://www.notion.so/" },
-  { name: "Figma", proficiency: 60, category: "Product Management", url: "https://www.figma.com/" },
-  { name: "Balsamiq", proficiency: 40, category: "Product Management", url: "https://balsamiq.com/" },
-  { name: "Semrush", proficiency: 40, category: "Product Management", url: "https://www.semrush.com/" },
-  { name: "Google Search Console", proficiency: 50, category: "Product Management", url: "https://search.google.com/search-console" },
-  { name: "Mailchimp", proficiency: 60, category: "Product Management", url: "https://mailchimp.com/" },
-  { name: "6Sense", proficiency: 45, category: "Product Management", url: "https://www.6sense.com/" },
-  { name: "HubSpot", proficiency: 75, category: "Product Management", url: "https://www.hubspot.com/" },
+  // AI / LLM Tools
+  { name: "ChatGPT", proficiency: 85, category: "AI / LLM Tools", url: "https://chat.openai.com" },
+  { name: "Perplexity", proficiency: 80, category: "AI / LLM Tools", url: "https://www.perplexity.ai" },
+  { name: "DALL-E", proficiency: 70, category: "AI / LLM Tools", url: "https://openai.com/dall-e" },
+  { name: "Playground.com", proficiency: 65, category: "AI / LLM Tools", url: "https://playground.com" },
+  { name: "Stanford STORM", proficiency: 60, category: "AI / LLM Tools", url: "https://storm.genie.stanford.edu" },
 
-  // Databases
-  { name: "MongoDB", proficiency: 85, category: "Database", url: "https://www.mongodb.com/" },
-  { name: "PostgreSQL", proficiency: 70, category: "Database", url: "https://www.postgresql.org/" },
-  { name: "MySQL", proficiency: 85, category: "Database", url: "https://www.mysql.com/" },
-  { name: "ElasticSearch", proficiency: 75, category: "Database", url: "https://www.elastic.co/" },
-  { name: "Redis", proficiency: 75, category: "Database", url: "https://redis.io/" },
-
-
-  // Backend
-  { name: "Java", proficiency: 75, category: "Backend", url: "https://www.java.com/" },
-  { name: "Python (Flask)", proficiency: 75, category: "Backend", url: "https://flask.palletsprojects.com/" },
-  { name: "GoLang", proficiency: 60, category: "Backend", url: "https://go.dev/" },
-
-  //Frontend
-  { name: "React", proficiency: 40, category: "Frontend", url: "https://reactjs.org/" },
-  { name: "JavaScript", proficiency: 40, category: "Frontend", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-  { name: "HTML/CSS", proficiency: 40, category: "Frontend", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-  { name: "TypeScript", proficiency: 45, category: "Frontend", url: "https://www.typescriptlang.org/" },
-
-
+  // Strategy & Management
+  { name: "Campaign Planning", proficiency: 90, category: "Strategy & Management", url: "#" },
+  { name: "Digital Marketing", proficiency: 90, category: "Strategy & Management", url: "#" },
+  { name: "Market Research", proficiency: 85, category: "Strategy & Management", url: "#" },
+  { name: "Revenue Generation", proficiency: 85, category: "Strategy & Management", url: "#" },
+  { name: "Client Relationship Management", proficiency: 85, category: "Strategy & Management", url: "#" },
+  { name: "P&L Analysis", proficiency: 80, category: "Strategy & Management", url: "#" },
+  { name: "Project Management", proficiency: 80, category: "Strategy & Management", url: "#" },
 ];
 
 const categories = [...new Set(skills.map(skill => skill.category))];
@@ -92,8 +80,8 @@ export default function SkillsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          With over 5 years of experience in full-stack development, I've honed a diverse set of skills
-          in various technologies, frameworks, and tools. Below is a snapshot of my technical proficiencies.
+          With a diverse skill set spanning performance marketing, analytics, CRM, and AI tools,
+          here is a snapshot of my marketing toolkit and proficiencies.
         </motion.p>
 
         <div className="space-y-12">

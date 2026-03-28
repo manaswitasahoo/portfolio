@@ -64,64 +64,33 @@ type ProjectProps = {
 // Update projects array with status
 const projects: ProjectProps[] = [
   {
-    title: "MCP Server for Influencer Discovery",
-    description: "Discover perfect influencers instantly with my MCP Server - just specify your requirements and get AI-powered matches delivered straight to your platform.",
-    technologies: ["Python", "Gemini","Model Context Protocol","Modash"],
-    imageUrl: "/images/mcp_logo.jpg",
-    githubUrl:"https://github.com/apo1397/mcp-server-influencer-search",
-    status: 'Completed',
+    title: "Performance Marketing Case Study",
+    description: "A deep dive into reducing CPL by 34% and CAC by 45% through Meta & Google Ads optimization, audience segmentation, and creative testing strategies.",
+    technologies: ["Meta Ads", "Google Ads", "GA4", "Data Analytics"],
+    imageUrl: "",
+    status: 'WIP',
     featured: true
   },
   {
-    title: "PageRAG",
-    description: "RAG & VectorDB powered Chrome Extension that turns your browsing history into a searchable, smart archive.",
-    technologies: ["ChromaDB", "LangChain","Python", "Trae AI", "Gemini","MongoDB"],
-    imageUrl: "/images/Page.jpg",
-    githubUrl: "https://github.com/apo1397/pageRAG-chrome-extension",
-    // featured: true,
-    status: 'Completed'
-  },
-  {
-    title: "Portfolio",
-    description: "Netflix inspired portfolio to showcase myself and my work. The site you're currently on!",
-    technologies: ["NextJS", "Tailwind","Claude 3.5","Trae AI"],
-    imageUrl: "apoorv_logo3_cropped.png",
-    status: 'Completed'
-  },
-  // {
-  //   title: "Link2Reel",
-  //   description: "AI-powered tool that transforms any public URL into engaging TikTok-style reels by extracting USPs and generating scripts automatically.",
-  //   technologies: ["Python", "Void(Open Source Cursor)", "Gemini", "React","Supabase"],
-  //   imageUrl: "/images/link2reel.svg",
-  //   githubUrl: "https://github.com/apo1397/link2reel",
-  //   // featured: true,
-  //   status: 'WIP'
-  // },
-  
-  {
-    title: "Policy Insights",
-    description: "Chrome Extension that detects policy pages and provides insights for ethical decision-making.",
-    technologies: ["Chrome Extension","Python", "Void(Open Source Cursor)", "Gemini","Supabase"],
-    imageUrl: "/images/policy_insights.png",
-    githubUrl: "https://github.com/apo1397/policy-checker",
-    featured: false,
+    title: "Brand Partnership Framework",
+    description: "A strategic framework for evaluating and executing brand partnerships, based on experience scaling partnerships at Kapiva and Rapido.",
+    technologies: ["Strategy", "Revenue Analysis", "Partnership Management"],
+    imageUrl: "",
     status: 'WIP'
   },
   {
-    title: "Linktree for Sauci",
-    description: "A Linktree style landing page for my cloud kitchen - Sauci. Allowed users to order as well share feedback and connect with the brand.",
-    technologies: ["Cursor","HTML", "CSS", "JavaScript"],
-    imageUrl: "/images/sauci_header.png",
-    githubUrl: "https://github.com/apo1397/sauci",
-    status: 'Completed'
+    title: "CRM Retention Playbook",
+    description: "Comprehensive retention marketing playbook covering WhatsApp campaigns, email sequences, and user lifecycle management.",
+    technologies: ["Zoho CRM", "Email Marketing", "WhatsApp Marketing"],
+    imageUrl: "",
+    status: 'WIP'
   },
   {
-    title: "What2Make",
-    description: "A collaborative meal planning app that helps roommates decide what to cook. Simplifies the daily decision-making process for lunch and dinner.",
-    technologies: ["Cursor","React", "Python", "MongoDB", "Tailwind"],
-    imageUrl: "/images/w2m_notblurred.svg",
-    githubUrl: "https://github.com/apo1397/what2make",
-    status: 'Abandoned'
+    title: "Portfolio Website",
+    description: "This Netflix-inspired portfolio website showcasing my marketing journey.",
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    imageUrl: "",
+    status: 'Completed'
   }
 ];
 
@@ -144,7 +113,7 @@ export default function ProjectsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          A showcase of my work spanning from enterprise applications to personal projects.
+          A showcase of my marketing projects, case studies, and strategic frameworks. More coming soon!
         </motion.p>
 
         {/* Featured Project (if any) */}

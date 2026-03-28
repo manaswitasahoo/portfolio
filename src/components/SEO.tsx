@@ -10,9 +10,9 @@ interface SEOProps {
 }
 
 export default function SEO({ title, description, canonical, pagePath, keywords, imageUrl }: SEOProps) {
-  const siteUrl = 'https://apo1397.in/';
+  const siteUrl = 'https://manaswita.vercel.app/';
   const fullUrl = pagePath ? `${siteUrl}${pagePath}` : siteUrl;
-  const defaultImage = `${siteUrl}/apoorv_logo3_cropped.png`;
+  const defaultImage = `${siteUrl}/manaswita_logo.png`;
 
   return (
     <Head>
@@ -40,16 +40,15 @@ export default function SEO({ title, description, canonical, pagePath, keywords,
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
-          name: "Apoorv Abhishek -  Product Manager | Vibe Coder | Restauranteur",
+          name: "Manaswita Sahoo - Growth Marketing Professional",
           url: siteUrl,
           sameAs: [
-            "https://www.linkedin.com/in/apoorv-abhishek-a9a083144/",
-            "https://github.com/apo1397"
+            "https://www.linkedin.com/in/manaswita-sahoo-62227a1a6"
           ],
-          jobTitle: "Product Manager",
+          jobTitle: "Growth Marketing Associate",
           worksFor: {
             "@type": "Organization",
-            name: "Hypothesis by Only Much Louder"
+            name: "Aurm"
           }
         })}
       </script>

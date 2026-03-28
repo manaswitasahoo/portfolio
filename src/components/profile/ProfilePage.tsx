@@ -9,7 +9,7 @@ import { CardRow } from '@/components/profile/CardRow';
 import { Card } from '@/components/profile/Card';
 
 interface ProfilePageProps {
-  type: 'Recruiter' | 'Developer';
+  type: 'Recruiter' | 'Brand/Agency';
   bannerImage: string;
 }
 
@@ -41,7 +41,7 @@ const sharedTopPicks = [
   },
   {
     label: "About Me",
-    imageUrl: "/apoorv.webp",
+    imageUrl: "/manaswita.webp",
     href: "/about-me"
   }
 ];

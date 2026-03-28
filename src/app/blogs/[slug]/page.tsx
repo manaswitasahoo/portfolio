@@ -59,7 +59,7 @@ const blogPosts: Record<string, {
         <li className="-mt-1"><a href="https://www.youtube.com/watch?v=-8k9lGpGQ6g" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:underline">Tech With Tim</a>'s tutorial really helped me get started.</li>
         <li className="-mt-1">This list of <a href="https://github.com/punkpeye/awesome-mcp-servers">Awesome MCP Servers</a> will definitely have an interesting MCP server for you to try out.</li>
       </ul>
-      <p>So go ahead, try something out and <a href="https://apo1397.in/contact-me">let me know</a> how it goes!</p>
+      <p>So go ahead, try something out and <a href="/contact-me">let me know</a> how it goes!</p>
     `
   },
   "ondc-hype-or-not": {
@@ -99,10 +99,10 @@ export default function BlogPostPage() {
   return (
     <>
       <SEO 
-        title={`${blogPost.title} - Apoorv Abhishek`}
+        title={`${blogPost.title} - Manaswita Sahoo`}
         description={blogPost.subheading}
         pagePath={`/blogs/${slug}`}
-        keywords="Model Context Protocol, AI integration, AI models, open-source AI, Apoorv Abhishek blog"
+        keywords="Model Context Protocol, AI integration, AI models, open-source AI, Manaswita Sahoo blog"
         imageUrl={blogPost.thumbnail}
       />
       <MainLayout>

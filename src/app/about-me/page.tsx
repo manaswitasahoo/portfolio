@@ -1,56 +1,52 @@
 "use client";
 import { motion } from 'framer-motion';
 import { MainLayout } from '@/components/layout/MainLayout';
-import GithubCalendarComponent from '@/components/GithubCalendarComponent';
-import { FaHandsHelping, FaBrain,FaProductHunt, FaGlobe, FaFlag, FaCamera } from 'react-icons/fa';
-import { SiLeetcode, SiCodechef } from 'react-icons/si';
+import { FaChartLine, FaMapMarkerAlt, FaGraduationCap, FaRobot, FaHandshake, FaDatabase } from 'react-icons/fa';
 import { useState } from 'react';
 import SEO from '@/components/SEO';
-// Remove FlappyDragon import
 
 const facts = [
   {
-    icon: <FaProductHunt />,
-    title: "Product Journey",
-    text: "Switched to Product Management from Engineering, without an MBA."
+    icon: <FaChartLine className="text-3xl text-red-500" />,
+    title: "Growth Driver",
+    text: "Scaled ad spend from ₹2Cr to ₹8.4Cr/month at Kapiva — 320% growth while maintaining cost efficiency."
   },
   {
-    icon: <FaGlobe />,
-    title: "Nomadic Life",
-    text: "Studied at 9 schools before college. Dad was in LIC, retired in 2021 as an Executive Director. "
+    icon: <FaMapMarkerAlt className="text-3xl text-red-500" />,
+    title: "Bengaluru Based",
+    text: "Living and working in India's startup capital, building growth engines for innovative companies."
   },
   {
-    icon: <FaHandsHelping />,
-    title: "NGO",
-    text: "Part of Anokha; an NGO in Vellore specializing in education of children-in-need."
+    icon: <FaGraduationCap className="text-3xl text-red-500" />,
+    title: "MBA in Marketing",
+    text: "KIIT School of Management — specialized in marketing strategy, consumer behavior, and brand management."
   },
   {
-    icon: <FaFlag/>,
-    title: "French",
-    text: "Runner up in the National French Spelling Bee. Living in Mauritius helped."
+    icon: <FaRobot className="text-3xl text-red-500" />,
+    title: "AI-Powered Marketer",
+    text: "Leveraging ChatGPT, Perplexity, DALL-E and Stanford STORM to supercharge marketing workflows."
   },
   {
-    icon: <FaBrain />,
-    title: "Quiz",
-    text: "Avid Quizzer. Runner up in the Hindu Quiz."
+    icon: <FaHandshake className="text-3xl text-red-500" />,
+    title: "Partnership Builder",
+    text: "Built partnerships with Swiggy, Netmeds, PhonePe, GPay, Flipkart, Delhi Metro and many more."
   },
   {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-ball-tennis"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M6 5.3a9 9 0 0 1 0 13.4" /><path d="M18 5.3a9 9 0 0 0 0 13.4" /></svg>,
-    title: "Tennis",
-    text: "District level Tennis player, favouring clay courts & a die hard fan of Federer."
+    icon: <FaDatabase className="text-3xl text-red-500" />,
+    title: "Data-Driven Decisions",
+    text: "Proficient in SQL, Python, GA4, Metabase, and Trackier for analytics-informed marketing."
   }
 ];
 
 export default function AboutMe() {
   const [selectedFact, setSelectedFact] = useState(null);
-  const [isMapExpanded, setIsMapExpanded] = useState(false);
   const [isInstaExpanded, setIsInstaExpanded] = useState(false);
 
   return (
     <>
-      <SEO 
-        title="About Apoorv Abhishek - Background & Expertise"
-        description="Learn about Apoorv Abhishek's journey as a Developer, Product Manager and Co Founder of Sauci; including his experience in AI/ML, data analytics, and full-stack development."
+      <SEO
+        title="About - Manaswita Sahoo"
+        description="Learn about Manaswita Sahoo's growth marketing expertise. Growth driver at Kapiva, MBA in Marketing, and partnership builder scaling innovative companies."
         pagePath="/about-me"
       />
       <MainLayout>
@@ -123,96 +119,37 @@ export default function AboutMe() {
           </section> */}
 
           {/* Instagram Feed Section */}
-          {/* Social & Location Section */}
           <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-white">Social & Location</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Google Maps Column */}
-              <motion.div 
-                className="bg-zinc-900 p-6 rounded-lg overflow-hidden relative"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-              >
-                <h3 className="text-xl font-semibold text-white mb-4">My Nomadic Life</h3>
-                <motion.div
-                  animate={{ height: isMapExpanded ? '600px' : '300px' }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
-                  <iframe 
-                    src="https://www.google.com/maps/d/u/0/embed?mid=14TxVcRYWQJPRomUMZJQMKlw1ai4R2nrv&ehbc=2E312F" 
-                    width="100%" 
-                    height="100%"
-                    className="rounded-lg"
-                    style={{ border: 0 }}
-                  />
-                </motion.div>
-                <div 
-                  className="flex items-center justify-center cursor-pointer mt-4 text-gray-400 hover:text-white transition-colors"
-                  onClick={() => setIsMapExpanded(!isMapExpanded)}
-                >
-                  <span className="mr-2">{isMapExpanded ? 'Show Less' : 'Show More'}</span>
-                  <span className={`transition-transform ${isMapExpanded ? 'rotate-180' : ''}`}>▼</span>
-                </div>
-              </motion.div>
-              {/* Instagram Column */}
-              <motion.div 
-                className="bg-zinc-900 p-6 rounded-lg overflow-hidden relative"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-              >
-                <h3 className="text-xl font-semibold text-white mb-4">Friends & Family</h3>
-                <motion.div
-                  animate={{ height: isInstaExpanded ? '600px' : '300px' }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                  style={{ position: 'relative' }}
-                >
-                  <iframe 
-                    src="https://embedsocial.com/api/pro_hashtag/0a44997a7a34e59968acb5e8655e7f0ff024b2e6" 
-                    width="100%" 
-                    height="100%" 
-                    className="rounded-lg"
-                  />
-                </motion.div>
-                <div 
-                  className="flex items-center justify-center cursor-pointer mt-4 text-gray-400 hover:text-white transition-colors"
-                  onClick={() => setIsInstaExpanded(!isInstaExpanded)}
-                >
-                  <span className="mr-2">{isInstaExpanded ? 'Show Less' : 'Show More'}</span>
-                  <span className={`transition-transform ${isInstaExpanded ? 'rotate-180' : ''}`}>▼</span>
-                </div>
-              </motion.div>
-            </div>
-          </section>
-
-          {/* GitHub Activity */}
-          <section>
-            <h2 className="text-3xl font-bold mb-8 text-white">GitHub Activity</h2>
-            <motion.div 
-              className="bg-zinc-900 p-6 rounded-lg"
+            <h2 className="text-3xl font-bold mb-8 text-white">Instagram</h2>
+            <motion.div
+              className="bg-zinc-900 p-6 rounded-lg overflow-hidden relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <GithubCalendarComponent username="apo1397" />
+              <h3 className="text-xl font-semibold text-white mb-4">Connect on Instagram</h3>
+              <motion.div
+                animate={{ height: isInstaExpanded ? '600px' : '300px' }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+                style={{ position: 'relative' }}
+              >
+                <iframe
+                  src="https://embedsocial.com/api/pro_hashtag/0a44997a7a34e59968acb5e8655e7f0ff024b2e6"
+                  width="100%"
+                  height="100%"
+                  className="rounded-lg"
+                />
+              </motion.div>
+              <div
+                className="flex items-center justify-center cursor-pointer mt-4 text-gray-400 hover:text-white transition-colors"
+                onClick={() => setIsInstaExpanded(!isInstaExpanded)}
+              >
+                <span className="mr-2">{isInstaExpanded ? 'Show Less' : 'Show More'}</span>
+                <span className={`transition-transform ${isInstaExpanded ? 'rotate-180' : ''}`}>▼</span>
+              </div>
             </motion.div>
           </section>
-
-          {/* Flappy Dragon Game source url : https://github.com/iarunava/flappydragon */}
-          {/* <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-white">Play Flappy Dragon</h2>
-            <motion.div 
-              className="bg-zinc-900 p-6 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-            >
-              <FlappyDragon />
-            </motion.div>
-          </section> */}
         </motion.div>
       </MainLayout>
     </>
