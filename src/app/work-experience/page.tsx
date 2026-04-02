@@ -54,7 +54,7 @@ type ExperienceItemProps = {
 };
 
 function ExperienceItem({ position, company, period, skills, achievements, isLeft, color, index, url, isEducation }: ExperienceItemProps) {
-  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 })
+  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.1 })
   const [hasAnimated, setHasAnimated] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -98,6 +98,43 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
     };
     return colorMap[color];
   };
+
+  const getMarkerColor = (color: AllowedColor) => {
+    const markerColorMap = {
+      gray: '#6b7280',
+      red: '#ef4444',
+      blue: '#3b82f6',
+      green: '#22c55e',
+      yellow: '#fbbf24',
+      purple: '#a855f7',
+      pink: '#ec4899',
+      indigo: '#6366f1',
+    };
+    return markerColorMap[color];
+  };
+
+  const circleIcon = (
+    <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center my-2 md:my-0 z-20">
+      <motion.div
+        className="rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center border-4 border-black"
+        style={{ backgroundColor: getMarkerColor(color) }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={hasAnimated ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+        transition={{ 
+          type: "spring", 
+          stiffness: 260, 
+          damping: 20,
+          delay: (index || 0) * 0.1 // Stagger them slightly
+        }}
+      >
+        {isEducation ? (
+          <BsBuilding className="w-4 h-4 md:w-6 md:h-6 text-white" />
+        ) : (
+          <Briefcase className="w-4 h-4 md:w-6 md:h-6 text-white" />
+        )}
+      </motion.div>
+    </div>
+  );
 
   // Update the cardContent section with improved hierarchy
   const cardContent = (
@@ -177,19 +214,7 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
             </div>
           </div>
 
-          <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center my-2 md:my-0">
-            <div className={cn(
-              "rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center z-10",
-              color === "gray" ? "bg-gray-500" : `bg-${color}-500`,
-              hasAnimated && "animate-icon-pop"
-            )}>
-              {isEducation ? (
-                <BsBuilding className="w-4 h-4 md:w-6 md:h-6 text-white" />
-              ) : (
-                <Briefcase className="w-4 h-4 md:w-6 md:h-6 text-white" />
-              )}
-            </div>
-          </div>
+          {circleIcon}
 
           <div className={cn(
             "w-full md:w-6/12 px-4 md:pl-8 order-1 md:order-2 text-center md:text-left mb-2 md:mb-0",
@@ -207,34 +232,17 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
             <div className="text-white font-medium text-sm md:text-base">{period}</div>
           </div>
 
-          <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center my-2 md:my-0">
-            <div className={cn(
-              "rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center z-10",
-              {
-                'bg-gray-500': color === 'gray',
-                'bg-red-500': color === 'red',
-                'bg-blue-500': color === 'blue',
-                'bg-green-500': color === 'green',
-                'bg-amber-400': color === 'yellow',
-                'bg-purple-500': color === 'purple',
-                'bg-pink-500': color === 'pink',
-                'bg-indigo-500': color === 'indigo',
-              },
-              hasAnimated && "animate-icon-pop"
-            )}>
-              {isEducation ? (
-                <BsBuilding className="w-4 h-4 md:w-6 md:h-6 text-white" />
-              ) : (
-                <Briefcase className="w-4 h-4 md:w-6 md:h-6 text-white" />
-              )}
-            </div>
-          </div>
+          {circleIcon}
 
           <div className={cn(
             "w-full md:w-6/12 px-4 md:pl-8 order-2 md:order-2",
             hasAnimated && "animate-card-appear-right"
           )}>
-            <div className={color === "gray" ? "bg-gray-100 text-black rounded-lg p-4 shadow-lg" : `${getColorClass(color)} rounded-lg p-4 shadow-lg`}>
+            <div className={cn(
+              getColorClass(color),
+              "rounded-xl p-6 shadow-lg backdrop-blur-sm border border-white/10",
+              "transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            )}>
               {cardContent}
             </div>
           </div>
