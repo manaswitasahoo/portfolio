@@ -13,6 +13,7 @@ type ProfileProps = {
   name: string;
   color: string;
   href: string;
+  imageUrl?: string;
 };
 
 const profiles: ProfileProps[] = [
@@ -205,10 +206,10 @@ export default function BrowsePage() {
                       )}
                     >
                       {/* Show image if exists, otherwise show smiley */}
-                      {(profile as any).imageUrl ? (
+                      {profile.imageUrl ? (
                         <div className="relative w-full h-full">
                           <Image
-                            src={(profile as any).imageUrl}
+                            src={profile.imageUrl}
                             alt={profile.name}
                             fill
                             style={{ objectFit: 'cover' }}
