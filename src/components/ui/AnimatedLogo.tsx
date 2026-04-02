@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import netflixLogo from '@/assets/images/logo_animated.png';
@@ -12,15 +12,31 @@ type AnimatedLogoProps = {
 export default function AnimatedLogo({ onAnimationComplete }: AnimatedLogoProps) {
   const router = useRouter();
   const [canPlay, setCanPlay] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio('/netflix-intro.mp3');
+    audioRef.current.load();
+  }, []);
 
   const startIntro = useCallback(async () => {
     if (!canPlay) {
       setCanPlay(true);
       
-      // Removed audio intro playback as per user request
+      if (audioRef.current) {
+        audioRef.current.play().catch((err: unknown) => {
+          console.error("Audio play failed:", err);
+          // Some browsers still block even after a click if they are super strict
+          // or if the element was clicked before the audio was fully ready
+        });
+      }
+      
       setTimeout(() => {
         onAnimationComplete?.();
-        router.push('/browse');
+        // Only redirect if not already on /browse
+        if (window.location.pathname !== '/browse') {
+          router.push('/browse');
+        }
       }, 3000);
     }
   }, [canPlay, router, onAnimationComplete]);
