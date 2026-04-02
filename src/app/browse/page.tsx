@@ -92,8 +92,7 @@ const LoginPopup = ({ isOpen, onClose }: LoginPopupProps) => {
               <input
                 type="password"
                 placeholder="Password"
-                value="fakepassword123"
-                readOnly
+                defaultValue="fakepassword123"
                 className="w-full p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
@@ -206,10 +205,10 @@ export default function BrowsePage() {
                       )}
                     >
                       {/* Show image if exists, otherwise show smiley */}
-                      {profile.imageUrl ? (
+                      {(profile as any).imageUrl ? (
                         <div className="relative w-full h-full">
                           <Image
-                            src={profile.imageUrl}
+                            src={(profile as any).imageUrl}
                             alt={profile.name}
                             fill
                             style={{ objectFit: 'cover' }}
