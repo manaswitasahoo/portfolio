@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image'; // Make sure to import the Image component
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import logo from '@/assets/images/manaswita_logo.svg';
+import logo from '@/assets/images/logo_navbar.png';
 
 type NavbarProps = {
   className?: string;
@@ -88,7 +88,7 @@ const navbarLinks = [
   // { href: "/browse", text: "Home" },
   { href: "/work-experience", text: "Experience" },
   { href: "/skills", text: "Skills" },
-  { href: "/projects", text: "Projects" },
+  // { href: "/projects", text: "Projects" },
   { href: "/about-me", text: "About Me" },
   { href: "/blogs", text: "Blogs" }, // Added Blogs link
   { href: "/contact-me", text: "Hire Me" }

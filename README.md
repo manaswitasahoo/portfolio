@@ -14,5 +14,5 @@ I'm Manaswita Sahoo, a Growth Marketing Professional with an MBA in Marketing. M
 **Contact**
 Feel free to connect with me on:
 [LinkedIn](https://www.linkedin.com/in/manaswita-sahoo-62227a1a6)  <br/>
-[Email](mailto:manaswitasahoo5@gmail.com)  <br/>
+[Email](mailto:manaswitasahoo74@gmail.com)  <br/>
 I'm always open to discussing new opportunities and collaborating on exciting projects.

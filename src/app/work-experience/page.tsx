@@ -7,6 +7,7 @@ import { Briefcase } from 'lucide-react';
 import { BsBuilding } from 'react-icons/bs';
 import { cn } from '@/lib/utils';
 import { Favicon } from '@/components/ui/Favicon';
+import { track } from '@vercel/analytics';
 
 // Custom hook for intersection observer
 const useIntersectionObserver = ({ threshold = 0, rootMargin = '0px' }) => {
@@ -74,6 +75,11 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
 
   const handleCompanyClick = () => {
     if (url) {
+      track('experience_company_click', {
+        company: company,
+        position: position,
+        url: url
+      });
       window.open(url, '_blank');
     }
   };
@@ -136,7 +142,15 @@ function ExperienceItem({ position, company, period, skills, achievements, isLef
 
       {showToggle && (
         <button
-          onClick={() => setIsExpanded(!isExpanded)}
+          onClick={() => {
+            if (!isExpanded) {
+              track('experience_expand', {
+                company: company,
+                position: position
+              });
+            }
+            setIsExpanded(!isExpanded);
+          }}
           className="w-full py-2 text-sm bg-black/20 hover:bg-black/30 rounded-md transition-all flex items-center justify-center gap-2 font-medium backdrop-blur-sm"
         >
           {isExpanded ? 'Show Less' : 'Show More'}

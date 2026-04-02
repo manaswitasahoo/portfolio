@@ -60,7 +60,7 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           transition={{ duration: 0.5 }}
         >
           <span className="underline">Manaswita Sahoo</span> <br />
-          <span className="text-lg md:text-xl leading-0.5">Growth Marketing Professional | Brand Partnerships | Data-Driven Growth</span>
+          <span className="text-lg md:text-xl leading-0.5">Digital Marketing Professional | Brand Partnerships | Data-Driven Growth</span>
         </motion.h1>
 
         <motion.div
@@ -72,7 +72,7 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           <p className="md:hidden">
             {!isExpanded ? (
               <>
-                Growth marketing professional with expertise in Meta Ads, Google Ads, CRM, and brand partnerships. Currently driving growth at Aurm through data-driven strategies.
+                Performance marketing professional with experience across performance marketing, brand partnerships, and retention.
                 <button
                   onClick={() => setIsExpanded(true)}
                   className="text-red-500 ml-2 underline"
@@ -82,7 +82,7 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
               </>
             ) : (
               <>
-                Growth marketing professional with a strong track record in performance marketing, brand partnerships, and retention marketing. Reduced CPL by 34% and CAC by 45% at Aurm. Previously scaled ad spend from ₹2Cr to ₹8.4Cr/month at Kapiva (320% growth) and drove loyalty program success at Rapido. MBA in Marketing from KIIT School of Management.
+                Performance marketing professional with experience across performance marketing, brand partnerships, and retention. Reduced CPL by 34% and CAC by 45% at Aurm, while also scaling ad spend by 25%. At Kapiva, drove 59% revenue growth through performance marketing. Generated over ₹1Cr in revenue via partnerships with payment platforms, ecommerce and quick commerce players, and contributed ₹20 lakhs through affiliate marketing, all while maintaining a strong product P&L. Previously worked on loyalty program initiatives at Rapido. MBA in Marketing from KIIT School of Management.
                 <button
                   onClick={() => setIsExpanded(false)}
                   className="text-red-500 block mt-2 underline"
@@ -93,8 +93,8 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
             )}
           </p>
           <p className="hidden md:block">
-            Growth marketing professional with a strong track record in performance marketing, brand partnerships, and retention marketing. Reduced CPL by 34% and CAC by 45% at Aurm. Previously scaled ad spend from ₹2Cr to ₹8.4Cr/month at Kapiva (320% growth) and drove loyalty program success at Rapido. MBA in Marketing from KIIT School of Management. Passionate about data-driven growth, creative strategy, and building impactful brand narratives.
-
+            Performance marketing professional with experience across performance marketing, brand partnerships, and retention. Reduced CPL by 34% and CAC by 45% at Aurm, while also scaling ad spend by 25%. <br /><br />
+            At Kapiva, drove 59% revenue growth through performance marketing. Generated over ₹1Cr in revenue via partnerships with payment platforms, ecommerce and quick commerce players, and contributed ₹20 lakhs through affiliate marketing, all while maintaining a strong product P&L. Previously worked on loyalty program initiatives at Rapido. MBA in Marketing from KIIT School of Management.
           </p>
         </motion.div>
 
@@ -128,7 +128,7 @@ export function ProfileBanner({ className, backgroundImage }: ProfileBannerProps
           </a>
 
           <a
-            href="mailto:manaswitasahoo5@gmail.com"
+            href="mailto:manaswitasahoo74@gmail.com"
             onClick={() => handleLinkClick('email')}
             className="email-button flex items-center bg-gray-600/70 text-white py-3 px-6 rounded hover:bg-gray-500/70 transition-colors"
           >

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { track } from '@vercel/analytics';
 
 interface CardProps {
   cardData: {
@@ -11,8 +12,15 @@ interface CardProps {
 }
 
 export function Card({ cardData }: CardProps) {
+  const handleClick = () => {
+    track('card_click', {
+      label: cardData.label,
+      href: cardData.href
+    });
+  };
+
   return (
-    <Link href={cardData.href}>
+    <Link href={cardData.href} onClick={handleClick}>
       <div className="relative group">
         <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(229,9,20,0.5)]">
           <Image

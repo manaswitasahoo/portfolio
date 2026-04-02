@@ -1,40 +1,36 @@
 "use client";
 import { motion } from 'framer-motion';
 import { MainLayout } from '@/components/layout/MainLayout';
-import { FaChartLine, FaMapMarkerAlt, FaGraduationCap, FaRobot, FaHandshake, FaDatabase } from 'react-icons/fa';
+import { FaChartLine, FaGraduationCap, FaHandshake, FaPaintBrush, FaPencilAlt, FaUsers } from 'react-icons/fa';
 import { useState } from 'react';
 import SEO from '@/components/SEO';
+import Image from 'next/image';
 
 const facts = [
   {
-    icon: <FaChartLine className="text-3xl text-red-500" />,
-    title: "Growth Driver",
-    text: "Scaled ad spend from ₹2Cr to ₹8.4Cr/month at Kapiva — 320% growth while maintaining cost efficiency."
-  },
-  {
-    icon: <FaMapMarkerAlt className="text-3xl text-red-500" />,
-    title: "Bengaluru Based",
-    text: "Living and working in India's startup capital, building growth engines for innovative companies."
-  },
-  {
     icon: <FaGraduationCap className="text-3xl text-red-500" />,
-    title: "MBA in Marketing",
-    text: "KIIT School of Management — specialized in marketing strategy, consumer behavior, and brand management."
+    title: "MBA & Campus Life",
+    text: "As Content Head of the marketing club, I managed Instagram, organized a marketing conclave, and mentored juniors. I also served as Joint Secretary at Rotaract, leading offline community events."
   },
   {
-    icon: <FaRobot className="text-3xl text-red-500" />,
-    title: "AI-Powered Marketer",
-    text: "Leveraging ChatGPT, Perplexity, DALL-E and Stanford STORM to supercharge marketing workflows."
+    icon: <FaPaintBrush className="text-3xl text-red-500" />,
+    title: "Outside Work",
+    text: "I spend my free time doing power yoga and meditation. I also enjoy reading, writing my thoughts, and painting once in a while."
   },
   {
-    icon: <FaHandshake className="text-3xl text-red-500" />,
-    title: "Partnership Builder",
-    text: "Built partnerships with Swiggy, Netmeds, PhonePe, GPay, Flipkart, Delhi Metro and many more."
+    icon: <FaPencilAlt className="text-3xl text-red-500" />,
+    title: "Published Writer",
+    text: "One of my articles was published in an anthology in 2020—a small but meaningful milestone for me."
   },
   {
-    icon: <FaDatabase className="text-3xl text-red-500" />,
-    title: "Data-Driven Decisions",
-    text: "Proficient in SQL, Python, GA4, Metabase, and Trackier for analytics-informed marketing."
+    icon: <FaChartLine className="text-3xl text-red-500" />,
+    title: "How I Work",
+    text: "I believe in showing results through clear reports and simple graphs because numbers make things clearer."
+  },
+  {
+    icon: <FaUsers className="text-3xl text-red-500" />,
+    title: "People Person",
+    text: "I genuinely enjoy interacting with people and learning new things from them."
   }
 ];
 
@@ -64,6 +60,44 @@ export default function AboutMe() {
           >
             About Me
           </motion.h1>
+
+          {/* Hero Section with Photo */}
+          <section className="mb-16 flex flex-col md:flex-row items-center gap-12">
+            <motion.div 
+              className="w-full md:w-1/2 relative h-[500px] rounded-lg overflow-hidden border-4 border-zinc-800 shadow-2xl"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Image
+                src="/manaswita_about.jpg"
+                alt="Manaswita Sahoo"
+                fill
+                style={{ objectFit: 'cover' }}
+                priority
+              />
+            </motion.div>
+            <motion.div 
+              className="w-full md:w-1/2 space-y-6"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h2 className="text-4xl font-bold text-white mb-4 italic">"Good marketing feels like intuition. Great marketing is backed by data."</h2>
+              <p className="text-xl text-gray-300 leading-relaxed">
+                I work in digital marketing, building and scaling brands through a mix of performance, creativity, and constant experimentation. From MBA classrooms to hands-on campaign execution, my journey has been about understanding what actually drives results and not just what looks good on paper.
+              </p>
+              <p className="text-lg text-gray-400 leading-relaxed">
+                My core work revolves around performance marketing, media planning, optimizing campaigns based on competitor bid analysis, improving Google search visibility, and using AI to make market research faster and sharper. I enjoy tracking what is trending in performance marketing and figuring out how to turn those trends into real business impact.
+              </p>
+              <p className="text-lg text-gray-400 leading-relaxed italic border-l-4 border-red-600 pl-4 bg-zinc-900/50 py-2">
+                I care a lot about proof. I don’t just run campaigns and move on. I track them, break them down, and present clear graphs and reports that show what worked and what did not.
+              </p>
+              <p className="text-lg text-gray-400 leading-relaxed">
+                Outside of work, I like keeping things balanced. I work out regularly, push myself with fitness challenges, read both fiction and nonfiction, and write poetry and stories inspired by real-life moments.
+              </p>
+            </motion.div>
+          </section>
 
           {/* Fun Facts Grid */}
           <section className="mb-16">

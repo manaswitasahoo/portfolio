@@ -38,7 +38,7 @@ export default function ContactMePage() {
 
               <div className="space-y-4">
                 <Button href="https://wa.me/+917853953798" icon={<FaWhatsapp />} title="WhatsApp" />
-                <Button href="mailto:manaswitasahoo5@gmail.com" icon={<FaEnvelope />} title="Email" />
+                <Button href="mailto:manaswitasahoo74@gmail.com" icon={<FaEnvelope />} title="Email" />
                 <Button href="https://www.linkedin.com/in/manaswita-sahoo-62227a1a6" icon={<FaLinkedin />} title="LinkedIn" />
                 <Button href="https://www.instagram.com/" icon={<FaInstagram />} title="Instagram" />
               </div>

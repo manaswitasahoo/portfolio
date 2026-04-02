@@ -1,9 +1,9 @@
 "use client";
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import netflixLogo from '@/assets/images/manaswita_logo.svg';
+import netflixLogo from '@/assets/images/logo_animated.png';
 
 type AnimatedLogoProps = {
   onAnimationComplete?: () => void;
@@ -11,29 +11,17 @@ type AnimatedLogoProps = {
 
 export default function AnimatedLogo({ onAnimationComplete }: AnimatedLogoProps) {
   const router = useRouter();
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [canPlay, setCanPlay] = useState(false);
 
   const startIntro = useCallback(async () => {
     if (!canPlay) {
       setCanPlay(true);
-      const audio = new Audio('/netflix-intro.mp3');
-      audio.volume = 1.0;
-      audioRef.current = audio;
       
-      try {
-        await audio.play();
-        setTimeout(() => {
-          onAnimationComplete?.();
-          router.push('/browse');
-        }, 3000);
-      } catch (error) {
-        console.error("Audio playback failed:", error);
-        setTimeout(() => {
-          onAnimationComplete?.();
-          router.push('/browse');
-        }, 3000);
-      }
+      // Removed audio intro playback as per user request
+      setTimeout(() => {
+        onAnimationComplete?.();
+        router.push('/browse');
+      }, 3000);
     }
   }, [canPlay, router, onAnimationComplete]);
 
@@ -43,7 +31,7 @@ export default function AnimatedLogo({ onAnimationComplete }: AnimatedLogoProps)
       onClick={startIntro}
     >
       <p className={`text-red-500 text-sm animate-pulse mb-2 ${canPlay ? 'hidden' : ''}`}>
-        Portfolio of
+        Vibe Coded by
       </p>
       <div className="relative w-[300px] h-[300px]">
         <Image

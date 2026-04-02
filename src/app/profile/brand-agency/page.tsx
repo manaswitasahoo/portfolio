@@ -14,7 +14,7 @@ export default function BrandAgencyProfile() {
       />
       <ProfilePage
         type="Brand/Agency"
-        bannerImage="/videos/prodman2.gif"
+        bannerImage="/videos/marketing.gif"
       />
     </>
   );

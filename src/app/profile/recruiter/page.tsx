@@ -6,7 +6,7 @@ export default function RecruiterProfile() {
   return (
     <ProfilePage 
       type="Recruiter"
-      bannerImage="/videos/prodman2.gif"
+      bannerImage="/videos/marketing.gif"
     />
   );
 }

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { motion } from 'framer-motion';
+import { track } from '@vercel/analytics';
 
 type Skill = {
   name: string;
@@ -31,13 +32,17 @@ const skills: Skill[] = [
   { name: "Google Pay Console", proficiency: 75, category: "CRM & Marketing Tools", url: "https://pay.google.com" },
   { name: "Modash.io", proficiency: 75, category: "CRM & Marketing Tools", url: "https://www.modash.io" },
   { name: "Qoruz", proficiency: 70, category: "CRM & Marketing Tools", url: "https://www.qoruz.com" },
+  { name: "Zapier", proficiency: 80, category: "CRM & Marketing Tools", url: "https://zapier.com" },
+  { name: "Looker Studio", proficiency: 85, category: "CRM & Marketing Tools", url: "https://lookerstudio.google.com" },
 
   // AI / LLM Tools
   { name: "ChatGPT", proficiency: 85, category: "AI / LLM Tools", url: "https://chat.openai.com" },
   { name: "Perplexity", proficiency: 80, category: "AI / LLM Tools", url: "https://www.perplexity.ai" },
+  { name: "Claude AI", proficiency: 85, category: "AI / LLM Tools", url: "https://claude.ai" },
   { name: "DALL-E", proficiency: 70, category: "AI / LLM Tools", url: "https://openai.com/dall-e" },
   { name: "Playground.com", proficiency: 65, category: "AI / LLM Tools", url: "https://playground.com" },
   { name: "Stanford STORM", proficiency: 60, category: "AI / LLM Tools", url: "https://storm.genie.stanford.edu" },
+  { name: "Midjourney", proficiency: 75, category: "AI / LLM Tools", url: "https://www.midjourney.com" },
 
   // Strategy & Management
   { name: "Campaign Planning", proficiency: 90, category: "Strategy & Management", url: "#" },
@@ -107,7 +112,14 @@ export default function SkillsPage() {
                     <motion.div
                       key={skill.name}
                       className="bg-zinc-900 p-5 rounded-lg cursor-pointer"
-                      onClick={() => window.open(skill.url, '_blank')}
+                      onClick={() => {
+                        track('skill_click', {
+                          name: skill.name,
+                          category: skill.category,
+                          timestamp: new Date().toISOString()
+                        });
+                        window.open(skill.url, '_blank');
+                      }}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{

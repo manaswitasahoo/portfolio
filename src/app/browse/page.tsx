@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion'; // Import AnimatePresence
 import { cn } from '@/lib/utils';
 import AnimatedLogo from '../../components/ui/AnimatedLogo';
@@ -28,7 +29,8 @@ const profiles: ProfileProps[] = [
   {
     name: "Manaswita",
     color: "bg-red-500",
-    href: "#"
+    href: "#",
+    imageUrl: "/manaswita_about.jpg"
   }
 ];
 
@@ -81,6 +83,8 @@ const LoginPopup = ({ isOpen, onClose }: LoginPopupProps) => {
               <input
                 type="email"
                 placeholder="Email"
+                value="notmanaswita@example.com"
+                readOnly
                 className="w-full p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
@@ -88,6 +92,8 @@ const LoginPopup = ({ isOpen, onClose }: LoginPopupProps) => {
               <input
                 type="password"
                 placeholder="Password"
+                value="fakepassword123"
+                readOnly
                 className="w-full p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
@@ -194,33 +200,38 @@ export default function BrowsePage() {
                   >
                     <div
                       className={cn(
-                        "rounded-md w-24 h-24 md:w-32 md:h-32 mb-4 flex items-center justify-center text-5xl relative",
+                        "rounded-md w-24 h-24 md:w-32 md:h-32 mb-4 flex items-center justify-center text-5xl relative overflow-hidden",
                         profile.color,
                         "hover:shadow-gray-500 hover:border-2 hover:border-white hover:rounded-xl"
                       )}
                     >
-                      {/* Simple smiley face */}
-                      <div className="relative w-full h-full">
-                        <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-black rounded-full"></div>
-                        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-black rounded-full"></div>
-                        <div className="absolute bottom-1/3 left-1/2 -translate-x-1/2 w-12 h-6 border-black border-b-2 rounded-b-full"></div>
-                        
-                        {/* Add decorative elements based on profile */}
-                        {profile.name === "Recruiter" && (
-                          <div className="absolute bottom-1 left-0 right-10 flex justify-center space-x-2 text-sm text-green-300">
-                            <span>$</span>
-                            <span>$</span>
-                            <span>$</span>
-                          </div>
-                        )}
-                        {profile.name === "Developer" && (
-                          <div className="absolute bottom-2 left-8 right-0 flex justify-center space-x-1 text-sm text-blue-700">
-                            <span>&lt;/&gt;</span>
-                            <span>#</span>
-                            <span>{`{ }`}</span>
-                          </div>
-                        )}
-                      </div>
+                      {/* Show image if exists, otherwise show smiley */}
+                      {profile.imageUrl ? (
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={profile.imageUrl}
+                            alt={profile.name}
+                            fill
+                            style={{ objectFit: 'cover' }}
+                            priority
+                          />
+                        </div>
+                      ) : (
+                        <div className="relative w-full h-full">
+                          <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-black rounded-full"></div>
+                          <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-black rounded-full"></div>
+                          <div className="absolute bottom-1/3 left-1/2 -translate-x-1/2 w-12 h-6 border-black border-b-2 rounded-b-full"></div>
+                          
+                          {/* Add decorative elements based on profile */}
+                          {profile.name === "Recruiter" && (
+                            <div className="absolute bottom-1 left-0 right-10 flex justify-center space-x-2 text-sm text-green-300">
+                              <span>$</span>
+                              <span>$</span>
+                              <span>$</span>
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                     <h3 className="profile-name text-lg md:text-xl text-gray-300">{profile.name}</h3>
                     {profile.name === "Manaswita" && (
