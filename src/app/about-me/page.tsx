@@ -46,13 +46,13 @@ export default function AboutMe() {
         pagePath="/about-me"
       />
       <MainLayout>
-        <motion.div 
+        <motion.div
           className="max-w-7xl mx-auto px-4 py-12 pt-24" // Added pt-24 for navbar spacing
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.h1 
+          <motion.h1
             className="text-6xl font-bold mb-12 text-red-600"
             initial={{ x: -100 }}
             animate={{ x: 0 }}
@@ -63,7 +63,7 @@ export default function AboutMe() {
 
           {/* Hero Section with Photo */}
           <section className="mb-16 flex flex-col md:flex-row items-center gap-12">
-            <motion.div 
+            <motion.div
               className="w-full md:w-1/2 relative h-[500px] rounded-lg overflow-hidden border-4 border-zinc-800 shadow-2xl"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -77,7 +77,7 @@ export default function AboutMe() {
                 priority
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               className="w-full md:w-1/2 space-y-6"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -169,7 +169,8 @@ export default function AboutMe() {
                 style={{ position: 'relative' }}
               >
                 <iframe
-                  src="https://embedsocial.com/api/pro_hashtag/0a44997a7a34e59968acb5e8655e7f0ff024b2e6"
+                  src="https://embedsocial.com/api/pro_hashtag/02d2e31e82b7dae2802368c93cc79eca82612412"
+                  // <div class="embedsocial-hashtag" data-ref="02d2e31e82b7dae2802368c93cc79eca82612412"> <a class="feed-powered-by-es feed-powered-by-es-feed-img es-widget-branding" href="https://embedsocial.com/instagram-widget/" target="_blank" title="Instagram widget" > <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial"> <div class="es-widget-branding-text">Instagram widget</div> </a> </div> <script> (function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript")); </script>
                   width="100%"
                   height="100%"
                   className="rounded-lg"
